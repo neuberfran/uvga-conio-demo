@@ -1,0 +1,452 @@
+Archive member included because of file (symbol)
+
+c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+                              conio.o (__udivmodqi4)
+c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+                              main.o (__udivmodhi4)
+c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+                              conio.o (__divmodhi4)
+c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                              c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o (exit)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+LOAD main.o
+LOAD conio.o
+LOAD ui.o
+LOAD hw_atmega.o
+LOAD c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
+LOAD c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a
+LOAD c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xc56
+ *(.vectors)
+ .vectors       0x00000000       0x8c c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x0000008c                . = ALIGN (0x2)
+                0x0000008c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000008c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000008c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000008c                __ctors_start = .
+ *(.ctors)
+                0x0000008c                __ctors_end = .
+                0x0000008c                __dtors_start = .
+ *(.dtors)
+                0x0000008c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000008c        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x0000008c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000008c        0xc c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000098       0x1a c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x00000098                __do_copy_data
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000b2        0x8 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ *(.init9)
+ *(.text)
+ .text          0x000000ba        0x4 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x000000ba                __vector_22
+                0x000000ba                __vector_28
+                0x000000ba                __vector_1
+                0x000000ba                __vector_32
+                0x000000ba                __vector_34
+                0x000000ba                __vector_24
+                0x000000ba                __vector_12
+                0x000000ba                __bad_interrupt
+                0x000000ba                __vector_6
+                0x000000ba                __vector_31
+                0x000000ba                __vector_3
+                0x000000ba                __vector_23
+                0x000000ba                __vector_30
+                0x000000ba                __vector_25
+                0x000000ba                __vector_11
+                0x000000ba                __vector_13
+                0x000000ba                __vector_17
+                0x000000ba                __vector_19
+                0x000000ba                __vector_7
+                0x000000ba                __vector_27
+                0x000000ba                __vector_5
+                0x000000ba                __vector_33
+                0x000000ba                __vector_4
+                0x000000ba                __vector_9
+                0x000000ba                __vector_2
+                0x000000ba                __vector_21
+                0x000000ba                __vector_15
+                0x000000ba                __vector_29
+                0x000000ba                __vector_8
+                0x000000ba                __vector_26
+                0x000000ba                __vector_14
+                0x000000ba                __vector_10
+                0x000000ba                __vector_16
+                0x000000ba                __vector_18
+                0x000000ba                __vector_20
+ .text          0x000000be      0x480 main.o
+                0x000002fa                memviewer
+                0x00000416                drawmem
+                0x000000be                submenutest
+                0x000001ee                testCGetS
+                0x000002dc                ascii_art
+                0x00000142                cli
+                0x00000360                main
+                0x000000d6                speedtest
+                0x00000318                debugdemo
+ .text          0x0000053e      0x24a conio.o
+                0x0000076e                clrscr
+                0x0000053e                _cgets
+                0x000005cc                _cputs
+                0x0000075a                clreol
+                0x0000071a                cursoroff
+                0x00000654                textbackground
+                0x0000073a                cursoron
+                0x000005e6                gotoxy
+                0x000006f6                textattr
+                0x0000069e                textcolor
+ .text          0x00000788      0x40a ui.o
+                0x00000936                runmenu
+                0x0000086e                drawfkeys
+                0x00000788                drawframe
+ .text          0x00000b92       0x5a hw_atmega.o
+                0x00000b92                _putch
+                0x00000bc4                _kbhit
+                0x00000bd0                MCU_Init
+                0x00000ba4                _getch
+ .text          0x00000bec        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+ .text          0x00000bec        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+ .text          0x00000bec        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+ .text          0x00000bec        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                0x00000bec                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000bec       0x18 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+                0x00000bec                __udivmodqi4
+ .text.libgcc   0x00000c04       0x28 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+                0x00000c04                __udivmodhi4
+ .text.libgcc   0x00000c2c       0x26 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+                0x00000c2c                __divmodhi4
+                0x00000c2c                _div
+ .text.libgcc   0x00000c52        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                0x00000c52                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000c52        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                0x00000c52                exit
+                0x00000c52                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000c52        0x4 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000c56                _etext = .
+
+.data           0x00800100      0x1ee load address 0x00000c56
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ .data          0x00800100      0x1ee main.o
+ .data          0x008002ee        0x0 conio.o
+ .data          0x008002ee        0x0 ui.o
+ .data          0x008002ee        0x0 hw_atmega.o
+ .data          0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+ .data          0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+ .data          0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+ .data          0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x008002ee                . = ALIGN (0x2)
+                0x008002ee                _edata = .
+                0x008002ee                PROVIDE (__data_end, .)
+
+.bss            0x008002ee        0x0
+                0x008002ee                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ .bss           0x008002ee        0x0 main.o
+ .bss           0x008002ee        0x0 conio.o
+ .bss           0x008002ee        0x0 ui.o
+ .bss           0x008002ee        0x0 hw_atmega.o
+ .bss           0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+ .bss           0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+ .bss           0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+ .bss           0x008002ee        0x0 c:/program files/atmel/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ *(.bss*)
+ *(COMMON)
+                0x008002ee                PROVIDE (__bss_end, .)
+                0x00000c56                __data_load_start = LOADADDR (.data)
+                0x00000e44                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008002ee        0x0
+                0x008002ee                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008002ee                PROVIDE (__noinit_end, .)
+                0x008002ee                _end = .
+                0x008002ee                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x80
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 conio.o
+ .debug_aranges
+                0x00000040       0x20 ui.o
+ .debug_aranges
+                0x00000060       0x20 hw_atmega.o
+
+.debug_pubnames
+                0x00000000      0x191
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x85 main.o
+ .debug_pubnames
+                0x00000085       0x92 conio.o
+ .debug_pubnames
+                0x00000117       0x3a ui.o
+ .debug_pubnames
+                0x00000151       0x40 hw_atmega.o
+
+.debug_info     0x00000000      0x7fd
+ *(.debug_info)
+ .debug_info    0x00000000      0x317 main.o
+ .debug_info    0x00000317      0x1ad conio.o
+ .debug_info    0x000004c4      0x238 ui.o
+ .debug_info    0x000006fc      0x101 hw_atmega.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x3cc
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x185 main.o
+ .debug_abbrev  0x00000185       0xac conio.o
+ .debug_abbrev  0x00000231       0xd6 ui.o
+ .debug_abbrev  0x00000307       0xc5 hw_atmega.o
+
+.debug_line     0x00000000      0xc1a
+ *(.debug_line)
+ .debug_line    0x00000000      0x44c main.o
+ .debug_line    0x0000044c      0x358 conio.o
+ .debug_line    0x000007a4      0x345 ui.o
+ .debug_line    0x00000ae9      0x131 hw_atmega.o
+
+.debug_frame    0x00000000      0x1e0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xa0 main.o
+ .debug_frame   0x000000a0       0xb0 conio.o
+ .debug_frame   0x00000150       0x40 ui.o
+ .debug_frame   0x00000190       0x50 hw_atmega.o
+
+.debug_str      0x00000000      0x267
+ *(.debug_str)
+ .debug_str     0x00000000      0x145 main.o
+                                0x174 (size before relaxing)
+ .debug_str     0x00000145       0x6a conio.o
+                                 0xb6 (size before relaxing)
+ .debug_str     0x000001af       0x52 ui.o
+                                0x124 (size before relaxing)
+ .debug_str     0x00000201       0x66 hw_atmega.o
+                                 0xe9 (size before relaxing)
+
+.debug_loc      0x00000000      0x74a
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x298 main.o
+ .debug_loc     0x00000298      0x195 conio.o
+ .debug_loc     0x0000042d      0x305 ui.o
+ .debug_loc     0x00000732       0x18 hw_atmega.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(atmega128_avr.elf elf32-avr)
+LOAD linker stubs

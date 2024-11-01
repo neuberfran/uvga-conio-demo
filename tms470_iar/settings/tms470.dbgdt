@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log>
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1338</ColumnWidth1></Debug-Log>
+      <Build>
+        <ColumnWidth0>20</ColumnWidth0>
+        <ColumnWidth1>1003</ColumnWidth1>
+        <ColumnWidth2>267</ColumnWidth2>
+        <ColumnWidth3>66</ColumnWidth3>
+      </Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>260</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        
+        
+        
+      <MixedMode>1</MixedMode><CodeCovShow>0</CodeCovShow><InstrProfShow>0</InstrProfShow></Disassembly>
+    <Watch><Format><struct_types/><watch_formats/></Format><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Watch><StaticWatch><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3><PreferedWindows><Position>4</Position><ScreenPosX>487</ScreenPosX><ScreenPosY>264</ScreenPosY><Windows/></PreferedWindows></StaticWatch><Locals><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Locals><Register/></Static>
+    <Windows>
+      
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-6012-5137</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-5489-5147</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-16760-5140</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>tms470</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd2>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-27509-5144</Identity>
+            <TabName>Disassembly</TabName>
+            <Factory>Disassembly</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3><Tabs><Tab><Identity>TabID-12765-30091</Identity><TabName>Locals</TabName><Factory>Locals</Factory><Session><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab><Tab><Identity>TabID-7435-8680</Identity><TabName>Watch</TabName><Factory>Watch</Factory><Session><Expressions><Expression><Expression>C2SIBPC3</Expression></Expression></Expressions><TabId>1</TabId><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab></Tabs><SelectedTab>1</SelectedTab></Wnd3><Wnd4><Tabs><Tab><Identity>TabID-13017-4072</Identity><TabName>Register</TabName><Factory>Register</Factory><Session><REG1>0</REG1><REG2>0</REG2><Group>7</Group><States>6</States><State0>C2SIAPC3</State0><State1>SCI1CCR</State1><State2>SCI1CTL1</State2><State3>SCI1CTL2</State3><State4>SCI1RXST</State4><State5>SCI2PC3</State5></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd4></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\tms470_iar\hw_tms470.c</Filename><XPos>0</XPos><YPos>110</YPos><SelStart>4451</SelStart><SelEnd>4451</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.4 Kickstart\arm\inc\TexasInstruments\tms470r1a256_bit_definitions.h</Filename><XPos>0</XPos><YPos>186</YPos><SelStart>11559</SelStart><SelEnd>11561</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.4 Kickstart\arm\inc\TexasInstruments\iotms470r1a128.h</Filename><XPos>0</XPos><YPos>961</YPos><SelStart>24444</SelStart><SelEnd>24451</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\main.c</Filename><XPos>0</XPos><YPos>290</YPos><SelStart>6266</SelStart><SelEnd>6266</SelEnd></Tab><ActiveTab>3</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-00aea830><key>iaridepm.enu1</key></Toolbar-00aea830><Toolbar-037c6570><key>debuggergui.enu1</key></Toolbar-037c6570></Sizes></Row0></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>730</Bottom><Right>334</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>193</yscreen><sizeHorzCX>142857</sizeHorzCX><sizeHorzCY>199380</sizeHorzCY><sizeVertCX>240000</sizeVertCX><sizeVertCY>756198</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>730</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>193</yscreen><sizeHorzCX>142857</sizeHorzCX><sizeHorzCY>199380</sizeHorzCY><sizeVertCX>142857</sizeVertCX><sizeVertCY>756198</sizeVertCY></Rect></Wnd2></Sizes></Row0><Row1><Sizes><Wnd3><Rect><Top>-2</Top><Left>196</Left><Bottom>730</Bottom><Right>396</Right><x>196</x><y>-2</y><xscreen>200</xscreen><yscreen>193</yscreen><sizeHorzCX>142857</sizeHorzCX><sizeHorzCY>199380</sizeHorzCY><sizeVertCX>142857</sizeVertCX><sizeVertCY>756198</sizeVertCY></Rect></Wnd3></Sizes></Row1><Row2><Sizes><Wnd4><Rect><Top>-2</Top><Left>394</Left><Bottom>730</Bottom><Right>594</Right><x>394</x><y>-2</y><xscreen>200</xscreen><yscreen>193</yscreen><sizeHorzCX>142857</sizeHorzCX><sizeHorzCY>199380</sizeHorzCY><sizeVertCX>142857</sizeVertCX><sizeVertCY>756198</sizeVertCY></Rect></Wnd4></Sizes></Row2></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>191</Bottom><Right>1402</Right><x>-2</x><y>-2</y><xscreen>1404</xscreen><yscreen>193</yscreen><sizeHorzCX>1002857</sizeHorzCX><sizeHorzCY>199380</sizeHorzCY><sizeVertCX>142857</sizeVertCX><sizeVertCY>199380</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

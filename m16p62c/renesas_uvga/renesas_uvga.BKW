@@ -1,0 +1,29 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"6.0" 
+[WORKSPACE_DETAILS]
+"renesas_uvga" "C:\vgalub\uVGALib\m16p62c\renesas_uvga" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga.hws" "M16C" "Renesas M16C Standard" 
+[SHARED_WORKSPACE_CONTROL_STATUS]
+"" "" "" 
+"" "" "" 
+[PROJECTS]
+"renesas_uvga" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\renesas_uvga.hwp" 0 
+[INFORMATION]
+"No workspace information available" 
+[SCRAP]
+[PROJECT_DEPENDENCY]
+[WORKSPACE_PROPERTIES]
+[VCS]
+"" "" "" 0 
+[VCS_PROJECT]
+[HELP_FILES]
+[GENERAL_DATA_PROJECT]
+[SYSMENUTOOLS]
+[USERMENUTOOLS]
+[CUSTOMPLACEHOLDERS]
+[MAKEFILE_BUILD_INFO]
+"$(WORKSPDIR)\make\$(PROJECTNAME).mak" "" 0 0 
+[VD_CONFIGURATION_OPTIONS]
+[VD_CONFIGURATIONS]
+[END]

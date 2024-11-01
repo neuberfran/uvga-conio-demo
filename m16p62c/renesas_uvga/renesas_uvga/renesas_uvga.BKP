@@ -1,0 +1,245 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"2.6" 
+[PROJECT_DETAILS]
+"renesas_uvga" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\renesas_uvga.hwp" "M16C" "Renesas M16C Standard" "Application" 
+[INFORMATION]
+"No project information available" 
+[TOOL_CHAIN]
+"Renesas M16C Standard Toolchain" "5.30.02" 
+[CONFIGURATIONS]
+"Debug_M16C_R8C_FoUSB_UART" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug_M16C_R8C_FoUSB_UART" 
+"Release" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Release" 
+"Debug" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug" 
+[BUILD_PHASES]
+"Renesas M16C C Compiler" 1 
+"Renesas M16C Assembler" 1 
+"Renesas M16C Linker" 1 
+"Renesas M16C Stype Converter" 1 
+"Renesas M16C Librarian" 1 
+"Renesas M16C Configurator" 1 
+"Renesas M16C Jump table Composer" 1 
+[DEFINITION_PARSERS]
+[TOOL_ENVIRONMENT]
+[EXTENSIONS]
+"Absolute file" "X30" 
+"Linkage map file" "MAP" 
+"Cross reference file" "XRF" 
+"C header file" "H" 
+"C source file" "C" 
+"Absolute list file" "ALS" 
+"Hex file" "HEX" 
+"S-Record file" "MOT" 
+"Linkage error tag file" "LTG" 
+"Branch Information file" "JIN" 
+"Assembler error tag file" "ATG" 
+"ID file" "ID" 
+"Relocatable file" "R30" 
+"Assembly source file" "A30" 
+"Preprocessed C source file" "I" 
+"Library list file" "LLS" 
+"Library file" "LIB" 
+"Configuration file" "CFG" 
+"Assembly include file" "INC" 
+"Assembly list file" "LST" 
+[FILE_GROUPS]
+"Absolute file" "BIN" "NONE" "" 
+"Linkage map file" "TEXT" "EDITOR" "" 
+"Cross reference file" "TEXT" "EDITOR" "" 
+"C header file" "TEXT" "EDITOR" "" 
+"C source file" "TEXT" "EDITOR" "" 
+"Absolute list file" "TEXT" "EDITOR" "" 
+"Hex file" "TEXT" "EDITOR" "" 
+"S-Record file" "TEXT" "EDITOR" "" 
+"Linkage error tag file" "TEXT" "EDITOR" "" 
+"Branch Information file" "TEXT" "EDITOR" "" 
+"Assembler error tag file" "TEXT" "EDITOR" "" 
+"ID file" "TEXT" "EDITOR" "" 
+"Relocatable file" "BIN" "NONE" "" 
+"Assembly source file" "TEXT" "EDITOR" "" 
+"Preprocessed C source file" "TEXT" "EDITOR" "" 
+"Library list file" "TEXT" "EDITOR" "" 
+"Library file" "BIN" "NONE" "" 
+"Configuration file" "TEXT" "EDITOR" "" 
+"Assembly include file" "TEXT" "EDITOR" "" 
+"Assembly list file" "TEXT" "EDITOR" "" 
+[ASSOCIATED_APPLICATIONS]
+[TOOLCHAIN_PHASE]
+"Renesas M16C C Compiler" 
+"Renesas M16C Assembler" 
+"Renesas M16C Linker" 
+"Renesas M16C Stype Converter" 
+"Renesas M16C Librarian" 
+"Renesas M16C Configurator" 
+"Renesas M16C Jump table Composer" 
+[UTILITY_PHASE]
+[CUSTOM_PHASES]
+[CUSTOM_PHASE_INPUT_GROUP]
+[BUILD_ORDER]
+"Renesas M16C C Compiler" 1 
+"Renesas M16C Assembler" 1 
+"Renesas M16C Linker" 1 
+"Renesas M16C Stype Converter" 1 
+"Renesas M16C Librarian" 0 
+"Renesas M16C Configurator" 0 
+"Renesas M16C Jump table Composer" 0 
+[BUILD_PHASE_DETAILS]
+"Renesas M16C C Compiler" "C source file" 1 
+"Renesas M16C Assembler" "Assembly source file" 1 
+"Renesas M16C Linker" "Relocatable file" 0 
+"Renesas M16C Stype Converter" "Absolute file" 0 
+"Renesas M16C Librarian" "Relocatable file" 0 
+"Renesas M16C Configurator" "Configuration file" 0 
+"Renesas M16C Jump table Composer" "" 0 
+[BUILD_FILE_ORDER_C source file]
+"Renesas M16C C Compiler" 1 
+[BUILD_FILE_ORDER_Assembly source file]
+"Renesas M16C Assembler" 1 
+[SCRAP]
+"Project Generator Setup File" "" 
+[MAPPINGS]
+"Relocatable file" "Renesas M16C Linker" "Renesas M16C C Compiler" 
+"Relocatable file" "Renesas M16C Linker" "Renesas M16C Assembler" 
+"Assembly source file" "Renesas M16C Assembler" "Renesas M16C C Compiler" 
+"Absolute file" "Renesas M16C Stype Converter" "Renesas M16C Linker" 
+"Relocatable file" "Renesas M16C Librarian" "Renesas M16C C Compiler" 
+"Relocatable file" "Renesas M16C Librarian" "Renesas M16C Assembler" 
+[PROJECT_FILES]
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\ncrt0.a30" "User" "Assembly source file" 2 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\hw_m16c.c" "User" "C source file" 2 
+"C:\vgalub\uVGALib\main.c" "User" "C source file" 2 
+"C:\vgalub\uVGALib\lib\conio.c" "User" "C source file" 2 
+"C:\vgalub\uVGALib\lib\ui.c" "User" "C source file" 2 
+[FOLDER]
+"C source file" "C source file" 
+"Assembly source file" "Assembly source file" 
+[GENERAL_DATA_PROJECT]
+"USE_CUSTOM_LINKAGE_ORDER" "1" 
+[ON_DEMAND_COMPONENTS_LOADED]
+[SYNC_SESSION_NAMES]
+[SESSIONS]
+"SessionM16C_R8C_FoUSB_UART" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\SessionM16C_R8C_FoUSB_UART.hsf" 0 
+"DefaultSession" "C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\DefaultSession.hsf" 0 
+[GENERAL_DATA_SESSION_SessionM16C_R8C_FoUSB_UART]
+[GENERAL_DATA_SESSION_DefaultSession]
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C C Compiler]
+"C source file" "092f1b0d9e4f9c10" 1 
+"C:\vgalub\uVGALib\main.c" "06a0a82f9e4f9c10" 1 
+"C:\vgalub\uVGALib\lib\conio.c" "0012e8ebae4f9c10" 1 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\hw_m16c.c" "018a28de9e4f9c10" 1 
+"C:\vgalub\uVGALib\lib\ui.c" "093318fbae4f9c10" 1 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C Assembler]
+"Assembly source file" "092f1b0d9e4f9c10" 2 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\ncrt0.a30" "092f1b0d9e4f9c10" 2 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C Linker]
+"Single Shot" "094a38fbae4f9c10" 3 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C Stype Converter]
+"Single Shot" "094a38fbae4f9c10" 4 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C Librarian]
+"Single Shot" "093318fbae4f9c10" 5 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C Configurator]
+"Single Shot" "093318fbae4f9c10" 6 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART_Renesas M16C Jump table Composer]
+"Single Shot" "093318fbae4f9c10" 7 
+[OPTIONS_Debug_M16C_R8C_FoUSB_UART]
+"" 0 
+"[V|VERSION|1] [S|OUTPUT|OBJECTCODE] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [B|INSPECTOR|1] " 1 
+"[V|VERSION|1] [S|LIST|L|M] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [S|DEFINE|__HEAPSIZE__=0300H]   [S|DEFINE|__USTACKSIZE__=0300H] [S|DEFINE|__ISTACKSIZE__=0300H]" 2 
+"[V|VERSION|1] [B|STARTUPLINK|1] [B|DEBUG|1] [B|MAP-S|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).x30^"] [S|INPUTLIBRARY|^"L=nc30lib^"] " 3 
+"[V|VERSION|1] [B|DATALENGTH|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] " 4 
+"[V|VERSION|1] [S|MODE|CREATE|] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] " 5 
+"[V|VERSION|1] [B|COMMAND|1] " 6 
+"[V|VERSION|1] " 7 
+[LINKAGE_ORDER_Debug_M16C_R8C_FoUSB_UART]
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug_M16C_R8C_FoUSB_UART\ncrt0.r30" 
+[OPTIONS_Release_Renesas M16C C Compiler]
+"C source file" "092f1b0d9e4f9c10" 1 
+"C:\vgalub\uVGALib\main.c" "06a0a82f9e4f9c10" 1 
+"C:\vgalub\uVGALib\lib\conio.c" "0012e8ebae4f9c10" 1 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\hw_m16c.c" "018a28de9e4f9c10" 1 
+"C:\vgalub\uVGALib\lib\ui.c" "093318fbae4f9c10" 1 
+[OPTIONS_Release_Renesas M16C Assembler]
+"Assembly source file" "092f1b0d9e4f9c10" 2 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\ncrt0.a30" "092f1b0d9e4f9c10" 2 
+[OPTIONS_Release_Renesas M16C Linker]
+"Single Shot" "094a38fbae4f9c10" 3 
+[OPTIONS_Release_Renesas M16C Stype Converter]
+"Single Shot" "094a38fbae4f9c10" 4 
+[OPTIONS_Release_Renesas M16C Librarian]
+"Single Shot" "093318fbae4f9c10" 5 
+[OPTIONS_Release_Renesas M16C Configurator]
+"Single Shot" "093318fbae4f9c10" 6 
+[OPTIONS_Release_Renesas M16C Jump table Composer]
+"Single Shot" "093318fbae4f9c10" 7 
+[OPTIONS_Release]
+"" 0 
+"[V|VERSION|1] [S|OUTPUT|OBJECTCODE] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [B|INSPECTOR|1] " 1 
+"[V|VERSION|1] [S|LIST|L|M] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [S|DEFINE|__HEAPSIZE__=0300H]   [S|DEFINE|__USTACKSIZE__=0300H] [S|DEFINE|__ISTACKSIZE__=0300H]" 2 
+"[V|VERSION|1] [B|STARTUPLINK|1] [B|DEBUG|1] [B|MAP-S|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).x30^"] [S|INPUTLIBRARY|^"L=nc30lib^"] " 3 
+"[V|VERSION|1] [B|DATALENGTH|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] " 4 
+"[V|VERSION|1] [S|MODE|CREATE|] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] " 5 
+"[V|VERSION|1] [B|COMMAND|1] " 6 
+"[V|VERSION|1] " 7 
+[LINKAGE_ORDER_Release]
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Release\ncrt0.r30" 
+[OPTIONS_Debug_Renesas M16C C Compiler]
+"C source file" "01e04ddaae4f9c10" 1 
+"C:\vgalub\uVGALib\main.c" "01e04ddaae4f9c10" 2 
+"C:\vgalub\uVGALib\lib\conio.c" "0012e8ebae4f9c10" 1 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\hw_m16c.c" "01e04ddaae4f9c10" 2 
+"C:\vgalub\uVGALib\lib\ui.c" "093318fbae4f9c10" 1 
+[OPTIONS_Debug_Renesas M16C Assembler]
+"Assembly source file" "092f1b0d9e4f9c10" 3 
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\ncrt0.a30" "092f1b0d9e4f9c10" 3 
+[OPTIONS_Debug_Renesas M16C Linker]
+"Single Shot" "094a38fbae4f9c10" 4 
+[OPTIONS_Debug_Renesas M16C Stype Converter]
+"Single Shot" "094a38fbae4f9c10" 5 
+[OPTIONS_Debug_Renesas M16C Librarian]
+"Single Shot" "093318fbae4f9c10" 6 
+[OPTIONS_Debug_Renesas M16C Configurator]
+"Single Shot" "093318fbae4f9c10" 7 
+[OPTIONS_Debug_Renesas M16C Jump table Composer]
+"Single Shot" "093318fbae4f9c10" 8 
+[OPTIONS_Debug]
+"" 0 
+"[V|VERSION|1] [S|DEFINE|RENESAS|RENESAS_C=1] [S|OUTPUT|OBJECTCODE] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"]
+" 1 
+"[V|VERSION|1] [S|DEFINE|RENESAS_C=1] [S|OUTPUT|OBJECTCODE] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"]
+" 2 
+"[V|VERSION|1] [S|LIST|LM] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [S|DEFINE|__HEAPSIZE__=0300H]   [S|DEFINE|__USTACKSIZE__=0300H] [S|DEFINE|__ISTACKSIZE__=0300H]" 3 
+"[V|VERSION|1] [B|STARTUPLINK|1] [B|DEBUG|1] [B|MAP-S|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).x30^"] [S|INPUTLIBRARY|^"L=nc30lib^"] " 4 
+"[V|VERSION|1] [B|DATALENGTH|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] " 5 
+"[V|VERSION|1] [S|MODE|CREATE|] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] " 6 
+"[V|VERSION|1] [B|COMMAND|1] " 7 
+"[V|VERSION|1] " 8 
+[LINKAGE_ORDER_Debug]
+"C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ncrt0.r30" 
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_M16C_R8C_FoUSB_UART_SessionM16C_R8C_FoUSB_UART]
+"MEMORY_MAPPING_OPTIONS" "Unknown Options" 
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_M16C_R8C_FoUSB_UART_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[SESSION_DATA_CONFIGURATION_SESSION_Release_SessionM16C_R8C_FoUSB_UART]
+"MEMORY_MAPPING_OPTIONS" "Unknown Options" 
+[SESSION_DATA_CONFIGURATION_SESSION_Release_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_SessionM16C_R8C_FoUSB_UART]
+"MEMORY_MAPPING_OPTIONS" "Unknown Options" 
+[SESSION_DATA_CONFIGURATION_SESSION_Debug_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[EXT_DEBUGGER_INFO]
+0 "" "" "" "" 
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_M16C_R8C_FoUSB_UART_SessionM16C_R8C_FoUSB_UART]
+[EXCLUDED_FILES_Debug]
+[GENERAL_DATA_CONFIGURATION_Release]
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_M16C_R8C_FoUSB_UART_DefaultSession]
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_DefaultSession]
+[GENERAL_DATA_CONFIGURATION_SESSION_Release_SessionM16C_R8C_FoUSB_UART]
+[GENERAL_DATA_CONFIGURATION_Debug_M16C_R8C_FoUSB_UART]
+[GENERAL_DATA_CONFIGURATION_SESSION_Release_DefaultSession]
+[EXCLUDED_FILES_Release]
+[GENERAL_DATA_CONFIGURATION_SESSION_Debug_SessionM16C_R8C_FoUSB_UART]
+[GENERAL_DATA_CONFIGURATION_Debug]
+[EXCLUDED_FILES_Debug_M16C_R8C_FoUSB_UART]
+[END]

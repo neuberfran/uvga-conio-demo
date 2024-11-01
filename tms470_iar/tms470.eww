@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\tms470.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>All</name>
+      <member>
+        <project>tms470</project>
+        <configuration>Flash</configuration>
+      </member>
+      <member>
+        <project>tms470</project>
+        <configuration>RAM</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

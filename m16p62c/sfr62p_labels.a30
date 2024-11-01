@@ -1,0 +1,419 @@
+.SECTION SFR_NO,DATA
+	.org	4H
+SFR_NO_top:
+
+.glb pm0	
+.glb pm1	
+.glb cm0	
+.glb cm1	
+.glb csr	
+.glb aier	
+.glb prcr	
+.glb dbr	
+.glb cm2	
+.glb cm3	
+.glb wdts	
+.glb wdc	
+.glb rmad0	
+.glb rmad1	
+.glb cse	
+.glb plc0	
+.glb pm2	
+.glb sar0	
+.glb dar0	
+.glb tcr0	
+.glb dm0con 
+.glb sar1	
+.glb dar1	
+.glb tcr1	
+.glb dm1con 
+.glb int3ic 
+.glb tb5ic	
+.glb tb4ic	
+.glb tb3ic	
+.glb s4ic	
+.glb s3ic	
+.glb int5ic 
+.glb int4ic 
+.glb bcnic	
+.glb dm0ic	
+.glb dm1ic	
+.glb kupic	
+.glb adic	
+.glb s2tic	
+.glb s2ric	
+.glb s0tic	
+.glb s0ric	
+.glb s1tic	
+.glb s1ric	
+.glb ta0ic	
+.glb ta1ic	
+.glb ta2ic	
+.glb ta3ic	
+.glb ta4ic	
+.glb tb0ic	
+.glb tb1ic	
+.glb tb2ic	
+.glb int0ic 
+.glb int1ic 
+.glb int2ic 
+.glb fmr1	
+.glb fmr0	
+.glb rmad2	
+.glb aier2	
+.glb rmad3	
+.glb pclkr	
+.glb tbsr	
+.glb ta11	
+.glb ta21	
+.glb ta41	
+.glb invc0	
+.glb invc1	
+.glb idb0	
+.glb idb1	
+.glb dtt	
+.glb ictb2	
+.glb tb3	
+.glb tb4	
+.glb tb5	
+.glb tb3mr	
+.glb tb4mr	
+.glb tb5mr	
+.glb ifsr2a	
+.glb ifsr	
+.glb s3trr	
+.glb s3c	
+.glb s3brg	
+.glb s4trr	
+.glb s4c	
+.glb s4brg	
+.glb u0smr4	
+.glb u0smr3	
+.glb u0smr2	
+.glb u0smr	
+.glb u1smr4	
+.glb u1smr3	
+.glb u1smr2	
+.glb u1smr	
+.glb u2smr4	
+.glb u2smr3 
+.glb u2smr2 
+.glb u2smr	
+.glb u2mr	
+.glb u2brg	
+.glb u2tb	
+.glb u2c0	
+.glb u2c1	
+.glb u2rb	
+.glb tabsr	
+.glb cpsrf	
+.glb onsf	
+.glb trgsr	
+.glb udf	
+.glb ta0	
+.glb ta1	
+.glb ta2	
+.glb ta3	
+.glb ta4	
+.glb tb0	
+.glb tb1	
+.glb tb2	
+.glb ta0mr	
+.glb ta1mr	
+.glb ta2mr	
+.glb ta3mr	
+.glb ta4mr	
+.glb tb0mr	
+.glb tb1mr	
+.glb tb2mr	
+.glb tb2sc	
+.glb u0mr	
+.glb u0brg	
+.glb u0tb	
+.glb u0c0	
+.glb u0c1	
+.glb u0rb	
+.glb u1mr	
+.glb u1brg	
+.glb u1tb	
+.glb u1c0	
+.glb u1c1	
+.glb u1rb	
+.glb ucon	
+.glb fidr	
+.glb dm0sl	
+.glb dm1sl	
+.glb crcd	
+.glb crcin	
+.glb ad0	
+.glb ad1	
+.glb ad2	
+.glb ad3	
+.glb ad4	
+.glb ad5	
+.glb ad6	
+.glb ad7	
+.glb adcon2 
+.glb adcon0 
+.glb adcon1 
+.glb da0	
+.glb da1	
+.glb dacon	
+.glb pc14	
+.glb pur3	
+.glb p0		
+.glb p1		
+.glb pd0	
+.glb pd1	
+.glb p2		
+.glb p3		
+.glb pd2	
+.glb pd3	
+.glb p4		
+.glb p5		
+.glb pd4	
+.glb pd5	
+.glb p6		
+.glb p7		
+.glb pd6	
+.glb pd7	
+.glb p8		
+.glb p9		
+.glb pd8	
+.glb pd9	
+.glb p10	
+.glb p11	
+.glb pd10	
+.glb pd11	
+.glb p12	
+.glb p13	
+.glb pd12	
+.glb pd13
+.glb pur0
+.glb pur1
+.glb pur2
+.glb pcr 
+
+pm0: .blkb 1		; 004H	Processor mode register 0 
+pm1: .blkb 1		; 005H	Processor mode register 1 
+cm0: .blkb 1		; 006H	System clock control register 0 
+cm1: .blkb 1		; 007H	System clock control register 1 
+csr: .blkb 1		; 008H	Chip select control register 
+aier: .blkb 1		; 009H	Address match interrupt enable register 
+prcr: .blkb 1		; 00aH	Protect register 
+dbr: .blkb 1		; 00bH	Data bank register 
+cm2: .blkb 1		; 00cH	Oscillation stop detection register 
+cm3: .blkb 1		; 00dH	Ring mode register 
+wdts: .blkb 1		; 00eH	Watchdog timer start register 
+wdc: .blkb 1		; 00fH	Watchdog timer control register 
+rmad0: .blkb 4		; 010H	Address match interrupt register 0 
+rmad1: .blkb 4		; 014H	Address match interrupt register 1 
+.org 1bh
+cse: .blkb 1		; 01bH	Chip select expansion control register 
+plc0: .blkb 1		; 01cH	PLC control register 0 
+.org 1eh
+pm2: .blkb 1		; 01eH	Processor mode register 2 
+.org 20h
+sar0: .blkb 4		; 020H	DMA0 source pointer 
+dar0: .blkb 4		; 024H	DMA0 destination pointer 
+tcr0: .blkb 2		; 028H	DMA0 transfer counter 
+.org 2ch
+dm0con: .blkb 1 	; 02cH	DMA0 control register 
+.org 30h
+sar1: .blkb 4		; 030H	DMA1 source pointer 
+dar1: .blkb 4		; 034H	DMA1 destination pointer 
+tcr1: .blkb 2		; 038H	DMA1 transfer counter 
+.org 3ch
+dm1con: .blkb 1 	; 03cH	DMA1 control register 
+.org 44h
+int3ic: .blkb 1 	; 044H	INT3~ interrupt control register 
+tb5ic: .blkb 1		; 045H	Timer B5 interrupt control register 
+tb4ic: .blkb 1		; 046H	Timer B4 interrupt control register 
+tb3ic: .blkb 1		; 047H	Timer B3 interrupt control register 
+s4ic: .blkb 1		; 048H	SI/O4 interrupt control register 
+s3ic: .blkb 1		; 049H	SI/O3 interrupt control register 
+;int5ic: .blkb 1 	; 048H	INT5~ interrupt control register 
+;int4ic: .blkb 1 	; 049H	INT4~ interrupt control register 
+bcnic: .blkb 1		; 04aH	Bus collision detection interrupt control register 
+dm0ic: .blkb 1		; 04bH	DMA0 interrupt control register 
+dm1ic: .blkb 1		; 04cH	DMA1 interrupt control register 
+kupic: .blkb 1		; 04dH	Key input interrupt control register 
+adic: .blkb 1		; 04eH	A-D conversion interrupt control register 
+s2tic: .blkb 1		; 04fH	UART2 transmit interrupt control register 
+s2ric: .blkb 1		; 050H	UART2 receive interrupt control register 
+s0tic: .blkb 1		; 051H	UART0 transmit interrupt control register 
+s0ric: .blkb 1		; 052H	UART0 receive interrupt control register 
+s1tic: .blkb 1		; 053H	UART1 transmit interrupt control register 
+s1ric: .blkb 1		; 054H	UART1 receive interrupt control register 
+ta0ic: .blkb 1		; 055H	Timer A0 interrupt control register 
+ta1ic: .blkb 1		; 056H	Timer A1 interrupt control register 
+ta2ic: .blkb 1		; 057H	Timer A2 interrupt control register 
+ta3ic: .blkb 1		; 058H	Timer A3 interrupt control register 
+ta4ic: .blkb 1		; 059H	Timer A4 interrupt control register 
+tb0ic: .blkb 1		; 05aH	Timer B0 interrupt control register 
+tb1ic: .blkb 1		; 05bH	Timer B1 interrupt control register 
+tb2ic: .blkb 1		; 05cH	Timer B2 interrupt control register 
+int0ic: .blkb 1 	; 05dH	INT0~ interrupt control register 
+int1ic: .blkb 1 	; 05eH	INT1~ interrupt control register 
+int2ic: .blkb 1 	; 05fH	INT2~ interrupt control register 
+.org 1b5h
+fmr1: .blkb 1		; 1b5H	Flash memory control register 1 
+.org 1b7h
+fmr0: .blkb 1		; 1b7H	Flash memory control register 0 
+rmad2: .blkb 1		; 1b8H	Address match interrupt register 2 
+.org 1bbh
+aier2: .blkb 1		; 1bbH	Address match interrupt enable register 2 
+rmad3: .blkb 1		; 1bcH	Address match interrupt register 3 
+.org 25eh
+pclkr: .blkb 1		; 25eH	Peripheral clock select register 
+.org 340h
+tbsr: .blkb 1		; 340H	Timer B3,4,5 count start flag 
+ta11: .blkb 2		; 342H	Timer A1-1 register 
+ta21: .blkb 2		; 344H	Timer A2-1 register 
+ta41: .blkb 2		; 346H	Timer A4-1 register 
+invc0: .blkb 1		; 348H	Three-phase PWM control regester 0 
+invc1: .blkb 1		; 349H	Three-phase PWM control register 1 
+idb0: .blkb 1		; 34aH	Three-phase output buffer register 0 
+idb1: .blkb 1		; 34bH	Three-phase output buffer register 1 
+dtt: .blkb 1		; 34cH	Dead time timer 
+ictb2: .blkb 1		; 34dH	Timer B2 interrupt occurrences frequency set counter 
+.org 350h
+tb3: .blkb 2		; 350H	Timer B3 register 
+tb4: .blkb 2		; 352H	Timer B4 register 
+tb5: .blkb 2		; 354H	Timer B5 register 
+.org 35bh
+tb3mr: .blkb 1		; 35bH	Timer B3 mode register 
+tb4mr: .blkb 1		; 35cH	Timer B4 mode register 
+tb5mr: .blkb 1		; 35dH	Timer B5 mode register 
+ifsr2a: .blkb 1		; 35eH	Interrupt request cause select register 2 
+ifsr: .blkb 1		; 35fH	Interrupt request cause select register 
+s3trr: .blkb 1		; 360H	SI/O3 transmit/receive register 
+.org 362h
+s3c: .blkb 1		; 362H	SI/O3 control register 
+s3brg: .blkb 1		; 363H	SI/O3 bit rate generator 
+s4trr: .blkb 1		; 364H	SI/O4 transmit/receive register 
+.org 366h
+s4c: .blkb 1		; 366H	SI/O4 control register 
+s4brg: .blkb 1		; 367H	SI/O4 bit rate generator 
+.org 36ch
+u0smr4: .blkb 1		; 36cH	UART0 special mode register 4 
+u0smr3: .blkb 1		; 36dH	UART0 special mode register 3 
+u0smr2: .blkb 1		; 36eH	UART0 special mode register 2 
+u0smr: .blkb 1		; 36fH	UART0 special mode register 
+u1smr4: .blkb 1		; 370H	UART1 special mode register 4 
+u1smr3: .blkb 1		; 371H	UART1 special mode register 3 
+u1smr2: .blkb 1		; 372H	UART1 special mode register 2 
+u1smr: .blkb 1		; 373H	UART1 special mode register 
+u2smr4: .blkb 1		; 374H	UART2 special mode register 4 
+u2smr3: .blkb 1 	; 375H	UART2 special mode register 3 
+u2smr2: .blkb 1 	; 376H	UART2 special mode register 2 
+u2smr: .blkb 1		; 377H	UART2 special mode register 
+u2mr: .blkb 1		; 378H	UART2 transmit/receive mode register 
+u2brg: .blkb 1		; 379H	UART2 bit rate generator 
+u2tb: .blkb 2		; 37aH	UART2 transmit buffer register 
+u2c0: .blkb 1		; 37cH	UART2 transmit/receive control register 0 
+u2c1: .blkb 1		; 37dH	UART2 transmit/receive control register 1 
+u2rb: .blkb 2		; 37eH	UART2 receive buffer register 
+tabsr: .blkb 1		; 380H	Count start flag 
+cpsrf: .blkb 1		; 381H	Clock prescaler reset flag 
+onsf: .blkb 1		; 382H	One-shot start flag 
+trgsr: .blkb 1		; 383H	Trigger select register 
+udf: .blkb 1		; 384H	Up/down flag 
+.org 386h
+ta0: .blkb 1		; 386H	Timer A0 register 
+ta1: .blkb 1		; 388H	Timer A1 register 
+ta2: .blkb 1		; 38aH	Timer A2 register 
+ta3: .blkb 1		; 38cH	Timer A3 register 
+ta4: .blkb 1		; 38eH	Timer A4 register 
+tb0: .blkb 1		; 390H	Timer B0 register 
+tb1: .blkb 1		; 392H	Timer B1 register 
+tb2: .blkb 1		; 394H	Timer B2 register 
+ta0mr: .blkb 1		; 396H	Timer A0 mode register 
+ta1mr: .blkb 1		; 397H	Timer A1 mode register 
+ta2mr: .blkb 1		; 398H	Timer A2 mode register 
+ta3mr: .blkb 1		; 399H	Timer A3 mode register 
+ta4mr: .blkb 1		; 39aH	Timer A4 mode register 
+tb0mr: .blkb 1		; 39bH	Timer B0 mode register 
+tb1mr: .blkb 1		; 39cH	Timer B1 mode register 
+tb2mr: .blkb 1		; 39dH	Timer B2 mode register 
+tb2sc: .blkb 1		; 39eH	Timer B2 special mode register 
+.org 3a0h
+u0mr: .blkb 1		; 3a0H	UART0 transmit/receive mode register 
+u0brg: .blkb 1		; 3a1H	UART0 bit rate generator 
+u0tb: .blkb 2		; 3a2H	UART0 transmit buffer register 
+u0c0: .blkb 1		; 3a4H	UART0 transmit/receive control register 0 
+u0c1: .blkb 1		; 3a5H	UART0 transmit/receive control register 1 
+u0rb: .blkb 2		; 3a6H	UART0 receive buffer register 
+u1mr: .blkb 1		; 3a8H	UART1 transmit/receive mode register 
+u1brg: .blkb 1		; 3a9H	UART1 bit rate generator 
+u1tb: .blkb 2		; 3aaH	UART1 transmit buffer register 
+u1c0: .blkb 1		; 3acH	UART1 transmit/receive control register 0 
+u1c1: .blkb 1		; 3adH	UART1 transmit/receive control register 1 
+u1rb: .blkb 2		; 3aeH	UART1 receive buffer register 
+ucon: .blkb 1		; 3b0H	UART transmit/receive control register 2 
+.org 3b4h
+fidr: .blkb 1		; 3b4H	Flash identification register 
+.org 3b8h
+dm0sl: .blkb 1		; 3b8H	DMA0 cause select register 
+.org 3bah
+dm1sl: .blkb 1		; 3baH	DMA1 cause select register 
+.org 3bch
+crcd: .blkb 2		; 3bcH	CRC data register 
+crcin: .blkb 1		; 3beH	CRC input register 
+.org 3c0h
+ad0: .blkb 2		; 3c0H	A-D register 0 
+ad1: .blkb 2		; 3c2H	A-D register 1 
+ad2: .blkb 2		; 3c4H	A-D register 2 
+ad3: .blkb 2		; 3c6H	A-D register 3 
+ad4: .blkb 2		; 3c8H	A-D register 4 
+ad5: .blkb 2		; 3caH	A-D register 5 
+ad6: .blkb 2		; 3ccH	A-D register 6 
+ad7: .blkb 2		; 3ceH	A-D register 7 
+.org 3d4h
+adcon2: .blkb 1 	; 3d4H	A-D control register 2 
+.org 3d6h
+adcon0: .blkb 1 	; 3d6H	A-D control register 0 
+adcon1: .blkb 1 	; 3d7H	A-D control register 1 
+da0: .blkb 1		; 3d8H	D-A register 0 
+.org 3dah
+da1: .blkb 1		; 3daH	D-A register 1 
+.org 3dch
+dacon: .blkb 1		; 3dcH	D-A control register 
+.org 3deh
+pc14: .blkb 1		; 3deH	Port P14 control register 
+pur3: .blkb 1		; 3dfH	Pull-up control register 3 
+p0: .blkb 1			; 3e0H	Port P0 register 
+p1: .blkb 1			; 3e1H	Port P1 register 
+pd0: .blkb 1		; 3e2H	Port P0 direction register 
+pd1: .blkb 1		; 3e3H	Port P1 direction register 
+p2: .blkb 1			; 3e4H	Port P2 register 
+p3: .blkb 1			; 3e5H	Port P3 register 
+pd2: .blkb 1		; 3e6H	Port P2 direction register 
+pd3: .blkb 1		; 3e7H	Port P3 direction register 
+p4: .blkb 1			; 3e8H	Port P4 register 
+p5: .blkb 1			; 3e9H	Port P5 register 
+pd4: .blkb 1		; 3eaH	Port P4 direction register 
+pd5: .blkb 1		; 3ebH	Port P5 direction register 
+p6: .blkb 1			; 3ecH	Port P6 register 
+p7: .blkb 1			; 3edH	Port P7 register 
+pd6: .blkb 1		; 3eeH	Port P6 direction register 
+pd7: .blkb 1		; 3efH	Port P7 direction register 
+p8: .blkb 1			; 3f0H	Port P8 register 
+p9: .blkb 1			; 3f1H	Port P9 register 
+pd8: .blkb 1		; 3f2H	Port P8 direction register 
+pd9: .blkb 1		; 3f3H	Port P9 direction register 
+p10: .blkb 1		; 3f4H	Port P10 register 
+p11: .blkb 1		; 3f5H	Port P11 register 
+pd10: .blkb 1		; 3f6H	Port P10 direction register 
+pd11: .blkb 1		; 3f7H	Port P11 direction register 
+p12: .blkb 1		; 3f8H	Port P12 register 
+p13: .blkb 1		; 3f9H	Port P13 register 
+pd12: .blkb 1		; 3faH	Port P12 direction register 
+pd13: .blkb 1		; 3fbH	Port P13 direction register 
+pur0: .blkb 1		; 3fcH	Pull-up control register 0 
+pur1: .blkb 1		; 3fdH	Pull-up control register 1 
+pur2: .blkb 1		; 3feH	Pull-up control register 2 
+pcr: .blkb 1		; 3ffH	Port control register 
+
+
+.END

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>tms470/Flash</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>212</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1003</ColumnWidth1><ColumnWidth2>267</ColumnWidth2><ColumnWidth3>66</ColumnWidth3></Build>
+      <TerminalIO/>
+    <Debug-Log><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1338</ColumnWidth1></Debug-Log><Disassembly><MixedMode>1</MixedMode><CodeCovShow>0</CodeCovShow><InstrProfShow>0</InstrProfShow></Disassembly></Static>
+    <Windows>
+      
+      
+    <Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-1537-5016</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>tms470</ExpandedNode><ExpandedNode>tms470/conio.c</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-29600-5104</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        <Tab><Identity>TabID-2990-10540</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\tms470_iar\hw_tms470.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1120</SelStart><SelEnd>1127</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.4 Kickstart\arm\inc\TexasInstruments\tms470r1a256_bit_definitions.h</Filename><XPos>0</XPos><YPos>186</YPos><SelStart>11559</SelStart><SelEnd>11561</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Program Files\IAR Systems\Embedded Workbench 5.4 Kickstart\arm\inc\TexasInstruments\iotms470r1a128.h</Filename><XPos>0</XPos><YPos>961</YPos><SelStart>24444</SelStart><SelEnd>24451</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>6058</SelStart><SelEnd>6058</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-00aea880><key>iaridepm.enu1</key></Toolbar-00aea880></Sizes></Row0></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>723</Bottom><Right>286</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>142857</sizeHorzCX><sizeHorzCY>206612</sizeHorzCY><sizeVertCX>205714</sizeVertCX><sizeVertCY>748967</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1402</Right><x>-2</x><y>-2</y><xscreen>1404</xscreen><yscreen>200</yscreen><sizeHorzCX>1002857</sizeHorzCX><sizeHorzCY>206612</sizeHorzCY><sizeVertCX>142857</sizeVertCX><sizeVertCY>206612</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

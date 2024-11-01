@@ -1,0 +1,270 @@
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Wed Jun 24 16:32:10 2009  PAGE 001
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+     1                                  ;***************************************************************************
+     2                                  ;	Copyright 2003 Renesas Technology America, Inc. and  
+     3                                  ;                  Renesas Technology Corporation
+     4                                  ;	All Rights Reserved.
+     5                                  ;
+     6                                  ;	Name:  ncrt0_62pskp.a30  
+     7                                  ;
+     8                                  ;   Description: Customized startup program for the M16C/62P
+     9                                  ;				 (M3062x) microcontroller using the NC30 compiler. 
+    10                                  ;
+    11                                  ;=============================================================================
+    12                                  ;       $Log:$
+    13                                  ;       $Id: ncrt0.a30,v 1.12 2000/05/18 06:44:37 simomura Exp $
+    14                                  ;			 ncrt0_62pskp.a30, v 1.2 2004/05/14 DEC-E, AE
+    15                                  ;=============================================================================                      
+    16                                  ;***************************************************************************
+    17                                  
+    18                                  ;====================================================================
+    19                                  ; Section allocation and definitions
+    20                                  ;---------------------------------------------------------------------
+    21                                  	.list OFF
+    22                                  	.list ON
+    23                                  
+    24                                  ;====================================================================
+    25                                  ; Interrupt section start
+    26                                  ;---------------------------------------------------------------------
+    27                                  	.glb		start
+    28                                  	.section	interrupt
+    29                                  
+    30                                  ;====================================================================
+    31                                  ; after reset, execution starts here
+    32                                  ;====================================================================
+    33  00000                           start:
+    34  00000  EB400000r                	ldc		#istack_top,isp	   ;Set interrupt stack pointer
+    35  00004  EB300000                 	ldc	    #0000h,flg         ;Clear U Flag so CPU uses interrupt stack
+    36                                  
+    37  00008  EB600004                 	ldc	    #data_SE_top,sb    ;set sb register, for sb relative addressing
+    38  0000C  EB200F00                 	ldintb	#VECTOR_ADR
+               EB1000D0 
+    39                                  		       
+    40                                  ;========================================================================
+    41                                  ; ********************* NOTE: CHANGING BCLK SPEED HERE ******************
+    42                                  ; SETTING CLOCK SPEED TO F1 (DIV BY 1) ON XIN: BCLK = Xin Frequency  
+    43                                  ; BECAUSE, AFTER RESET, BCLK DEFAULTS TO F8 (DIV BY 8). 
+    44                                  ;========================================================================
+    45  00014  C7010A00              S  	mov.b	#01h,0AH		; unprotect CM0 to change clock setting       
+    46  00018  C7080600              S  	mov.b	#08h,06H		; enable CM17 and CM16 to set BCLK to F1
+    47                                  							; CM17 & CM16 defaults to 0 after reset and
+    48                                  							; so we only need to reset CM06 to 0 
+    49  0001C  B70A00                Z      mov.b	#00h,0AH		; protect CM0
+    50                                  
+    51                                  ;====================================================================
+    52                                  ; Variable area initialization. This code uses macro's defined in 
+    53                                  ; see sect30_62pskp.inc for initializing C variables. Clears global 
+    54                                  ; variables, sets intialized variables, etc.
+    55                                  ;--------------------------------------------------------------------
+    56                                  ;====================================================================
+    57                                  ; NEAR area initialize.
+    58                                  ;---------------------------------------------------------------------
+    59                                  ; bss zero clear
+    60                                  ;--------------------------------------------------------------------
+    61                                  	N_BZERO	bss_SE_top,bss_SE
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Wed Jun 24 16:32:10 2009  PAGE 002
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+    62  0001F  B4                1 M Z  	mov.b	#00H, R0L
+    63  00020  AA0000r           1 M S  	mov.w	#(bss_SE_top & 0FFFFH), A1
+    64  00023  75C30000r         1 M    	mov.w	#sizeof bss_SE , R3
+    65  00027  7CEA              1 M    	sstr.b	
+    66                           1 M    	.endm
+    67                                  	N_BZERO	bss_SO_top,bss_SO
+    68  00029  B4                1 M Z  	mov.b	#00H, R0L
+    69  0002A  AA0000r           1 M S  	mov.w	#(bss_SO_top & 0FFFFH), A1
+    70  0002D  75C30000r         1 M    	mov.w	#sizeof bss_SO , R3
+    71  00031  7CEA              1 M    	sstr.b	
+    72                           1 M    	.endm
+    73                                  	N_BZERO	bss_NE_top,bss_NE
+    74  00033  B4                1 M Z  	mov.b	#00H, R0L
+    75  00034  AA0000r           1 M S  	mov.w	#(bss_NE_top & 0FFFFH), A1
+    76  00037  75C30000r         1 M    	mov.w	#sizeof bss_NE , R3
+    77  0003B  7CEA              1 M    	sstr.b	
+    78                           1 M    	.endm
+    79                                  	N_BZERO	bss_NO_top,bss_NO
+    80  0003D  B4                1 M Z  	mov.b	#00H, R0L
+    81  0003E  AA0000r           1 M S  	mov.w	#(bss_NO_top & 0FFFFH), A1
+    82  00041  75C30000r         1 M    	mov.w	#sizeof bss_NO , R3
+    83  00045  7CEA              1 M    	sstr.b	
+    84                           1 M    	.endm
+    85                                  
+    86                                  ;---------------------------------------------------------------------
+    87                                  ; initialize data section
+    88                                  ;---------------------------------------------------------------------
+    89                                  	N_BCOPY data_SEI_top,data_SE_top,data_SE
+    90  00047  A20000r           1 M S  	mov.w	#(data_SEI_top & 0FFFFH),A0
+    91  0004A  74C300r           1 M    	mov.b	#(data_SEI_top >>16),R1H
+    92  0004D  AA0004            1 M S  	mov.w	#data_SE_top ,A1
+    93  00050  75C30000r         1 M    	mov.w	#sizeof data_SE , R3
+    94  00054  7CE8              1 M    	smovf.b
+    95                           1 M    	.endm
+    96                                  	N_BCOPY	data_SOI_top,data_SO_top,data_SO
+    97  00056  A20000r           1 M S  	mov.w	#(data_SOI_top & 0FFFFH),A0
+    98  00059  74C300r           1 M    	mov.b	#(data_SOI_top >>16),R1H
+    99  0005C  AA0000r           1 M S  	mov.w	#data_SO_top ,A1
+   100  0005F  75C30000r         1 M    	mov.w	#sizeof data_SO , R3
+   101  00063  7CE8              1 M    	smovf.b
+   102                           1 M    	.endm
+   103                                  	N_BCOPY	data_NEI_top,data_NE_top,data_NE
+   104  00065  A20000r           1 M S  	mov.w	#(data_NEI_top & 0FFFFH),A0
+   105  00068  74C300r           1 M    	mov.b	#(data_NEI_top >>16),R1H
+   106  0006B  AA0000r           1 M S  	mov.w	#data_NE_top ,A1
+   107  0006E  75C30000r         1 M    	mov.w	#sizeof data_NE , R3
+   108  00072  7CE8              1 M    	smovf.b
+   109                           1 M    	.endm
+   110                                  	N_BCOPY	data_NOI_top,data_NO_top,data_NO
+   111  00074  A20000r           1 M S  	mov.w	#(data_NOI_top & 0FFFFH),A0
+   112  00077  74C300r           1 M    	mov.b	#(data_NOI_top >>16),R1H
+   113  0007A  AA0000r           1 M S  	mov.w	#data_NO_top ,A1
+   114  0007D  75C30000r         1 M    	mov.w	#sizeof data_NO , R3
+   115  00081  7CE8              1 M    	smovf.b
+   116                           1 M    	.endm
+   117                                  
+   118                                  ;====================================================================
+   119                                  ; FAR area initialize.
+   120                                  ;---------------------------------------------------------------------
+   121                                  ; bss zero clear
+   122                                  ;---------------------------------------------------------------------
+   123                                  	BZERO	bss_FE_top,bss_FE
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Wed Jun 24 16:32:10 2009  PAGE 003
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   124  00083  7DE20000r         1 M    	push.w	#sizeof bss_FE >> 16
+   125  00087  7DE20000r         1 M    	push.w	#sizeof bss_FE  & 0ffffh
+   126  0008B  7D9F0000r         1 M    	pusha	bss_FE_top >>16
+   127  0008F  7D9F0000r         1 M    	pusha	bss_FE_top & 0ffffh
+   128                           1 M    
+   129                           1 M    	.glb	_bzero	
+   130  00093  FD000000r         1 M A  	jsr.a	_bzero
+   131                           1 M    	.endm
+   132                                  	BZERO	bss_FO_top,bss_FO
+   133  00097  7DE20000r         1 M    	push.w	#sizeof bss_FO >> 16
+   134  0009B  7DE20000r         1 M    	push.w	#sizeof bss_FO  & 0ffffh
+   135  0009F  7D9F0000r         1 M    	pusha	bss_FO_top >>16
+   136  000A3  7D9F0000r         1 M    	pusha	bss_FO_top & 0ffffh
+   137                           1 M    
+   138                           1 M    	.glb	_bzero	
+   139  000A7  FD000000r         1 M A  	jsr.a	_bzero
+   140                           1 M    	.endm
+   141                                  
+   142                                  ;---------------------------------------------------------------------
+   143                                  ; Copy edata_E(O) section from edata_EI(OI) section
+   144                                  ;---------------------------------------------------------------------
+   145                                  	BCOPY	data_FEI_top,data_FE_top,data_FE
+   146  000AB  7DE20000r         1 M    	push.w	#sizeof data_FE  >> 16
+   147  000AF  7DE20000r         1 M    	push.w	#sizeof data_FE  & 0ffffh
+   148  000B3  7D9F0100          1 M    	pusha	data_FE_top >>16
+   149  000B7  7D9F0000          1 M    	pusha	data_FE_top  & 0ffffh
+   150  000BB  7D9F0000r         1 M    	pusha	data_FEI_top >>16
+   151  000BF  7D9F0000r         1 M    	pusha	data_FEI_top  & 0ffffh
+   152                           1 M    
+   153                           1 M    	.glb	_bcopy
+   154  000C3  FD000000r         1 M A  	jsr.a	_bcopy
+   155                           1 M    	.endm
+   156                                  	BCOPY	data_FOI_top,data_FO_top,data_FO
+   157  000C7  7DE20000r         1 M    	push.w	#sizeof data_FO  >> 16
+   158  000CB  7DE20000r         1 M    	push.w	#sizeof data_FO  & 0ffffh
+   159  000CF  7D9F0000r         1 M    	pusha	data_FO_top >>16
+   160  000D3  7D9F0000r         1 M    	pusha	data_FO_top  & 0ffffh
+   161  000D7  7D9F0000r         1 M    	pusha	data_FOI_top >>16
+   162  000DB  7D9F0000r         1 M    	pusha	data_FOI_top  & 0ffffh
+   163                           1 M    
+   164                           1 M    	.glb	_bcopy
+   165  000DF  FD000000r         1 M A  	jsr.a	_bcopy
+   166                           1 M    	.endm
+   167                                  
+   168                                  ;====================================================================
+   169                                  ; heap area initialize. HEAPSIZE is defined in sect30_62pskp.inc. 
+   170                                  ;---------------------------------------------------------------------
+   171                                  .IF	 HEAPSIZE!=00h
+   172                                  .ENDIF
+   173                                  
+   174                                  ;====================================================================
+   175                                  ; The 40 bytes of stack area used by the macros (to prepare C environment) 
+   176                                  ; in the startup files are not cleared up. So, we need to reset the stack
+   177                                  ; pointer back to the original value (after reset).  
+   178                                  ;---------------------------------------------------------------------
+   179  000E3  EB400000r                	ldc #istack_top, isp	; set istack pointer
+   180                                  
+   181                                  ;====================================================================
+   182                                  ; Initialize standard I/O
+   183                                  ;---------------------------------------------------------------------
+   184                                  ; SKP sample codes/programs do NOT use this routine but instead call 
+   185                                  ; the initialization routine from main(). 
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Wed Jun 24 16:32:10 2009  PAGE 004
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   186                                  ;	.glb	_init
+   187                                  ;	jsr.a	_init	
+   188                                  
+   189                                  ;====================================================================
+   190                                  ; Call main() function
+   191                                  ;---------------------------------------------------------------------
+   192                                  	.glb	_main
+   193  000E7  FD000000r             A  	jsr.a	_main
+   194                                  
+   195                                  ;====================================================================
+   196                                  ; exit() function. This function is used in case of accidental return 
+   197                                  ; from main() or debugging code could be placed here. 
+   198                                  ;---------------------------------------------------------------------
+   199                                  	.glb	_exit
+   200                                  	.glb	$exit
+   201  000EB                           _exit:			   ; End program
+   202  000EB                           $exit:
+   203  000EB  FEFF                  B  	jmp	_exit
+   204                                  
+   205                                  ;====================================================================
+   206                                  ; dummy interrupt function. Called by all unassigned interrupts 
+   207                                  ; (see variable vector definitions in sect30_62pskp.inc).
+   208                                  ;---------------------------------------------------------------------
+   209  000ED                           dummy_int:
+   210  000ED  FB                       	reit
+   211                                  
+   212                                  	.end
+
+Information List
+
+TOTAL ERROR(S)    00000
+TOTAL WARNING(S)  00000
+TOTAL LINE(S)     00212   LINES
+
+Section List
+
+Attr        Size          Name
+DATA     0000000(00000H)  data_SE
+DATA     0000000(00000H)  bss_SE
+DATA     0000000(00000H)  data_SO
+DATA     0000000(00000H)  bss_SO
+DATA     0000000(00000H)  data_NE
+DATA     0000000(00000H)  bss_NE
+DATA     0000000(00000H)  data_NO
+DATA     0000000(00000H)  bss_NO
+DATA     0000256(00100H)  stack
+DATA     0000000(00000H)  heap
+ROMDATA  0000000(00000H)  rom_NE
+ROMDATA  0000000(00000H)  rom_NO
+DATA     0000000(00000H)  data_FE
+DATA     0000000(00000H)  bss_FE
+DATA     0000000(00000H)  data_FO
+DATA     0000000(00000H)  bss_FO
+ROMDATA  0000000(00000H)  rom_FE
+ROMDATA  0000000(00000H)  rom_FO
+ROMDATA  0000000(00000H)  data_SEI
+ROMDATA  0000000(00000H)  data_SOI
+ROMDATA  0000000(00000H)  data_NEI
+ROMDATA  0000000(00000H)  data_NOI
+ROMDATA  0000000(00000H)  data_FEI
+ROMDATA  0000000(00000H)  data_FOI
+ROMDATA  0000000(00000H)  switch_table
+CODE     0000000(00000H)  interrupt
+CODE     0000000(00000H)  program
+CODE     0000000(00000H)  program_S
+CODE     0000132(00084H)  vector
+CODE     0000036(00024H)  fvector
+CODE     0000238(000EEH)  interrupt

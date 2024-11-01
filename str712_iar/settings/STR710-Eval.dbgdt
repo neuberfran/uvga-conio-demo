@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log>
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1338</ColumnWidth1></Debug-Log>
+      <Build>
+        <ColumnWidth0>20</ColumnWidth0>
+        <ColumnWidth1>1003</ColumnWidth1>
+        <ColumnWidth2>267</ColumnWidth2>
+        <ColumnWidth3>66</ColumnWidth3>
+      </Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>124</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        
+        
+        
+      <PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><MixedMode>1</MixedMode><CodeCovShow>0</CodeCovShow><InstrProfShow>0</InstrProfShow></Disassembly>
+      <Find-in-Files>
+        
+        
+        
+      <ColumnWidth0>482</ColumnWidth0><ColumnWidth1>68</ColumnWidth1><ColumnWidth2>826</ColumnWidth2></Find-in-Files>
+      <Watch>
+        <Format>
+          <struct_types><Fmt><Key>GPIO_TypeDef-PD</Key><Value>1</Value></Fmt></struct_types>
+          <watch_formats>
+            
+          <Fmt><Key>{W}Watch-0:(0X100|75)</Key><Value>4</Value></Fmt></watch_formats>
+        </Format>
+        
+        
+        
+        
+      <Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Watch>
+      <Auto>
+        
+        
+        
+        
+      <Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Auto>
+      <Locals>
+        
+        
+        
+        
+      <Column0>100</Column0><Column1>265</Column1><Column2>100</Column2><Column3>100</Column3></Locals>
+    <Register><PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></Register></Static>
+    <Windows>
+      
+      
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-16252-14650</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-15729-14660</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-27503-23036</Identity>
+            <TabName>Find in Files</TabName>
+            <Factory>Find-in-Files</Factory>
+            <Session/>
+          </Tab>
+        <Tab><Identity>TabID-20067-19021</Identity><TabName>Breakpoints</TabName><Factory>Breakpoints</Factory></Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-27000-14653</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>STR710-Eval</ExpandedNode><ExpandedNode>STR710-Eval/STLib</ExpandedNode><ExpandedNode>STR710-Eval/uVGALib</ExpandedNode><ExpandedNode>STR710-Eval/uVGALib/conio.c</ExpandedNode><ExpandedNode>STR710-Eval/uVGALib/ui.c</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-15898-24277</Identity>
+            <TabName>Auto</TabName>
+            <Factory>Auto</Factory>
+            <Session>
+              
+              
+              
+              
+            <Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session>
+          </Tab>
+          <Tab>
+            <Identity>TabID-6990-27719</Identity>
+            <TabName>Locals</TabName>
+            <Factory>Locals</Factory>
+            <Session>
+              
+              
+              
+              
+            <Column0>100</Column0><Column1>265</Column1><Column2>100</Column2><Column3>100</Column3></Session>
+          </Tab>
+          <Tab>
+            <Identity>TabID-27964-27735</Identity>
+            <TabName>Watch</TabName>
+            <Factory>Watch</Factory>
+            <Session>
+              <Expressions>
+                
+              <Expression><Expression>(0X100|75)</Expression></Expression><Expression><Expression>UARTx</Expression></Expression><Expression><Expression>(Tmp * Mul) / Div</Expression></Expression></Expressions>
+              
+              
+              
+              
+              
+            <TabId>0</TabId><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>1</SelectedTab></Wnd3></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\str712_iar\hw_st710.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>5636</SelStart><SelEnd>5636</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1638</SelStart><SelEnd>1647</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\lib\conio.c</Filename><XPos>0</XPos><YPos>45</YPos><SelStart>951</SelStart><SelEnd>951</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\lib\ui.c</Filename><XPos>0</XPos><YPos>72</YPos><SelStart>1423</SelStart><SelEnd>1423</SelEnd></Tab><ActiveTab>3</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\h\conio.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>78</SelStart><SelEnd>78</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\h\ui.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>88</SelStart><SelEnd>88</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_gpio.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\str712_iar\include\71x_conf.h</Filename><XPos>0</XPos><YPos>72</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_uart.c</Filename><XPos>0</XPos><YPos>58</YPos><SelStart>3686</SelStart><SelEnd>3686</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_apb.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-00aea830><key>iaridepm.enu1</key></Toolbar-00aea830><Toolbar-039d17a0><key>debuggergui.enu1</key></Toolbar-039d17a0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>439</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>191939</sizeHorzCX><sizeHorzCY>292398</sizeHorzCY><sizeVertCX>191939</sizeVertCX><sizeVertCY>644737</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>439</Bottom><Right>252</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>191939</sizeHorzCX><sizeHorzCY>292398</sizeHorzCY><sizeVertCX>243762</sizeVertCX><sizeVertCY>644737</sizeVertCY></Rect></Wnd3></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1044</Right><x>-2</x><y>-2</y><xscreen>1046</xscreen><yscreen>200</yscreen><sizeHorzCX>1003839</sizeHorzCX><sizeHorzCY>292398</sizeHorzCY><sizeVertCX>191939</sizeVertCX><sizeVertCY>292398</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

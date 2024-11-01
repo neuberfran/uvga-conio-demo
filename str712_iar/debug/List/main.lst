@@ -1,0 +1,2520 @@
+###############################################################################
+#                                                                             #
+#                                                       01/Apr/2009  17:06:11 #
+# IAR ANSI C/C++ Compiler V5.30.0.31174/W32 KICKSTART for ARM                 #
+# Copyright 1999-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  arm                                                      #
+#    Endian       =  little                                                   #
+#    Source file  =  c:\projekty\microvga\uVGALib\main.c                      #
+#    Command line =  c:\projekty\microvga\uVGALib\main.c -lCN                 #
+#                    c:\projekty\microvga\uVGALib\str712_iar\debug\List\ -o   #
+#                    c:\projekty\microvga\uVGALib\str712_iar\debug\Obj\       #
+#                    --no_cse --no_unroll --no_inline --no_code_motion        #
+#                    --no_tbaa --no_clustering --no_scheduling --debug        #
+#                    --endian=little --cpu=ARM7TDMI -e --fpu=None             #
+#                    --dlib_config "C:\Program Files\IAR Systems\Embedded     #
+#                    Workbench 5.4 Kickstart\arm\INC\DLib_Config_Normal.h"    #
+#                    -I c:\projekty\microvga\uVGALib\str712_iar\include\ -I   #
+#                    c:\projekty\microvga\uVGALib\str712_iar\library\inc\ -I  #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench 5.4     #
+#                    Kickstart\arm\INC\" --cpu_mode arm -Ol                   #
+#    List file    =  c:\projekty\microvga\uVGALib\str712_iar\debug\List\main. #
+#                    lst                                                      #
+#    Object file  =  c:\projekty\microvga\uVGALib\str712_iar\debug\Obj\main.o #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+c:\projekty\microvga\uVGALib\main.c
+      1          /*
+      2              main.c
+      3              Main demo file. Using conio functions to display demo userinterface.
+      4              Part of MicroVGA CONIO library / demo project
+      5              Copyright (c) 2008-9 SECONS s.r.o., http://www.MicroVGA.com
+      6          
+      7              This program is free software: you can redistribute it and/or modify
+      8              it under the terms of the GNU General Public License as published by
+      9              the Free Software Foundation, either version 3 of the License, or
+     10              (at your option) any later version.
+     11          
+     12              This program is distributed in the hope that it will be useful,
+     13              but WITHOUT ANY WARRANTY; without even the implied warranty of
+     14              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     15              GNU General Public License for more details.
+     16          
+     17              You should have received a copy of the GNU General Public License
+     18              along with this program.  If not, see <http://www.gnu.org/licenses/>.
+     19          */
+     20          
+     21          #include "h/conio.h"
+     22          #include "h/kbd.h"
+     23          #include "h/ui.h"
+     24          
+     25          #include "aa.c" //ascii art
+
+   \                                 In section .rodata, align 4
+   \   static unsigned char const __data ascii_art_str[4838]
+   \                     ascii_art_str:
+   \   00000000   1B5B324A1B5B       DC8 1BH, 5BH, 32H, 4AH, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   00000008   DBDBDB1B5B34       DC8 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H, 32H, 6DH
+   \              326D        
+   \   00000010   B2B21B5B3332       DC8 0B2H, 0B2H, 1BH, 5BH, 33H, 32H, 6DH, 1BH
+   \              6D1B        
+   \   00000018   5B34376DB1B2       DC8 5BH, 34H, 37H, 6DH, 0B1H, 0B2H, 0B2H, 1BH
+   \              B21B        
+   \   00000020   5B34306DDBDB       DC8 5BH, 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000028   DBDBDBDBDFDF       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000030   DFDFDFDFDFDF       DC8 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000038   DFDFDFDFDFDF       DC8 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000040   DFDFDBDBDBDB       DC8 0DFH, 0DFH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000048   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000050   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000058   DBDBDCDCDCDC       DC8 0DBH, 0DBH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 1BH
+   \              DC1B        
+   \   00000060   5B306D0D0A1B       DC8 5BH, 30H, 6DH, 0DH, 0AH, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000068   6D1B5B33326D       DC8 6DH, 1BH, 5BH, 33H, 32H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000070   34376DB21B5B       DC8 34H, 37H, 6DH, 0B2H, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   00000078   6D1B5B34326D       DC8 6DH, 1BH, 5BH, 34H, 32H, 6DH, 0B2H, 0B2H
+   \              B2B2        
+   \   00000080   B11B5B33326D       DC8 0B1H, 1BH, 5BH, 33H, 32H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000088   34306DDBDBDB       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DFH
+   \              DBDF        
+   \   00000090   DFDFDF1B5B30       DC8 0DFH, 0DFH, 0DFH, 1BH, 5BH, 30H, 6DH, 20H
+   \              6D20        
+   \   00000098   1B5B316DDCDC       DC8 1BH, 5BH, 31H, 6DH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   000000A0   1B5B34366DB2       DC8 1BH, 5BH, 34H, 36H, 6DH, 0B2H, 0DBH, 0B2H
+   \              DBB2        
+   \   000000A8   B2DBDBB21B5B       DC8 0B2H, 0DBH, 0DBH, 0B2H, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   000000B0   6D1B5B34376D       DC8 6DH, 1BH, 5BH, 34H, 37H, 6DH, 0B2H, 0B2H
+   \              B2B2        
+   \   000000B8   B21B5B34306D       DC8 0B2H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   000000C0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000000C8   DCDCDCDC1B5B       DC8 0DCH, 0DCH, 0DCH, 0DCH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   000000D0   201B5B316D1B       DC8 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000000D8   326DDFDFDFDF       DC8 32H, 6DH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   000000E0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000000E8   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000000F0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000000F8   DCDCDC1B5B30       DC8 0DCH, 0DCH, 0DCH, 1BH, 5BH, 30H, 6DH, 0DH
+   \              6D0D        
+   \   00000100   0A1B5B316D1B       DC8 0AH, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000108   326DB1B11B5B       DC8 32H, 6DH, 0B1H, 0B1H, 1BH, 5BH, 33H, 32H
+   \              3332        
+   \   00000110   6D1B5B34306D       DC8 6DH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000118   DF1B5B306D20       DC8 0DFH, 1BH, 5BH, 30H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000120   316DDCDCDCDB       DC8 31H, 6DH, 0DCH, 0DCH, 0DCH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000128   34366DB2B2B1       DC8 34H, 36H, 6DH, 0B2H, 0B2H, 0B1H, 0B1H, 1BH
+   \              B11B        
+   \   00000130   5B33366D1B5B       DC8 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   00000138   6DB2B21B5B34       DC8 6DH, 0B2H, 0B2H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000140   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00000148   5B34366DDFDF       DC8 5BH, 34H, 36H, 6DH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000150   DFDF1B5B3430       DC8 0DFH, 0DFH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000158   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000160   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000168   DBDCDCDCDCDC       DC8 0DBH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000170   306D201B5B31       DC8 30H, 6DH, 20H, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000178   5B33326DDFDF       DC8 5BH, 33H, 32H, 6DH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000180   DFDFDFDFDFDF       DC8 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DBH
+   \              DFDB        
+   \   00000188   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000190   DBDBDBDBDC1B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DCH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000198   6D0D0A1B5B31       DC8 6DH, 0DH, 0AH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   000001A0   5B33326D1B5B       DC8 5BH, 33H, 32H, 6DH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   000001A8   6DB21B5B3430       DC8 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   000001B0   DF1B5B33376D       DC8 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 20H, 0DCH
+   \              20DC        
+   \   000001B8   DB1B5B34366D       DC8 0DBH, 1BH, 5BH, 34H, 36H, 6DH, 0B2H, 1BH
+   \              B21B        
+   \   000001C0   5B33366D1B5B       DC8 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   000001C8   6DB2B21B5B34       DC8 6DH, 0B2H, 0B2H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   000001D0   DBDB1B5B3436       DC8 0DBH, 0DBH, 1BH, 5BH, 34H, 36H, 6DH, 0DFH
+   \              6DDF        
+   \   000001D8   1B5B34306DDF       DC8 1BH, 5BH, 34H, 30H, 6DH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   000001E0   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   000001E8   6DDF1B5B3337       DC8 6DH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 1BH
+   \              6D1B        
+   \   000001F0   5B36431B5B31       DC8 5BH, 36H, 43H, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   000001F8   5B33316DDCDC       DC8 5BH, 33H, 31H, 6DH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000200   DCDCDCDCDCDC       DC8 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000208   DC201B5B3337       DC8 0DCH, 20H, 1BH, 5BH, 33H, 37H, 6DH, 0DFH
+   \              6DDF        
+   \   00000210   DFDFDF1B5B34       DC8 0DFH, 0DFH, 0DFH, 1BH, 5BH, 34H, 37H, 6DH
+   \              376D        
+   \   00000218   DB1B5B34366D       DC8 0DBH, 1BH, 5BH, 34H, 36H, 6DH, 0B2H, 0B2H
+   \              B2B2        
+   \   00000220   DBB21B5B3336       DC8 0DBH, 0B2H, 1BH, 5BH, 33H, 36H, 6DH, 1BH
+   \              6D1B        
+   \   00000228   5B34376DB2B2       DC8 5BH, 34H, 37H, 6DH, 0B2H, 0B2H, 0B2H, 1BH
+   \              B21B        
+   \   00000230   5B34306DDBDB       DC8 5BH, 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000238   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000240   DBDBDBDCDCDC       DC8 0DBH, 0DBH, 0DBH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000248   DCDCDCDCDC1B       DC8 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000250   6D1B5B33366D       DC8 6DH, 1BH, 5BH, 33H, 36H, 6DH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000258   DCDCDCDC1B5B       DC8 0DCH, 0DCH, 0DCH, 0DCH, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   00000260   6D0D0A1B5B31       DC8 6DH, 0DH, 0AH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000268   5B33326DDB1B       DC8 5BH, 33H, 32H, 6DH, 0DBH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000270   376D20DCDB1B       DC8 37H, 6DH, 20H, 0DCH, 0DBH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000278   366DB21B5B33       DC8 36H, 6DH, 0B2H, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000280   1B5B34376DB2       DC8 1BH, 5BH, 34H, 37H, 6DH, 0B2H, 0B2H, 0B2H
+   \              B2B2        
+   \   00000288   1B5B34366DDF       DC8 1BH, 5BH, 34H, 36H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000290   306D1B5B3336       DC8 30H, 6DH, 1BH, 5BH, 33H, 36H, 6DH, 0DFH
+   \              6DDF        
+   \   00000298   1B5B33376D20       DC8 1BH, 5BH, 33H, 37H, 6DH, 20H, 20H, 1BH
+   \              201B        
+   \   000002A0   5B316D1B5B33       DC8 5BH, 31H, 6DH, 1BH, 5BH, 33H, 31H, 6DH
+   \              316D        
+   \   000002A8   DCDCDCDBDBDB       DC8 0DCH, 0DCH, 0DCH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000002B0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000002B8   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000002C0   DBDBDBDCDCDC       DC8 0DBH, 0DBH, 0DBH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   000002C8   1B5B306D201B       DC8 1BH, 5BH, 30H, 6DH, 20H, 1BH, 5BH, 31H
+   \              5B31        
+   \   000002D0   6DDFDFDFDFDB       DC8 6DH, 0DFH, 0DFH, 0DFH, 0DFH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   000002D8   33366D1B5B34       DC8 33H, 36H, 6DH, 1BH, 5BH, 34H, 37H, 6DH
+   \              376D        
+   \   000002E0   B21B5B33376D       DC8 0B2H, 1BH, 5BH, 33H, 37H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000002E8   34366DB21B5B       DC8 34H, 36H, 6DH, 0B2H, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   000002F0   6D1B5B34306D       DC8 6DH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   000002F8   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000300   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000308   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000310   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   00000318   6DDB1B5B3337       DC8 6DH, 0DBH, 1BH, 5BH, 33H, 37H, 6DH, 0DH
+   \              6D0D        
+   \   00000320   0A1B5B316D1B       DC8 0AH, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000328   326DDB1B5B33       DC8 32H, 6DH, 0DBH, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000330   DE1B5B33376D       DC8 0DEH, 1BH, 5BH, 33H, 37H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   00000338   5B33366D1B5B       DC8 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   00000340   6DB21B5B3430       DC8 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000348   DB1B5B34366D       DC8 0DBH, 1BH, 5BH, 34H, 36H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000350   5B306D1B5B33       DC8 5BH, 30H, 6DH, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000358   DF1B5B33376D       DC8 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 20H, 1BH
+   \              201B        
+   \   00000360   5B33366DDCDC       DC8 5BH, 33H, 36H, 6DH, 0DCH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000368   33376D202020       DC8 33H, 37H, 6DH, 20H, 20H, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000370   316D1B5B3331       DC8 31H, 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DFH
+   \              6DDF        
+   \   00000378   DFDFDFDFDBDB       DC8 0DFH, 0DFH, 0DFH, 0DFH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000380   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000388   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000390   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000398   DBDCDC1B5B30       DC8 0DBH, 0DCH, 0DCH, 1BH, 5BH, 30H, 6DH, 20H
+   \              6D20        
+   \   000003A0   201B5B316DDF       DC8 20H, 1BH, 5BH, 31H, 6DH, 0DFH, 0DFH, 0DBH
+   \              DFDB        
+   \   000003A8   1B5B33366D1B       DC8 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   000003B0   376DB2B11B5B       DC8 37H, 6DH, 0B2H, 0B1H, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   000003B8   6DDBDCDC1B5B       DC8 6DH, 0DBH, 0DCH, 0DCH, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   000003C0   6D2020DFDFDF       DC8 6DH, 20H, 20H, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   000003C8   DB1B5B33366D       DC8 0DBH, 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000003D0   34376DB21B5B       DC8 34H, 37H, 6DH, 0B2H, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   000003D8   6DDBDBDFDFDF       DC8 6DH, 0DBH, 0DBH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   000003E0   DFDF1B5B306D       DC8 0DFH, 0DFH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000003E8   33366DDB1B5B       DC8 33H, 36H, 6DH, 0DBH, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   000003F0   6D0D0A1B5B31       DC8 6DH, 0DH, 0AH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   000003F8   5B33326D201B       DC8 5BH, 33H, 32H, 6DH, 20H, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000400   366DDB1B5B33       DC8 36H, 6DH, 0DBH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00000408   DB1B5B33366D       DC8 0DBH, 1BH, 5BH, 33H, 36H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000410   DB1B5B306D1B       DC8 0DBH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000418   366DDDDCDB1B       DC8 36H, 6DH, 0DDH, 0DCH, 0DBH, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000420   6D1B5B34366D       DC8 6DH, 1BH, 5BH, 34H, 36H, 6DH, 0DCH, 1BH
+   \              DC1B        
+   \   00000428   5B34306DDBDB       DC8 5BH, 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000430   DBDBDCDCDCDC       DC8 0DBH, 0DBH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000438   DCDCDC1B5B30       DC8 0DCH, 0DCH, 0DCH, 1BH, 5BH, 30H, 6DH, 20H
+   \              6D20        
+   \   00000440   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 31H
+   \              3331        
+   \   00000448   6DDEDBDBDBDB       DC8 6DH, 0DEH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000450   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000458   DBDBDBDBDF1B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DFH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000460   6D20201B5B31       DC8 6DH, 20H, 20H, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000468   5B33356DDCDC       DC8 5BH, 33H, 35H, 6DH, 0DCH, 0DCH, 0DDH, 1BH
+   \              DD1B        
+   \   00000470   5B306D1B5B33       DC8 5BH, 30H, 6DH, 1BH, 5BH, 33H, 31H, 6DH
+   \              316D        
+   \   00000478   DEDBDC1B5B31       DC8 0DEH, 0DBH, 0DCH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000480   5B33366D201B       DC8 5BH, 33H, 36H, 6DH, 20H, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000488   6D201B5B316D       DC8 6DH, 20H, 1BH, 5BH, 31H, 6DH, 0DFH, 0DBH
+   \              DFDB        
+   \   00000490   1B5B33366D1B       DC8 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000498   376DB21B5B34       DC8 37H, 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   000004A0   DBDBDCDC1B5B       DC8 0DBH, 0DBH, 0DCH, 0DCH, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   000004A8   6D201B5B3332       DC8 6DH, 20H, 1BH, 5BH, 33H, 32H, 6DH, 0DBH
+   \              6DDB        
+   \   000004B0   1B5B33376D20       DC8 1BH, 5BH, 33H, 37H, 6DH, 20H, 0DCH, 0DBH
+   \              DCDB        
+   \   000004B8   1B5B33366D1B       DC8 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   000004C0   376DB21B5B34       DC8 37H, 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   000004C8   DBDB1B5B306D       DC8 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 20H, 1BH
+   \              201B        
+   \   000004D0   5B316D1B5B33       DC8 5BH, 31H, 6DH, 1BH, 5BH, 33H, 32H, 6DH
+   \              326D        
+   \   000004D8   DBDBDBDBDCDC       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DCH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   000004E0   306D0D0A1B5B       DC8 30H, 6DH, 0DH, 0AH, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   000004E8   1B5B33326D20       DC8 1BH, 5BH, 33H, 32H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   000004F0   33366DDB1B5B       DC8 33H, 36H, 6DH, 0DBH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   000004F8   6DB21B5B3430       DC8 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000500   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000508   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000510   DBDBDBDBDB1B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000518   6D201B5B316D       DC8 6DH, 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000520   33316DDEDBDB       DC8 33H, 31H, 6DH, 0DEH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000528   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000530   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000538   306D201B5B31       DC8 30H, 6DH, 20H, 1BH, 5BH, 31H, 6DH, 0DBH
+   \              6DDB        
+   \   00000540   1B5B33356D1B       DC8 1BH, 5BH, 33H, 35H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000548   376DB11B5B34       DC8 37H, 6DH, 0B1H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000550   DBDBDD1B5B30       DC8 0DBH, 0DBH, 0DDH, 1BH, 5BH, 30H, 6DH, 1BH
+   \              6D1B        
+   \   00000558   5B33316DDEDB       DC8 5BH, 33H, 31H, 6DH, 0DEH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000560   DB1B5B33336D       DC8 0DBH, 1BH, 5BH, 33H, 33H, 6DH, 0DCH, 1BH
+   \              DC1B        
+   \   00000568   5B33376D201B       DC8 5BH, 33H, 37H, 6DH, 20H, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000570   6DDFDB1B5B34       DC8 6DH, 0DFH, 0DBH, 1BH, 5BH, 34H, 36H, 6DH
+   \              366D        
+   \   00000578   B21B5B33366D       DC8 0B2H, 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000580   34306DDBDBDC       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000588   33326D20201B       DC8 33H, 32H, 6DH, 20H, 20H, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000590   376DDB1B5B33       DC8 37H, 6DH, 0DBH, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000598   1B5B34376DB2       DC8 1BH, 5BH, 34H, 37H, 6DH, 0B2H, 1BH, 5BH
+   \              1B5B        
+   \   000005A0   34306DDBDB1B       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 1BH, 5BH, 30H
+   \              5B30        
+   \   000005A8   6D201B5B316D       DC8 6DH, 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000005B0   33326DDCDBDB       DC8 33H, 32H, 6DH, 0DCH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000005B8   DBDBDB1B5B30       DC8 0DBH, 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 0DH
+   \              6D0D        
+   \   000005C0   0A1B5B316D1B       DC8 0AH, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000005C8   326D201B5B33       DC8 32H, 6DH, 20H, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   000005D0   DBDBDBDB1B5B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   000005D8   6DB21B5B3335       DC8 6DH, 0B2H, 1BH, 5BH, 33H, 35H, 6DH, 1BH
+   \              6D1B        
+   \   000005E0   5B34306DDD1B       DC8 5BH, 34H, 30H, 6DH, 0DDH, 1BH, 5BH, 30H
+   \              5B30        
+   \   000005E8   6D20201B5B31       DC8 6DH, 20H, 20H, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   000005F0   5B33316DDCDC       DC8 5BH, 33H, 31H, 6DH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   000005F8   DCDCDC1B5B30       DC8 0DCH, 0DCH, 0DCH, 1BH, 5BH, 30H, 6DH, 20H
+   \              6D20        
+   \   00000600   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   00000608   6DDFDFDFDFDF       DC8 6DH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000610   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   00000618   6DDF1B5B3337       DC8 6DH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 20H
+   \              6D20        
+   \   00000620   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 31H
+   \              3331        
+   \   00000628   6DDEDBDBDBDB       DC8 6DH, 0DEH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000630   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000638   DBDBDB1B5B30       DC8 0DBH, 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 1BH
+   \              6D1B        
+   \   00000640   5B33316DDB1B       DC8 5BH, 33H, 31H, 6DH, 0DBH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000648   376D201B5B31       DC8 37H, 6DH, 20H, 1BH, 5BH, 31H, 6DH, 0DBH
+   \              6DDB        
+   \   00000650   1B5B33356D1B       DC8 1BH, 5BH, 33H, 35H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000658   376DB11B5B34       DC8 37H, 6DH, 0B1H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000660   DBDBDD1B5B33       DC8 0DBH, 0DBH, 0DDH, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000668   201B5B33306D       DC8 20H, 1BH, 5BH, 33H, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000670   34316D746966       DC8 34H, 31H, 6DH, 74H, 69H, 66H, 1BH, 5BH
+   \              1B5B        
+   \   00000678   306D1B5B3331       DC8 30H, 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DBH
+   \              6DDB        
+   \   00000680   1B5B33336D1B       DC8 1BH, 5BH, 33H, 33H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000688   316DDF1B5B34       DC8 31H, 6DH, 0DFH, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000690   DBDC1B5B3337       DC8 0DBH, 0DCH, 1BH, 5BH, 33H, 37H, 6DH, 20H
+   \              6D20        
+   \   00000698   1B5B316DDBDB       DC8 1BH, 5BH, 31H, 6DH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   000006A0   33366DDBDBDC       DC8 33H, 36H, 6DH, 0DBH, 0DBH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   000006A8   33376D20DB1B       DC8 33H, 37H, 6DH, 20H, 0DBH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000006B0   356D1B5B3436       DC8 35H, 6DH, 1BH, 5BH, 34H, 36H, 6DH, 0B0H
+   \              6DB0        
+   \   000006B8   1B5B33366D1B       DC8 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   000006C0   306DDBDB1B5B       DC8 30H, 6DH, 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   000006C8   201B5B316D1B       DC8 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000006D0   326DDBDBDBDB       DC8 32H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000006D8   DBDB1B5B306D       DC8 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 0DH, 0AH
+   \              0D0A        
+   \   000006E0   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 32H
+   \              3332        
+   \   000006E8   6D201B5B3336       DC8 6DH, 20H, 1BH, 5BH, 33H, 36H, 6DH, 0DEH
+   \              6DDE        
+   \   000006F0   DB1B5B34356D       DC8 0DBH, 1BH, 5BH, 34H, 35H, 6DH, 0B2H, 0B2H
+   \              B2B2        
+   \   000006F8   B21B5B33356D       DC8 0B2H, 1BH, 5BH, 33H, 35H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000700   34306DDD1B5B       DC8 34H, 30H, 6DH, 0DDH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00000708   201B5B316D1B       DC8 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000710   316DDEDBDBDB       DC8 31H, 6DH, 0DEH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000718   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000720   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000728   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000730   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000738   34316DDD1B5B       DC8 34H, 31H, 6DH, 0DDH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00000740   201B5B316DDF       DC8 20H, 1BH, 5BH, 31H, 6DH, 0DFH, 0DBH, 1BH
+   \              DB1B        
+   \   00000748   5B33356D1B5B       DC8 5BH, 33H, 35H, 6DH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   00000750   6DB11B5B3430       DC8 6DH, 0B1H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000758   DB1B5B306D20       DC8 0DBH, 1BH, 5BH, 30H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000760   316D1B5B3336       DC8 31H, 6DH, 1BH, 5BH, 33H, 36H, 6DH, 20H
+   \              6D20        
+   \   00000768   1B5B33306D1B       DC8 1BH, 5BH, 33H, 30H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000770   316D6F616461       DC8 31H, 6DH, 6FH, 61H, 64H, 61H, 1BH, 5BH
+   \              1B5B        
+   \   00000778   306D1B5B3331       DC8 30H, 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DBH
+   \              6DDB        
+   \   00000780   1B5B33336DDB       DC8 1BH, 5BH, 33H, 33H, 6DH, 0DBH, 0DDH, 1BH
+   \              DD1B        
+   \   00000788   5B316D1B5B33       DC8 5BH, 31H, 6DH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00000790   DEDB1B5B3436       DC8 0DEH, 0DBH, 1BH, 5BH, 34H, 36H, 6DH, 0B1H
+   \              6DB1        
+   \   00000798   1B5B33366D1B       DC8 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   000007A0   356DB2B11B5B       DC8 35H, 6DH, 0B2H, 0B1H, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   000007A8   6DDC1B5B3337       DC8 6DH, 0DCH, 1BH, 5BH, 33H, 37H, 6DH, 1BH
+   \              6D1B        
+   \   000007B0   5B34376DDB1B       DC8 5BH, 34H, 37H, 6DH, 0DBH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000007B8   356D1B5B3436       DC8 35H, 6DH, 1BH, 5BH, 34H, 36H, 6DH, 0B0H
+   \              6DB0        
+   \   000007C0   B01B5B33366D       DC8 0B0H, 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000007C8   34356DB11B5B       DC8 34H, 35H, 6DH, 0B1H, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   000007D0   201B5B316D1B       DC8 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000007D8   326DDBDBDBDB       DC8 32H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000007E0   DBDB1B5B306D       DC8 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 0DH, 0AH
+   \              0D0A        
+   \   000007E8   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 34H
+   \              3334        
+   \   000007F0   6DDC1B5B3337       DC8 6DH, 0DCH, 1BH, 5BH, 33H, 37H, 6DH, 20H
+   \              6D20        
+   \   000007F8   1B5B33366DDF       DC8 1BH, 5BH, 33H, 36H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000800   34356DB1B1B1       DC8 34H, 35H, 6DH, 0B1H, 0B1H, 0B1H, 1BH, 5BH
+   \              1B5B        
+   \   00000808   33356D1B5B34       DC8 33H, 35H, 6DH, 1BH, 5BH, 34H, 36H, 6DH
+   \              366D        
+   \   00000810   B21B5B34306D       DC8 0B2H, 1BH, 5BH, 34H, 30H, 6DH, 0DCH, 1BH
+   \              DC1B        
+   \   00000818   5B33366D201B       DC8 5BH, 33H, 36H, 6DH, 20H, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000820   6D1B5B33316D       DC8 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000828   5B316D1B5B34       DC8 5BH, 31H, 6DH, 1BH, 5BH, 34H, 31H, 6DH
+   \              316D        
+   \   00000830   DFDF1B5B3430       DC8 0DFH, 0DFH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000838   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000840   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000848   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000850   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00000858   5B34316DDD1B       DC8 5BH, 34H, 31H, 6DH, 0DDH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000860   6D1B5B33316D       DC8 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   00000868   5B33376D201B       DC8 5BH, 33H, 37H, 6DH, 20H, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000870   6DDB1B5B3335       DC8 6DH, 0DBH, 1BH, 5BH, 33H, 35H, 6DH, 1BH
+   \              6D1B        
+   \   00000878   5B34376DB11B       DC8 5BH, 34H, 37H, 6DH, 0B1H, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000880   306DDBDBDBDC       DC8 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000888   33366D201B5B       DC8 33H, 36H, 6DH, 20H, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00000890   1B5B33316DDF       DC8 1BH, 5BH, 33H, 31H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000898   316D1B5B3330       DC8 31H, 6DH, 1BH, 5BH, 33H, 30H, 6DH, 1BH
+   \              6D1B        
+   \   000008A0   5B34316D6D1B       DC8 5BH, 34H, 31H, 6DH, 6DH, 1BH, 5BH, 30H
+   \              5B30        
+   \   000008A8   6D1B5B33316D       DC8 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   000008B0   DB1B5B33336D       DC8 0DBH, 1BH, 5BH, 33H, 33H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   000008B8   5B33376D201B       DC8 5BH, 33H, 37H, 6DH, 20H, 1BH, 5BH, 31H
+   \              5B31        
+   \   000008C0   6DDB1B5B3437       DC8 6DH, 0DBH, 1BH, 5BH, 34H, 37H, 6DH, 0DBH
+   \              6DDB        
+   \   000008C8   1B5B33366D1B       DC8 1BH, 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   000008D0   356DB11B5B33       DC8 35H, 6DH, 0B1H, 1BH, 5BH, 33H, 35H, 6DH
+   \              356D        
+   \   000008D8   1B5B34366DB2       DC8 1BH, 5BH, 34H, 36H, 6DH, 0B2H, 0B2H, 1BH
+   \              B21B        
+   \   000008E0   5B33366D1B5B       DC8 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   000008E8   6DB0B01B5B33       DC8 6DH, 0B0H, 0B0H, 1BH, 5BH, 33H, 35H, 6DH
+   \              356D        
+   \   000008F0   1B5B34366DB1       DC8 1BH, 5BH, 34H, 36H, 6DH, 0B1H, 1BH, 5BH
+   \              1B5B        
+   \   000008F8   34306DDD1B5B       DC8 34H, 30H, 6DH, 0DDH, 1BH, 5BH, 33H, 32H
+   \              3332        
+   \   00000900   6DDCDBDBDBDB       DC8 6DH, 0DCH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000908   DBDB1B5B306D       DC8 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 0DH, 0AH
+   \              0D0A        
+   \   00000910   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 34H
+   \              3334        
+   \   00000918   6DDBDB1B5B33       DC8 6DH, 0DBH, 0DBH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00000920   201B5B306D1B       DC8 20H, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000928   356DDF1B5B31       DC8 35H, 6DH, 0DFH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000930   5B34376DB21B       DC8 5BH, 34H, 37H, 6DH, 0B2H, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000938   366DB21B5B34       DC8 36H, 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000940   DBDBDB1B5B30       DC8 0DBH, 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 1BH
+   \              6D1B        
+   \   00000948   5B33356DDC1B       DC8 5BH, 33H, 35H, 6DH, 0DCH, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000950   6D1B5B33366D       DC8 6DH, 1BH, 5BH, 33H, 36H, 6DH, 20H, 1BH
+   \              201B        
+   \   00000958   5B306D1B5B33       DC8 5BH, 30H, 6DH, 1BH, 5BH, 33H, 31H, 6DH
+   \              316D        
+   \   00000960   DFDF1B5B316D       DC8 0DFH, 0DFH, 1BH, 5BH, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000968   34316DDFDFDF       DC8 34H, 31H, 6DH, 0DFH, 0DFH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000970   34306DDBDBDB       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000978   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000980   DBDFDFDFDFDF       DC8 0DBH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH, 0DBH
+   \              DFDB        
+   \   00000988   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000990   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H, 31H
+   \              3331        
+   \   00000998   6DDB1B5B3337       DC8 6DH, 0DBH, 1BH, 5BH, 33H, 37H, 6DH, 20H
+   \              6D20        
+   \   000009A0   1B5B316DDB1B       DC8 1BH, 5BH, 31H, 6DH, 0DBH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000009A8   356D1B5B3437       DC8 35H, 6DH, 1BH, 5BH, 34H, 37H, 6DH, 0B1H
+   \              6DB1        
+   \   000009B0   1B5B34306DDB       DC8 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   000009B8   34356DDF1B5B       DC8 34H, 35H, 6DH, 0DFH, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   000009C0   6DDBDB1B5B34       DC8 6DH, 0DBH, 0DBH, 1BH, 5BH, 34H, 35H, 6DH
+   \              356D        
+   \   000009C8   DC1B5B306D1B       DC8 0DCH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000009D0   356DDC1B5B33       DC8 35H, 6DH, 0DCH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   000009D8   201B5B33316D       DC8 20H, 1BH, 5BH, 33H, 31H, 6DH, 0DFH, 0DFH
+   \              DFDF        
+   \   000009E0   DB1B5B33336D       DC8 0DBH, 1BH, 5BH, 33H, 33H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   000009E8   5B33376D201B       DC8 5BH, 33H, 37H, 6DH, 20H, 1BH, 5BH, 31H
+   \              5B31        
+   \   000009F0   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   000009F8   5B34366DB2B2       DC8 5BH, 34H, 36H, 6DH, 0B2H, 0B2H, 1BH, 5BH
+   \              1B5B        
+   \   00000A00   34306DDBDD1B       DC8 34H, 30H, 6DH, 0DBH, 0DDH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000A08   356DDE1B5B34       DC8 35H, 6DH, 0DEH, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000A10   DBDBDD1B5B33       DC8 0DBH, 0DBH, 0DDH, 1BH, 5BH, 33H, 32H, 6DH
+   \              326D        
+   \   00000A18   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00000A20   5B34336DB11B       DC8 5BH, 34H, 33H, 6DH, 0B1H, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000A28   336D1B5B3432       DC8 33H, 6DH, 1BH, 5BH, 34H, 32H, 6DH, 0B1H
+   \              6DB1        
+   \   00000A30   1B5B306D0D0A       DC8 1BH, 5BH, 30H, 6DH, 0DH, 0AH, 1BH, 5BH
+   \              1B5B        
+   \   00000A38   316D1B5B3334       DC8 31H, 6DH, 1BH, 5BH, 33H, 34H, 6DH, 0DBH
+   \              6DDB        
+   \   00000A40   DBDBDC1B5B30       DC8 0DBH, 0DBH, 0DCH, 1BH, 5BH, 30H, 6DH, 20H
+   \              6D20        
+   \   00000A48   1B5B33356DDF       DC8 1BH, 5BH, 33H, 35H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000A50   316DB2B2DBDB       DC8 31H, 6DH, 0B2H, 0B2H, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00000A58   5B34356DDC1B       DC8 5BH, 34H, 35H, 6DH, 0DCH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000A60   306DDC1B5B30       DC8 30H, 6DH, 0DCH, 1BH, 5BH, 30H, 6DH, 1BH
+   \              6D1B        
+   \   00000A68   5B33356DDC1B       DC8 5BH, 33H, 35H, 6DH, 0DCH, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000A70   6D1B5B33366D       DC8 6DH, 1BH, 5BH, 33H, 36H, 6DH, 20H, 1BH
+   \              201B        
+   \   00000A78   5B306D1B5B33       DC8 5BH, 30H, 6DH, 1BH, 5BH, 33H, 31H, 6DH
+   \              316D        
+   \   00000A80   DFDFDFDB1B5B       DC8 0DFH, 0DFH, 0DFH, 0DBH, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   00000A88   1B5B34316DDF       DC8 1BH, 5BH, 34H, 31H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000A90   34306DDBDBDB       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000A98   DBDBDBDB1B5B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   00000AA0   6D201B5B3337       DC8 6DH, 20H, 1BH, 5BH, 33H, 37H, 6DH, 0DBH
+   \              6DDB        
+   \   00000AA8   1B5B34376DDB       DC8 1BH, 5BH, 34H, 37H, 6DH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000AB0   34356DB2B11B       DC8 34H, 35H, 6DH, 0B2H, 0B1H, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000AB8   356D1B5B3437       DC8 35H, 6DH, 1BH, 5BH, 34H, 37H, 6DH, 0B2H
+   \              6DB2        
+   \   00000AC0   1B5B34306DDC       DC8 1BH, 5BH, 34H, 30H, 6DH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000AC8   33366D201B5B       DC8 33H, 36H, 6DH, 20H, 1BH, 5BH, 33H, 31H
+   \              3331        
+   \   00000AD0   6DDFDBDBDBDB       DC8 6DH, 0DFH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000AD8   1B5B34316D20       DC8 1BH, 5BH, 34H, 31H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000AE0   306D1B5B3331       DC8 30H, 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DFH
+   \              6DDF        
+   \   00000AE8   1B5B33376D20       DC8 1BH, 5BH, 33H, 37H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000AF0   316DDB1B5B33       DC8 31H, 6DH, 0DBH, 1BH, 5BH, 33H, 35H, 6DH
+   \              356D        
+   \   00000AF8   1B5B34376DB1       DC8 1BH, 5BH, 34H, 37H, 6DH, 0B1H, 1BH, 5BH
+   \              1B5B        
+   \   00000B00   34306DDBDB1B       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000B08   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DEH, 1BH
+   \              DE1B        
+   \   00000B10   5B316D1B5B34       DC8 5BH, 31H, 6DH, 1BH, 5BH, 34H, 35H, 6DH
+   \              356D        
+   \   00000B18   DF1B5B34306D       DC8 0DFH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000B20   DB1B5B34356D       DC8 0DBH, 1BH, 5BH, 34H, 35H, 6DH, 0DCH, 1BH
+   \              DC1B        
+   \   00000B28   5B34306DDC1B       DC8 5BH, 34H, 30H, 6DH, 0DCH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000B30   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DCH, 1BH
+   \              DC1B        
+   \   00000B38   5B33376D2020       DC8 5BH, 33H, 37H, 6DH, 20H, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000B40   316D1B5B3335       DC8 31H, 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DEH
+   \              6DDE        
+   \   00000B48   DBDBDBDD1B5B       DC8 0DBH, 0DBH, 0DBH, 0DDH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   00000B50   6DDE1B5B3430       DC8 6DH, 0DEH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000B58   DBDD1B5B3332       DC8 0DBH, 0DDH, 1BH, 5BH, 33H, 32H, 6DH, 0DBH
+   \              6DDB        
+   \   00000B60   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000B68   33336D1B5B34       DC8 33H, 33H, 6DH, 1BH, 5BH, 34H, 32H, 6DH
+   \              326D        
+   \   00000B70   B1DB1B5B306D       DC8 0B1H, 0DBH, 1BH, 5BH, 30H, 6DH, 0DH, 0AH
+   \              0D0A        
+   \   00000B78   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 34H
+   \              3334        
+   \   00000B80   6DDBDBDBDBDB       DC8 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DCH, 1BH
+   \              DC1B        
+   \   00000B88   5B33366D201B       DC8 5BH, 33H, 36H, 6DH, 20H, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000B90   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000B98   5B316D1B5B34       DC8 5BH, 31H, 6DH, 1BH, 5BH, 34H, 35H, 6DH
+   \              356D        
+   \   00000BA0   DF1B5B34306D       DC8 0DFH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   00000BA8   5B34376DB2B2       DC8 5BH, 34H, 37H, 6DH, 0B2H, 0B2H, 1BH, 5BH
+   \              1B5B        
+   \   00000BB0   33376D1B5B34       DC8 33H, 37H, 6DH, 1BH, 5BH, 34H, 35H, 6DH
+   \              356D        
+   \   00000BB8   B1B1B1B11B5B       DC8 0B1H, 0B1H, 0B1H, 0B1H, 1BH, 5BH, 33H, 35H
+   \              3335        
+   \   00000BC0   6DDC1B5B3430       DC8 6DH, 0DCH, 1BH, 5BH, 34H, 30H, 6DH, 0DCH
+   \              6DDC        
+   \   00000BC8   DC1B5B306D1B       DC8 0DCH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000BD0   356DDC1B5B31       DC8 35H, 6DH, 0DCH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000BD8   5B33366D201B       DC8 5BH, 33H, 36H, 6DH, 20H, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000BE0   6D1B5B33316D       DC8 6DH, 1BH, 5BH, 33H, 31H, 6DH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000BE8   DFDFDB1B5B31       DC8 0DFH, 0DFH, 0DBH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000BF0   5B34316DDFDF       DC8 5BH, 34H, 31H, 6DH, 0DFH, 0DFH, 0DFH, 1BH
+   \              DF1B        
+   \   00000BF8   5B33366D1B5B       DC8 5BH, 33H, 36H, 6DH, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   00000C00   6D201B5B3337       DC8 6DH, 20H, 1BH, 5BH, 33H, 37H, 6DH, 0DFH
+   \              6DDF        
+   \   00000C08   DB1B5B34356D       DC8 0DBH, 1BH, 5BH, 34H, 35H, 6DH, 0B2H, 0B2H
+   \              B2B2        
+   \   00000C10   1B5B33356D1B       DC8 1BH, 5BH, 33H, 35H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000C18   376DB1B21B5B       DC8 37H, 6DH, 0B1H, 0B2H, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   00000C20   6DDBDC1B5B33       DC8 6DH, 0DBH, 0DCH, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000C28   201B5B33316D       DC8 20H, 1BH, 5BH, 33H, 31H, 6DH, 0DFH, 0DBH
+   \              DFDB        
+   \   00000C30   DBDB1B5B3431       DC8 0DBH, 0DBH, 1BH, 5BH, 34H, 31H, 6DH, 20H
+   \              6D20        
+   \   00000C38   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H, 31H
+   \              3331        
+   \   00000C40   6DDF1B5B3337       DC8 6DH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 20H
+   \              6D20        
+   \   00000C48   1B5B316DDB1B       DC8 1BH, 5BH, 31H, 6DH, 0DBH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000C50   356DB2B11B5B       DC8 35H, 6DH, 0B2H, 0B1H, 1BH, 5BH, 33H, 35H
+   \              3335        
+   \   00000C58   6D1B5B34306D       DC8 6DH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DFH
+   \              DBDF        
+   \   00000C60   1B5B33326D20       DC8 1BH, 5BH, 33H, 32H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000C68   306D201B5B33       DC8 30H, 6DH, 20H, 1BH, 5BH, 33H, 35H, 6DH
+   \              356D        
+   \   00000C70   DF1B5B316DDF       DC8 0DFH, 1BH, 5BH, 31H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000C78   34356DDF1B5B       DC8 34H, 35H, 6DH, 0DFH, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   00000C80   6DDBDBDBDB1B       DC8 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000C88   356DDCDC1B5B       DC8 35H, 6DH, 0DCH, 0DCH, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   00000C90   6DDBDBDB1B5B       DC8 6DH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00000C98   1B5B33356DDD       DC8 1BH, 5BH, 33H, 35H, 6DH, 0DDH, 1BH, 5BH
+   \              1B5B        
+   \   00000CA0   316D1B5B3435       DC8 31H, 6DH, 1BH, 5BH, 34H, 35H, 6DH, 0DEH
+   \              6DDE        
+   \   00000CA8   DB1B5B34306D       DC8 0DBH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DDH
+   \              DBDD        
+   \   00000CB0   1B5B33326DDB       DC8 1BH, 5BH, 33H, 32H, 6DH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000CB8   DBDB1B5B3433       DC8 0DBH, 0DBH, 1BH, 5BH, 34H, 33H, 6DH, 0B1H
+   \              6DB1        
+   \   00000CC0   1B5B33336D1B       DC8 1BH, 5BH, 33H, 33H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000CC8   326DB1B1DB1B       DC8 32H, 6DH, 0B1H, 0B1H, 0DBH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000CD0   6D0D0A1B5B31       DC8 6DH, 0DH, 0AH, 1BH, 5BH, 31H, 6DH, 1BH
+   \              6D1B        
+   \   00000CD8   5B33346DDBDB       DC8 5BH, 33H, 34H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000CE0   DBDBDBDCDC1B       DC8 0DBH, 0DBH, 0DBH, 0DCH, 0DCH, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000CE8   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000CF0   5B316DDF1B5B       DC8 5BH, 31H, 6DH, 0DFH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   00000CF8   6DDF1B5B3337       DC8 6DH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 0B2H
+   \              6DB2        
+   \   00000D00   B21B5B33356D       DC8 0B2H, 1BH, 5BH, 33H, 35H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000D08   34306DDB1B5B       DC8 34H, 30H, 6DH, 0DBH, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   00000D10   6D1B5B34356D       DC8 6DH, 1BH, 5BH, 34H, 35H, 6DH, 0B2H, 0B2H
+   \              B2B2        
+   \   00000D18   B2B21B5B3335       DC8 0B2H, 0B2H, 1BH, 5BH, 33H, 35H, 6DH, 1BH
+   \              6D1B        
+   \   00000D20   5B34306DDBDB       DC8 5BH, 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000D28   1B5B34356DDC       DC8 1BH, 5BH, 34H, 35H, 6DH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000D30   34306DDCDCDC       DC8 34H, 30H, 6DH, 0DCH, 0DCH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000D38   306D1B5B3335       DC8 30H, 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DCH
+   \              6DDC        
+   \   00000D40   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 36H
+   \              3336        
+   \   00000D48   6D201B5B306D       DC8 6DH, 20H, 1BH, 5BH, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000D50   33316DDF1B5B       DC8 33H, 31H, 6DH, 0DFH, 1BH, 5BH, 33H, 37H
+   \              3337        
+   \   00000D58   6D20201B5B31       DC8 6DH, 20H, 20H, 1BH, 5BH, 31H, 6DH, 0DFH
+   \              6DDF        
+   \   00000D60   DB1B5B34376D       DC8 0DBH, 1BH, 5BH, 34H, 37H, 6DH, 0DBH, 1BH
+   \              DB1B        
+   \   00000D68   5B33356DB21B       DC8 5BH, 33H, 35H, 6DH, 0B2H, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000D70   306DDBDBDBDC       DC8 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DCH, 1BH, 5BH
+   \              1B5B        
+   \   00000D78   306D201B5B33       DC8 30H, 6DH, 20H, 1BH, 5BH, 33H, 31H, 6DH
+   \              316D        
+   \   00000D80   DFDF1B5B3337       DC8 0DFH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH, 20H
+   \              6D20        
+   \   00000D88   201B5B316DDB       DC8 20H, 1BH, 5BH, 31H, 6DH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000D90   34366DB21B5B       DC8 34H, 36H, 6DH, 0B2H, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   00000D98   6DB11B5B306D       DC8 6DH, 0B1H, 1BH, 5BH, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000DA0   33356DDB1B5B       DC8 33H, 35H, 6DH, 0DBH, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   00000DA8   DF1B5B306D20       DC8 0DFH, 1BH, 5BH, 30H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00000DB0   316D1B5B3332       DC8 31H, 6DH, 1BH, 5BH, 33H, 32H, 6DH, 0DBH
+   \              6DDB        
+   \   00000DB8   DBDC1B5B306D       DC8 0DBH, 0DCH, 1BH, 5BH, 30H, 6DH, 20H, 20H
+   \              2020        
+   \   00000DC0   201B5B33356D       DC8 20H, 1BH, 5BH, 33H, 35H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000DC8   5B316DDFDFDF       DC8 5BH, 31H, 6DH, 0DFH, 0DFH, 0DFH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000DD0   DF1B5B34356D       DC8 0DFH, 1BH, 5BH, 34H, 35H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000DD8   5B306D1B5B33       DC8 5BH, 30H, 6DH, 1BH, 5BH, 33H, 35H, 6DH
+   \              356D        
+   \   00000DE0   DDDF1B5B316D       DC8 0DDH, 0DFH, 1BH, 5BH, 31H, 6DH, 0DFH, 0DFH
+   \              DFDF        
+   \   00000DE8   DF1B5B33326D       DC8 0DFH, 1BH, 5BH, 33H, 32H, 6DH, 20H, 0DBH
+   \              20DB        
+   \   00000DF0   DB1B5B34336D       DC8 0DBH, 1BH, 5BH, 34H, 33H, 6DH, 0B1H, 1BH
+   \              B11B        
+   \   00000DF8   5B33336D1B5B       DC8 5BH, 33H, 33H, 6DH, 1BH, 5BH, 34H, 32H
+   \              3432        
+   \   00000E00   6DB11B5B3430       DC8 6DH, 0B1H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00000E08   DBDBDF1B5B30       DC8 0DBH, 0DBH, 0DFH, 1BH, 5BH, 30H, 6DH, 0DH
+   \              6D0D        
+   \   00000E10   0A1B5B316D1B       DC8 0AH, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000E18   346DDBDBDBDB       DC8 34H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000E20   DBDBDBDBDBDC       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DCH, 0DCH, 1BH
+   \              DC1B        
+   \   00000E28   5B33366D201B       DC8 5BH, 33H, 36H, 6DH, 20H, 1BH, 5BH, 30H
+   \              5B30        
+   \   00000E30   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000E38   5B316DDF1B5B       DC8 5BH, 31H, 6DH, 0DFH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   00000E40   6DDF1B5B3437       DC8 6DH, 0DFH, 1BH, 5BH, 34H, 37H, 6DH, 0B2H
+   \              6DB2        
+   \   00000E48   B2B2B21B5B34       DC8 0B2H, 0B2H, 0B2H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000E50   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000E58   DBDBDB1B5B34       DC8 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H, 35H, 6DH
+   \              356D        
+   \   00000E60   DCDC1B5B3437       DC8 0DCH, 0DCH, 1BH, 5BH, 34H, 37H, 6DH, 0B2H
+   \              6DB2        
+   \   00000E68   1B5B34356DDF       DC8 1BH, 5BH, 34H, 35H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00000E70   34306DDBDBDB       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000E78   DC201B5B3332       DC8 0DCH, 20H, 1BH, 5BH, 33H, 32H, 6DH, 0DFH
+   \              6DDF        
+   \   00000E80   DCDC201B5B33       DC8 0DCH, 0DCH, 20H, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00000E88   1B5B34356DB1       DC8 1BH, 5BH, 34H, 35H, 6DH, 0B1H, 1BH, 5BH
+   \              1B5B        
+   \   00000E90   33326D1B5B34       DC8 33H, 32H, 6DH, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000E98   20DCDBDBDBDB       DC8 20H, 0DCH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000EA0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DCH
+   \              DBDC        
+   \   00000EA8   DCDCDCDBDBDB       DC8 0DCH, 0DCH, 0DCH, 0DBH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00000EB0   33336D1B5B34       DC8 33H, 33H, 6DH, 1BH, 5BH, 34H, 32H, 6DH
+   \              326D        
+   \   00000EB8   B1B1B11B5B34       DC8 0B1H, 0B1H, 0B1H, 1BH, 5BH, 34H, 30H, 6DH
+   \              306D        
+   \   00000EC0   DBDBDF1B5B33       DC8 0DBH, 0DBH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00000EC8   DF1B5B306D0D       DC8 0DFH, 1BH, 5BH, 30H, 6DH, 0DH, 0AH, 1BH
+   \              0A1B        
+   \   00000ED0   5B316D1B5B33       DC8 5BH, 31H, 6DH, 1BH, 5BH, 33H, 34H, 6DH
+   \              346D        
+   \   00000ED8   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000EE0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000EE8   DCDCDC1B5B33       DC8 0DCH, 0DCH, 0DCH, 1BH, 5BH, 33H, 36H, 6DH
+   \              366D        
+   \   00000EF0   201B5B306D1B       DC8 20H, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000EF8   356DDF1B5B31       DC8 35H, 6DH, 0DFH, 1BH, 5BH, 31H, 6DH, 0DFH
+   \              6DDF        
+   \   00000F00   DFDFDF1B5B34       DC8 0DFH, 0DFH, 0DFH, 1BH, 5BH, 34H, 35H, 6DH
+   \              356D        
+   \   00000F08   DF1B5B34306D       DC8 0DFH, 1BH, 5BH, 34H, 30H, 6DH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000F10   DBDBDBDB1B5B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   00000F18   6DDF1B5B3430       DC8 6DH, 0DFH, 1BH, 5BH, 34H, 30H, 6DH, 0DFH
+   \              6DDF        
+   \   00000F20   DF1B5B306D1B       DC8 0DFH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000F28   356DDF1B5B31       DC8 35H, 6DH, 0DFH, 1BH, 5BH, 31H, 6DH, 0DEH
+   \              6DDE        
+   \   00000F30   DBDBDBDB1B5B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H, 35H
+   \              3435        
+   \   00000F38   6DDF1B5B306D       DC8 6DH, 0DFH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00000F40   33356DDB1B5B       DC8 33H, 35H, 6DH, 0DBH, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   00000F48   1B5B33326D20       DC8 1BH, 5BH, 33H, 32H, 6DH, 20H, 20H, 0DFH
+   \              20DF        
+   \   00000F50   DCDCDCDBDBDB       DC8 0DCH, 0DCH, 0DCH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000F58   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000F60   1B5B33336D1B       DC8 1BH, 5BH, 33H, 33H, 6DH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000F68   326DB1B2B21B       DC8 32H, 6DH, 0B1H, 0B2H, 0B2H, 1BH, 5BH, 34H
+   \              5B34        
+   \   00000F70   306DDBDBDBDB       DC8 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000F78   DFDF1B5B306D       DC8 0DFH, 0DFH, 1BH, 5BH, 30H, 6DH, 0DH, 0AH
+   \              0D0A        
+   \   00000F80   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 34H
+   \              3334        
+   \   00000F88   6D1B5B34346D       DC8 6DH, 1BH, 5BH, 34H, 34H, 6DH, 0B2H, 1BH
+   \              B21B        
+   \   00000F90   5B34306DDBDB       DC8 5BH, 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000F98   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00000FA0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00000FA8   5B34346DB2B2       DC8 5BH, 34H, 34H, 6DH, 0B2H, 0B2H, 0B0H, 0B1H
+   \              B0B1        
+   \   00000FB0   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H, 34H
+   \              3334        
+   \   00000FB8   6DDCDCDCDCDC       DC8 6DH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH, 0DCH
+   \              DCDC        
+   \   00000FC0   DCDCDCDBDB1B       DC8 0DCH, 0DCH, 0DCH, 0DBH, 0DBH, 1BH, 5BH, 31H
+   \              5B31        
+   \   00000FC8   6D1B5B33356D       DC8 6DH, 1BH, 5BH, 33H, 35H, 6DH, 0DEH, 0DFH
+   \              DEDF        
+   \   00000FD0   DF1B5B34356D       DC8 0DFH, 1BH, 5BH, 34H, 35H, 6DH, 0DFH, 1BH
+   \              DF1B        
+   \   00000FD8   5B306D1B5B33       DC8 5BH, 30H, 6DH, 1BH, 5BH, 33H, 35H, 6DH
+   \              356D        
+   \   00000FE0   DBDF1B5B316D       DC8 0DBH, 0DFH, 1BH, 5BH, 31H, 6DH, 20H, 1BH
+   \              201B        
+   \   00000FE8   5B33326DDC1B       DC8 5BH, 33H, 32H, 6DH, 0DCH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00000FF0   336D1B5B3432       DC8 33H, 6DH, 1BH, 5BH, 34H, 32H, 6DH, 0B2H
+   \              6DB2        
+   \   00000FF8   B11B5B33326D       DC8 0B1H, 1BH, 5BH, 33H, 32H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001000   34306DDCDBDB       DC8 34H, 30H, 6DH, 0DCH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00001008   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00001010   5B33336D1B5B       DC8 5BH, 33H, 33H, 6DH, 1BH, 5BH, 34H, 32H
+   \              3432        
+   \   00001018   6DB21B5B3430       DC8 6DH, 0B2H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   00001020   DBDBDBDBDFDF       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DFH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   00001028   33376DDF1B5B       DC8 33H, 37H, 6DH, 0DFH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00001030   0D0A1B5B316D       DC8 0DH, 0AH, 1BH, 5BH, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001038   33346DDFDBDB       DC8 33H, 34H, 6DH, 0DFH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00001040   34326DB1B1B1       DC8 34H, 32H, 6DH, 0B1H, 0B1H, 0B1H, 1BH, 5BH
+   \              1B5B        
+   \   00001048   34306DDBDBDB       DC8 34H, 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00001050   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00001058   DBDBDBDBDB1B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 34H
+   \              5B34        
+   \   00001060   346DDC201B5B       DC8 34H, 6DH, 0DCH, 20H, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00001068   1B5B33346DDB       DC8 1BH, 5BH, 33H, 34H, 6DH, 0DBH, 0DBH, 0DFH
+   \              DBDF        
+   \   00001070   DFDFDF1B5B33       DC8 0DFH, 0DFH, 0DFH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00001078   202020201B5B       DC8 20H, 20H, 20H, 20H, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   00001080   1B5B33356DDE       DC8 1BH, 5BH, 33H, 35H, 6DH, 0DEH, 0DCH, 0DCH
+   \              DCDC        
+   \   00001088   DC1B5B306D1B       DC8 0DCH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00001090   356DDD1B5B33       DC8 35H, 6DH, 0DDH, 1BH, 5BH, 33H, 37H, 6DH
+   \              376D        
+   \   00001098   20201B5B316D       DC8 20H, 20H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000010A0   33336DDFDF1B       DC8 33H, 33H, 6DH, 0DFH, 0DFH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000010A8   326DDFDFDBDB       DC8 32H, 6DH, 0DFH, 0DFH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000010B0   DBDBDBDB1B5B       DC8 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH, 33H, 33H
+   \              3333        
+   \   000010B8   6D1B5B34326D       DC8 6DH, 1BH, 5BH, 34H, 32H, 6DH, 0B1H, 1BH
+   \              B11B        
+   \   000010C0   5B34306DDBDB       DC8 5BH, 34H, 30H, 6DH, 0DBH, 0DBH, 0DFH, 0DFH
+   \              DFDF        
+   \   000010C8   1B5B306D0D0A       DC8 1BH, 5BH, 30H, 6DH, 0DH, 0AH, 1BH, 5BH
+   \              1B5B        
+   \   000010D0   316D1B5B3334       DC8 31H, 6DH, 1BH, 5BH, 33H, 34H, 6DH, 20H
+   \              6D20        
+   \   000010D8   2020DFDFDFDB       DC8 20H, 20H, 0DFH, 0DFH, 0DFH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000010E0   DBDB1B5B3432       DC8 0DBH, 0DBH, 1BH, 5BH, 34H, 32H, 6DH, 0B2H
+   \              6DB2        
+   \   000010E8   B2B11B5B3430       DC8 0B2H, 0B1H, 1BH, 5BH, 34H, 30H, 6DH, 0DBH
+   \              6DDB        
+   \   000010F0   DBDBDBDBDBDB       DC8 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   000010F8   DBDBDB1B5B30       DC8 0DBH, 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 1BH
+   \              6D1B        
+   \   00001100   5B33346DDD1B       DC8 5BH, 33H, 34H, 6DH, 0DDH, 1BH, 5BH, 33H
+   \              5B33        
+   \   00001108   376D201B5B31       DC8 37H, 6DH, 20H, 1BH, 5BH, 31H, 6DH, 2EH
+   \              6D2E        
+   \   00001110   202A2A2A2A2A       DC8 20H, 2AH, 2AH, 2AH, 2AH, 2AH, 2AH, 20H
+   \              2A20        
+   \   00001118   6C6F67696E20       DC8 6CH, 6FH, 67H, 69H, 6EH, 20H, 61H, 6CH
+   \              616C        
+   \   00001120   72656164791B       DC8 72H, 65H, 61H, 64H, 79H, 1BH, 5BH, 33H
+   \              5B33        
+   \   00001128   326DDFDF1B5B       DC8 32H, 6DH, 0DFH, 0DFH, 1BH, 5BH, 34H, 33H
+   \              3433        
+   \   00001130   6DB1B11B5B33       DC8 6DH, 0B1H, 0B1H, 1BH, 5BH, 33H, 33H, 6DH
+   \              336D        
+   \   00001138   1B5B34376DDB       DC8 1BH, 5BH, 34H, 37H, 6DH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   00001140   34306DDF1B5B       DC8 34H, 30H, 6DH, 0DFH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00001148   0D0A1B5B3943       DC8 0DH, 0AH, 1BH, 5BH, 39H, 43H, 1BH, 5BH
+   \              1B5B        
+   \   00001150   316D1B5B3334       DC8 31H, 6DH, 1BH, 5BH, 33H, 34H, 6DH, 0DFH
+   \              6DDF        
+   \   00001158   DFDFDFDBDBDB       DC8 0DFH, 0DFH, 0DFH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH
+   \              DB1B        
+   \   00001160   5B34326DB21B       DC8 5BH, 34H, 32H, 6DH, 0B2H, 1BH, 5BH, 34H
+   \              5B34        
+   \   00001168   306DDBDBDBDB       DC8 30H, 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH
+   \              DBDB        
+   \   00001170   DBDB1B5B306D       DC8 0DBH, 0DBH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001178   33346DDD201B       DC8 33H, 34H, 6DH, 0DDH, 20H, 1BH, 5BH, 31H
+   \              5B31        
+   \   00001180   6D1B5B33376D       DC8 6DH, 1BH, 5BH, 33H, 37H, 6DH, 7CH, 1BH
+   \              7C1B        
+   \   00001188   5B306D1B5B32       DC8 5BH, 30H, 6DH, 1BH, 5BH, 32H, 30H, 43H
+   \              3043        
+   \   00001190   1B5B316D1B5B       DC8 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H, 30H
+   \              3330        
+   \   00001198   6D20201B5B30       DC8 6DH, 20H, 20H, 1BH, 5BH, 30H, 6DH, 20H
+   \              6D20        
+   \   000011A0   201B5B316DDF       DC8 20H, 1BH, 5BH, 31H, 6DH, 0DFH, 1BH, 5BH
+   \              1B5B        
+   \   000011A8   306D0D0A1B5B       DC8 30H, 6DH, 0DH, 0AH, 1BH, 5BH, 31H, 36H
+   \              3136        
+   \   000011B0   431B5B316D1B       DC8 43H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH, 33H
+   \              5B33        
+   \   000011B8   346DDFDFDBDB       DC8 34H, 6DH, 0DFH, 0DFH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   000011C0   34326DB11B5B       DC8 34H, 32H, 6DH, 0B1H, 1BH, 5BH, 34H, 30H
+   \              3430        
+   \   000011C8   6DDBDBDBDBDB       DC8 6DH, 0DBH, 0DBH, 0DBH, 0DBH, 0DBH, 1BH, 5BH
+   \              1B5B        
+   \   000011D0   306D20201B5B       DC8 30H, 6DH, 20H, 20H, 1BH, 5BH, 31H, 6DH
+   \              316D        
+   \   000011D8   602D2D3E201B       DC8 60H, 2DH, 2DH, 3EH, 20H, 1BH, 5BH, 30H
+   \              5B30        
+   \   000011E0   6D1B5B33316D       DC8 6DH, 1BH, 5BH, 33H, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   000011E8   34376D202048       DC8 34H, 37H, 6DH, 20H, 20H, 48H, 4FH, 4CH
+   \              4F4C        
+   \   000011F0   59202A2A2A2A       DC8 59H, 20H, 2AH, 2AH, 2AH, 2AH, 20H, 49H
+   \              2049        
+   \   000011F8   274D201B5B35       DC8 27H, 4DH, 20H, 1BH, 5BH, 35H, 6DH, 43H
+   \              6D43        
+   \   00001200   4F4D494E471B       DC8 4FH, 4DH, 49H, 4EH, 47H, 1BH, 5BH, 30H
+   \              5B30        
+   \   00001208   6D1B5B33316D       DC8 6DH, 1BH, 5BH, 33H, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001210   34376D20201B       DC8 34H, 37H, 6DH, 20H, 20H, 1BH, 5BH, 33H
+   \              5B33        
+   \   00001218   376D1B5B3430       DC8 37H, 6DH, 1BH, 5BH, 34H, 30H, 6DH, 20H
+   \              6D20        
+   \   00001220   1B5B316D2D2D       DC8 1BH, 5BH, 31H, 6DH, 2DH, 2DH, 2DH, 2DH
+   \              2D2D        
+   \   00001228   2C1B5B306D1B       DC8 2CH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 32H
+   \              5B32        
+   \   00001230   30431B5B316D       DC8 30H, 43H, 1BH, 5BH, 31H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001238   33346DDF1B5B       DC8 33H, 34H, 6DH, 0DFH, 1BH, 5BH, 34H, 37H
+   \              3437        
+   \   00001240   6DDB1B5B3433       DC8 6DH, 0DBH, 1BH, 5BH, 34H, 33H, 6DH, 0B1H
+   \              6DB1        
+   \   00001248   B11B5B33306D       DC8 0B1H, 1BH, 5BH, 33H, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001250   34306DDF1B5B       DC8 34H, 30H, 6DH, 0DFH, 1BH, 5BH, 30H, 6DH
+   \              306D        
+   \   00001258   1B5B3337431B       DC8 1BH, 5BH, 33H, 37H, 43H, 1BH, 5BH, 31H
+   \              5B31        
+   \   00001260   6D7C1B5B306D       DC8 6DH, 7CH, 1BH, 5BH, 30H, 6DH, 1BH, 5BH
+   \              1B5B        
+   \   00001268   3232431B5B31       DC8 32H, 32H, 43H, 1BH, 5BH, 31H, 6DH, 20H
+   \              6D20        
+   \   00001270   1B5B306D1B5B       DC8 1BH, 5BH, 30H, 6DH, 1BH, 5BH, 31H, 34H
+   \              3134        
+   \   00001278   431B5B316D72       DC8 43H, 1BH, 5BH, 31H, 6DH, 72H, 65H, 6BH
+   \              656B        
+   \   00001280   637566726568       DC8 63H, 75H, 66H, 72H, 65H, 68H, 74H, 6FH
+   \              746F        
+   \   00001288   6D64726F7773       DC8 6DH, 64H, 72H, 6FH, 77H, 73H, 73H, 61H
+   \              7361        
+   \   00001290   701B5B306D20       DC8 70H, 1BH, 5BH, 30H, 6DH, 20H, 1BH, 5BH
+   \              1B5B        
+   \   00001298   316D3C2D2D2D       DC8 31H, 6DH, 3CH, 2DH, 2DH, 2DH, 27H, 1BH
+   \              271B        
+   \   000012A0   5B306D1B5B35       DC8 5BH, 30H, 6DH, 1BH, 5BH, 35H, 32H, 43H
+   \              3243        
+   \   000012A8   2D2D20544946       DC8 2DH, 2DH, 20H, 54H, 49H, 46H, 6FH, 61H
+   \              6F61        
+   \   000012B0   44414D202841       DC8 44H, 41H, 4DH, 20H, 28H, 41H, 73H, 63H
+   \              7363        
+   \   000012B8   69692D617274       DC8 69H, 69H, 2DH, 61H, 72H, 74H, 20H, 63H
+   \              2063        
+   \   000012C0   6F7572746573       DC8 6FH, 75H, 72H, 74H, 65H, 73H, 79H, 20H
+   \              7920        
+   \   000012C8   6F6620687474       DC8 6FH, 66H, 20H, 68H, 74H, 74H, 70H, 3AH
+   \              703A        
+   \   000012D0   2F2F73697874       DC8 2FH, 2FH, 73H, 69H, 78H, 74H, 65H, 65H
+   \              6565        
+   \   000012D8   6E636F6C6F72       DC8 6EH, 63H, 6FH, 6CH, 6FH, 72H, 73H, 2EH
+   \              732E        
+   \   000012E0   6E65742F2900       DC8 6EH, 65H, 74H, 2FH, 29H, 0
+   \   000012E6   0000               DC8 0, 0
+     26          
+     27          extern void MCU_Init(void);
+     28          
+     29          const static char *nc_fkeys[10] = 
+     30          {"Help","Menu","View","Edit","Copy","RenMov","Mkdir","Delete","Setup","Quit"};
+     31          
+
+   \                                 In section .data, align 4
+     32          const static char *memview_fkeys[10] = 
+   \                     memview_fkeys:
+   \   00000000   ........0000       DC32 `?<Constant "Help">`, 0H, 0H, 0H, `?<Constant "DynMem">`, 0H, 0H
+   \              000000000000
+   \              00000000....
+   \              ....00000000
+   \              00000000    
+   \   0000001C   000000000000       DC32 0H, 0H, `?<Constant "Quit">`
+   \              0000........
+     33          {"Help",0,0,0,"DynMem",0,0,0,0,"Quit"};
+     34          
+
+   \                                 In section .data, align 4
+     35          const static char *mainmenu[] = 
+   \                     mainmenu:
+   \   00000000   ............       DC32 `?<Constant "Memory viewer">`, `?<Constant "Console debug demo">`
+   \              ....        
+   \   00000008   ............       DC32 `?<Constant "Speed test">`, `?<Constant "Test sub menu">`
+   \              ....        
+   \   00000010   ........           DC32 `?<Constant "Command line interface">`
+   \   00000014   ............       DC32 `?<Constant "ASCII-Art test">`, `?<Constant "Input dialog test">`
+   \              ....        
+   \   0000001C   00000000           DC32 0H
+     36          { 
+     37            "Memory viewer",
+     38            "Console debug demo",
+     39            "Speed test",
+     40            "Test sub menu",
+     41            "Command line interface",
+     42            "ASCII-Art test",
+     43            "Input dialog test",
+     44            0
+     45          };
+     46          
+
+   \                                 In section .data, align 4
+     47          const static char *submenu1[] = 
+   \                     submenu1:
+   \   00000000   ........           DC32 `?<Constant "Menu item number 1">`
+   \   00000004   ........           DC32 `?<Constant "Menu item number 2">`
+   \   00000008   ........           DC32 `?<Constant "Some other menu">`
+   \   0000000C   ........0000       DC32 `?<Constant "And finally last menu...">`, 0H
+   \              0000        
+     48          { 
+     49            "Menu item number 1",
+     50            "Menu item number 2",
+     51            "Some other menu",
+     52            "And finally last menu item",
+     53            0
+     54          };
+     55          
+
+   \                                 In section .rodata, align 4
+     56          const static char hexchars[16] = "0123456789ABCDEF";
+   \                     hexchars:
+   \   00000000   303132333435       DC8 30H, 31H, 32H, 33H, 34H, 35H, 36H, 37H
+   \              3637        
+   \   00000008   383941424344       DC8 38H, 39H, 41H, 42H, 43H, 44H, 45H, 46H
+   \              4546        
+     57          
+
+   \                                 In section .text, align 4, keep-with-next
+     58          void drawmem(const unsigned char *mem)
+     59          {
+   \                     drawmem:
+   \   00000000   F8402DE9           PUSH     {R3-R7,LR}
+   \   00000004   0040B0E1           MOVS     R4,R0
+     60            const unsigned char *mptr;
+     61            int i,j;
+     62          
+     63          
+     64           textbackground(BLUE);
+   \   00000008   0400A0E3           MOV      R0,#+4
+   \   0000000C   ........           BL       textbackground
+     65           for (i=0;i<23 && !_kbhit();i++) {
+   \   00000010   0050A0E3           MOV      R5,#+0
+   \   00000014   010000EA           B        ??drawmem_0
+     66             mptr = &mem[i*16];
+     67             gotoxy(1,i+2);
+     68             textcolor(YELLOW);
+     69             j = 8;
+     70             do {
+     71               j--;
+     72               _putch(hexchars[  (((int)mptr)>>(j*4)) &0xF] );
+     73             } while (j>0);
+     74             _cputs(":  ");
+     75             textcolor(WHITE);
+     76          
+     77             for (j=0;j<16;j++) {
+     78               _putch(hexchars[*mptr>>4]);
+     79               _putch(hexchars[*mptr&0xF]);
+     80               mptr++;
+     81               _putch(' ');
+     82               if (j == 7) {
+     83                 _putch('-');
+     84                 _putch(' ');
+     85               }
+     86             } 
+     87          
+     88             _putch(179);
+     89             _putch(' ');
+     90          
+     91             mptr = &mem[i*16];
+     92             for (j=0;j<16;j++) {
+     93               if (*mptr >= ' ')
+     94               _putch(*mptr);
+     95                else _putch('.');
+     96               mptr++;
+     97             } 
+     98          
+     99             clreol();   
+   \                     ??drawmem_1:
+   \   00000018   ........           BL       clreol
+   \   0000001C   015095E2           ADDS     R5,R5,#+1
+   \                     ??drawmem_0:
+   \   00000020   170055E3           CMP      R5,#+23
+   \   00000024   460000AA           BGE      ??drawmem_2
+   \   00000028   ........           BL       _kbhit
+   \   0000002C   000050E3           CMP      R0,#+0
+   \   00000030   4300001A           BNE      ??drawmem_2
+   \   00000034   1000A0E3           MOV      R0,#+16
+   \   00000038   904526E0           MLA      R6,R0,R5,R4
+   \   0000003C   0500B0E1           MOVS     R0,R5
+   \   00000040   021090E2           ADDS     R1,R0,#+2
+   \   00000044   FF1011E2           ANDS     R1,R1,#0xFF      ;; Zero extend
+   \   00000048   0100A0E3           MOV      R0,#+1
+   \   0000004C   ........           BL       gotoxy
+   \   00000050   0B00A0E3           MOV      R0,#+11
+   \   00000054   ........           BL       textcolor
+   \   00000058   0870A0E3           MOV      R7,#+8
+   \                     ??drawmem_3:
+   \   0000005C   017057E2           SUBS     R7,R7,#+1
+   \   00000060   0700B0E1           MOVS     R0,R7
+   \   00000064   0410A0E3           MOV      R1,#+4
+   \   00000068   910010E0           MULS     R0,R1,R0
+   \   0000006C   0F10A0E3           MOV      R1,#+15
+   \   00000070   560011E0           ANDS     R0,R1,R6, ASR R0
+   \   00000074   D0109FE5           LDR      R1,??drawmem_4+0x4  ;; hexchars
+   \   00000078   0100D0E7           LDRB     R0,[R0, +R1]
+   \   0000007C   ........           BL       _putch
+   \   00000080   010057E3           CMP      R7,#+1
+   \   00000084   F4FFFFAA           BGE      ??drawmem_3
+   \   00000088   B8008FE2           ADR      R0,??drawmem_4   ;; ":  "
+   \   0000008C   ........           BL       _cputs
+   \   00000090   0F00A0E3           MOV      R0,#+15
+   \   00000094   ........           BL       textcolor
+   \   00000098   0070A0E3           MOV      R7,#+0
+   \   0000009C   120000EA           B        ??drawmem_5
+   \                     ??drawmem_6:
+   \   000000A0   0000D6E5           LDRB     R0,[R6, #+0]
+   \   000000A4   A0109FE5           LDR      R1,??drawmem_4+0x4  ;; hexchars
+   \   000000A8   4002D1E7           LDRB     R0,[R1, +R0, ASR #+4]
+   \   000000AC   ........           BL       _putch
+   \   000000B0   0000D6E5           LDRB     R0,[R6, #+0]
+   \   000000B4   0F0010E2           ANDS     R0,R0,#0xF
+   \   000000B8   8C109FE5           LDR      R1,??drawmem_4+0x4  ;; hexchars
+   \   000000BC   0100D0E7           LDRB     R0,[R0, +R1]
+   \   000000C0   ........           BL       _putch
+   \   000000C4   016096E2           ADDS     R6,R6,#+1
+   \   000000C8   2000A0E3           MOV      R0,#+32
+   \   000000CC   ........           BL       _putch
+   \   000000D0   070057E3           CMP      R7,#+7
+   \   000000D4   0300001A           BNE      ??drawmem_7
+   \   000000D8   2D00A0E3           MOV      R0,#+45
+   \   000000DC   ........           BL       _putch
+   \   000000E0   2000A0E3           MOV      R0,#+32
+   \   000000E4   ........           BL       _putch
+   \                     ??drawmem_7:
+   \   000000E8   017097E2           ADDS     R7,R7,#+1
+   \                     ??drawmem_5:
+   \   000000EC   100057E3           CMP      R7,#+16
+   \   000000F0   EAFFFFBA           BLT      ??drawmem_6
+   \   000000F4   B300A0E3           MOV      R0,#+179
+   \   000000F8   ........           BL       _putch
+   \   000000FC   2000A0E3           MOV      R0,#+32
+   \   00000100   ........           BL       _putch
+   \   00000104   1000A0E3           MOV      R0,#+16
+   \   00000108   904526E0           MLA      R6,R0,R5,R4
+   \   0000010C   0070A0E3           MOV      R7,#+0
+   \   00000110   030000EA           B        ??drawmem_8
+   \                     ??drawmem_9:
+   \   00000114   2E00A0E3           MOV      R0,#+46
+   \   00000118   ........           BL       _putch
+   \                     ??drawmem_10:
+   \   0000011C   016096E2           ADDS     R6,R6,#+1
+   \   00000120   017097E2           ADDS     R7,R7,#+1
+   \                     ??drawmem_8:
+   \   00000124   100057E3           CMP      R7,#+16
+   \   00000128   BAFFFFAA           BGE      ??drawmem_1
+   \   0000012C   0000D6E5           LDRB     R0,[R6, #+0]
+   \   00000130   200050E3           CMP      R0,#+32
+   \   00000134   F6FFFF3A           BCC      ??drawmem_9
+   \   00000138   0000D6E5           LDRB     R0,[R6, #+0]
+   \   0000013C   ........           BL       _putch
+   \   00000140   F5FFFFEA           B        ??drawmem_10
+    100           }
+    101          }
+   \                     ??drawmem_2:
+   \   00000144   F180BDE8           POP      {R0,R4-R7,PC}    ;; return
+   \                     ??drawmem_4:
+   \   00000148   3A202000           DC8      ":  "
+   \   0000014C   ........           DC32     hexchars
+    102          
+    103          
+
+   \                                 In section .text, align 4, keep-with-next
+    104          void memviewer(void *start)
+    105          {
+   \                     memviewer:
+   \   00000000   10402DE9           PUSH     {R4,LR}
+   \   00000004   0040B0E1           MOVS     R4,R0
+    106           int key;
+    107           const unsigned char *mem;
+    108          
+    109           textattr(LIGHTGRAY  | BLUE <<4);
+   \   00000008   4700A0E3           MOV      R0,#+71
+   \   0000000C   ........           BL       textattr
+    110           clrscr();
+   \   00000010   ........           BL       clrscr
+    111           textcolor(BLACK);
+   \   00000014   0000A0E3           MOV      R0,#+0
+   \   00000018   ........           BL       textcolor
+    112           textbackground(CYAN);
+   \   0000001C   0600A0E3           MOV      R0,#+6
+   \   00000020   ........           BL       textbackground
+    113           _cputs("Memory viewer");
+   \   00000024   D0009FE5           LDR      R0,??memviewer_0  ;; `?<Constant "Memory viewer">`
+   \   00000028   ........           BL       _cputs
+    114           clreol();
+   \   0000002C   ........           BL       clreol
+    115          
+    116           cursoroff();
+   \   00000030   ........           BL       cursoroff
+    117           drawfkeys(memview_fkeys);
+   \   00000034   C4009FE5           LDR      R0,??memviewer_0+0x4  ;; memview_fkeys
+   \   00000038   ........           BL       drawfkeys
+    118          
+    119           mem=start;
+   \   0000003C   020000EA           B        ??memviewer_1
+    120           for (;;) {
+    121             drawmem(mem);
+    122          
+    123          //   if (_kbhit()) {
+    124               key = _getch();
+    125               switch(key) {
+    126                case KB_LEFT: if (mem > 0 ) mem--; break;
+   \                     ??memviewer_2:
+   \   00000040   000054E3           CMP      R4,#+0
+   \   00000044   0000000A           BEQ      ??memviewer_3
+   \   00000048   014054E2           SUBS     R4,R4,#+1
+   \                     ??memviewer_3:
+   \                     ??memviewer_4:
+   \                     ??memviewer_5:
+   \                     ??memviewer_1:
+   \   0000004C   0400B0E1           MOVS     R0,R4
+   \   00000050   ........           BL       drawmem
+   \   00000054   ........           BL       _getch
+   \   00000058   510F50E3           CMP      R0,#+324
+   \   0000005C   2400000A           BEQ      ??memviewer_6
+   \   00000060   520F50E3           CMP      R0,#+328
+   \   00000064   1400000A           BEQ      ??memviewer_7
+   \   00000068   4910A0E3           MOV      R1,#+73
+   \   0000006C   401F81E3           ORR      R1,R1,#0x100
+   \   00000070   010050E1           CMP      R0,R1
+   \   00000074   1600000A           BEQ      ??memviewer_8
+   \   00000078   4B10A0E3           MOV      R1,#+75
+   \   0000007C   401F81E3           ORR      R1,R1,#0x100
+   \   00000080   010050E1           CMP      R0,R1
+   \   00000084   EDFFFF0A           BEQ      ??memviewer_2
+   \   00000088   4D10A0E3           MOV      R1,#+77
+   \   0000008C   401F81E3           ORR      R1,R1,#0x100
+   \   00000090   010050E1           CMP      R0,R1
+   \   00000094   0600000A           BEQ      ??memviewer_9
+   \   00000098   540F50E3           CMP      R0,#+336
+   \   0000009C   0A00000A           BEQ      ??memviewer_10
+   \   000000A0   5110A0E3           MOV      R1,#+81
+   \   000000A4   401F81E3           ORR      R1,R1,#0x100
+   \   000000A8   010050E1           CMP      R0,R1
+   \   000000AC   0E00000A           BEQ      ??memviewer_11
+   \   000000B0   E5FFFFEA           B        ??memviewer_5
+    127                case KB_RIGHT: mem++; break;
+   \                     ??memviewer_9:
+   \   000000B4   014094E2           ADDS     R4,R4,#+1
+   \   000000B8   E3FFFFEA           B        ??memviewer_4
+    128                case KB_UP: if (mem >= (unsigned char const *)16) mem-=16; break;
+   \                     ??memviewer_7:
+   \   000000BC   100054E3           CMP      R4,#+16
+   \   000000C0   0000003A           BCC      ??memviewer_12
+   \   000000C4   104054E2           SUBS     R4,R4,#+16
+   \                     ??memviewer_12:
+   \   000000C8   DFFFFFEA           B        ??memviewer_4
+    129                case KB_DOWN: mem+=16; break;
+   \                     ??memviewer_10:
+   \   000000CC   104094E2           ADDS     R4,R4,#+16
+   \   000000D0   DDFFFFEA           B        ??memviewer_4
+    130                case KB_PGUP: if (mem >= (unsigned char const *)(16*23))  mem-=16*23; break;
+   \                     ??memviewer_8:
+   \   000000D4   5C0F54E3           CMP      R4,#+368
+   \   000000D8   0200003A           BCC      ??memviewer_13
+   \   000000DC   6F00E0E3           MVN      R0,#+111
+   \   000000E0   400FC0E3           BIC      R0,R0,#0x100
+   \   000000E4   044090E0           ADDS     R4,R0,R4
+   \                     ??memviewer_13:
+   \   000000E8   D7FFFFEA           B        ??memviewer_4
+    131                case KB_PGDN: mem+=16*23; break;
+   \                     ??memviewer_11:
+   \   000000EC   5C4F94E2           ADDS     R4,R4,#+368
+   \   000000F0   D5FFFFEA           B        ??memviewer_4
+    132                case KB_F10: cursoron(); return ;
+   \                     ??memviewer_6:
+   \   000000F4   ........           BL       cursoron
+   \   000000F8   1080BDE8           POP      {R4,PC}          ;; return
+   \                     ??memviewer_0:
+   \   000000FC   ........           DC32     `?<Constant "Memory viewer">`
+   \   00000100   ........           DC32     memview_fkeys
+    133               } 
+    134            // }
+    135          
+    136           }
+    137          }
+    138          
+
+   \                                 In section .text, align 4, keep-with-next
+    139          void debugdemo()
+    140          {
+   \                     debugdemo:
+   \   00000000   10402DE9           PUSH     {R4,LR}
+    141           int key;
+    142          
+    143           textattr(LIGHTGRAY);
+   \   00000004   0700A0E3           MOV      R0,#+7
+   \   00000008   ........           BL       textattr
+    144           clrscr();
+   \   0000000C   ........           BL       clrscr
+   \   00000010   FFFFFFEA           B        ??debugdemo_0
+    145          
+    146           while (1) {
+    147              _cputs("Debug line 1\r\n");
+   \                     ??debugdemo_1:
+   \                     ??debugdemo_2:
+   \                     ??debugdemo_0:
+   \   00000014   40009FE5           LDR      R0,??debugdemo_3+0x4  ;; `?<Constant "Debug line 1\\r\\n">`
+   \   00000018   ........           BL       _cputs
+    148             if (_kbhit()) {
+   \   0000001C   ........           BL       _kbhit
+   \   00000020   000050E3           CMP      R0,#+0
+   \   00000024   FAFFFF0A           BEQ      ??debugdemo_2
+    149                key = _getch();
+   \   00000028   ........           BL       _getch
+   \   0000002C   0040B0E1           MOVS     R4,R0
+    150                _cputs("You have pressed key");
+   \   00000030   28009FE5           LDR      R0,??debugdemo_3+0x8  ;; `?<Constant "You have pressed key">`
+   \   00000034   ........           BL       _cputs
+    151          	  _putch(key);
+   \   00000038   0400B0E1           MOVS     R0,R4
+   \   0000003C   FF0010E2           ANDS     R0,R0,#0xFF      ;; Zero extend
+   \   00000040   ........           BL       _putch
+    152                _cputs("\r\n");
+   \   00000044   0C008FE2           ADR      R0,??debugdemo_3  ;; 0x0D, 0x0A, 0x00, 0x00
+   \   00000048   ........           BL       _cputs
+    153                if (key == KB_ESC)
+   \   0000004C   1B0054E3           CMP      R4,#+27
+   \   00000050   EFFFFF1A           BNE      ??debugdemo_1
+    154                 return ;
+   \   00000054   1080BDE8           POP      {R4,PC}          ;; return
+   \                     ??debugdemo_3:
+   \   00000058   0D0A0000           DC8      0x0D, 0x0A, 0x00, 0x00
+   \   0000005C   ........           DC32     `?<Constant "Debug line 1\\r\\n">`
+   \   00000060   ........           DC32     `?<Constant "You have pressed key">`
+    155             }
+    156           }
+    157          }
+    158          
+    159          
+
+   \                                 In section .text, align 4, keep-with-next
+    160          void cli()
+    161          {
+   \                     cli:
+   \   00000000   00402DE9           PUSH     {LR}
+   \   00000004   2CD04DE2           SUB      SP,SP,#+44
+    162              char buffer[40];
+    163              char * out;
+    164          
+    165              textattr(LIGHTGRAY);
+   \   00000008   0700A0E3           MOV      R0,#+7
+   \   0000000C   ........           BL       textattr
+    166              
+    167              clrscr();
+   \   00000010   ........           BL       clrscr
+   \   00000014   0B0000EA           B        ??cli_0
+    168              
+    169              while (1) {
+    170                //read data
+    171                buffer[0]=40;
+    172                 
+    173                textattr(YELLOW);
+    174                _cputs("uVGA> ");
+    175                textattr(LIGHTGRAY);
+    176                out=_cgets(buffer);
+    177                
+    178                if (out != 0 && out[0] == 'q' && out[1] == 0)
+    179                  return ;
+    180                
+    181                textattr(WHITE);
+   \                     ??cli_1:
+   \   00000018   0F00A0E3           MOV      R0,#+15
+   \   0000001C   ........           BL       textattr
+    182                _cputs("\r\nUnsupported command. Only ");
+   \   00000020   74009FE5           LDR      R0,??cli_2+0x4   ;; `?<Constant "\\r\\nUnsupported command...">`
+   \   00000024   ........           BL       _cputs
+    183                textattr(LIGHTRED);
+   \   00000028   0900A0E3           MOV      R0,#+9
+   \   0000002C   ........           BL       textattr
+    184                _cputs("q");
+   \   00000030   60008FE2           ADR      R0,??cli_2       ;; "q"
+   \   00000034   ........           BL       _cputs
+    185                textattr(WHITE);
+   \   00000038   0F00A0E3           MOV      R0,#+15
+   \   0000003C   ........           BL       textattr
+    186                _cputs(" (exit) is supported.\r\n");
+   \   00000040   58009FE5           LDR      R0,??cli_2+0x8   ;; `?<Constant " (exit) is supported.\\r\\n">`
+   \   00000044   ........           BL       _cputs
+   \                     ??cli_0:
+   \   00000048   2810A0E3           MOV      R1,#+40
+   \   0000004C   0010CDE5           STRB     R1,[SP, #+0]
+   \   00000050   0B00A0E3           MOV      R0,#+11
+   \   00000054   ........           BL       textattr
+   \   00000058   44009FE5           LDR      R0,??cli_2+0xC   ;; `?<Constant "uVGA> ">`
+   \   0000005C   ........           BL       _cputs
+   \   00000060   0700A0E3           MOV      R0,#+7
+   \   00000064   ........           BL       textattr
+   \   00000068   0D00B0E1           MOVS     R0,SP
+   \   0000006C   ........           BL       _cgets
+   \   00000070   000050E3           CMP      R0,#+0
+   \   00000074   E7FFFF0A           BEQ      ??cli_1
+   \   00000078   0010D0E5           LDRB     R1,[R0, #+0]
+   \   0000007C   710051E3           CMP      R1,#+113
+   \   00000080   E4FFFF1A           BNE      ??cli_1
+   \   00000084   0100D0E5           LDRB     R0,[R0, #+1]
+   \   00000088   000050E3           CMP      R0,#+0
+   \   0000008C   E1FFFF1A           BNE      ??cli_1
+   \   00000090   2CD08DE2           ADD      SP,SP,#+44       ;; stack cleaning
+   \   00000094   0080BDE8           POP      {PC}             ;; return
+   \                     ??cli_2:
+   \   00000098   71000000           DC8      "q",+0,+0
+   \   0000009C   ........           DC32     `?<Constant "\\r\\nUnsupported command...">`
+   \   000000A0   ........           DC32     `?<Constant " (exit) is supported.\\r\\n">`
+   \   000000A4   ........           DC32     `?<Constant "uVGA> ">`
+    187              }
+    188          }
+    189          
+    190          
+
+   \                                 In section .text, align 4, keep-with-next
+    191          void speedtest(void)
+    192          {
+   \                     speedtest:
+   \   00000000   10402DE9           PUSH     {R4,LR}
+    193            unsigned int i;
+    194          
+    195            gotoxy(1,1);
+   \   00000004   0110A0E3           MOV      R1,#+1
+   \   00000008   0100A0E3           MOV      R0,#+1
+   \   0000000C   ........           BL       gotoxy
+    196            textattr(GREEN<<4 | YELLOW);
+   \   00000010   2B00A0E3           MOV      R0,#+43
+   \   00000014   ........           BL       textattr
+    197          
+    198            for (i=0;i<50000;i++) {
+   \   00000018   0040A0E3           MOV      R4,#+0
+   \   0000001C   150000EA           B        ??speedtest_0
+    199              _cputs("TEST50=>");
+   \                     ??speedtest_1:
+   \   00000020   64009FE5           LDR      R0,??speedtest_2  ;; `?<Constant "TEST50=>">`
+   \   00000024   ........           BL       _cputs
+    200              _putch(((i/10000)%10) + '0');
+   \   00000028   0400B0E1           MOVS     R0,R4
+   \   0000002C   1010A0E3           MOV      R1,#+16
+   \   00000030   9C1D81E3           ORR      R1,R1,#0x2700
+   \   00000034   ........           BL       __aeabi_uidivmod
+   \   00000038   0A10A0E3           MOV      R1,#+10
+   \   0000003C   ........           BL       __aeabi_uidivmod
+   \   00000040   300091E2           ADDS     R0,R1,#+48
+   \   00000044   FF0010E2           ANDS     R0,R0,#0xFF      ;; Zero extend
+   \   00000048   ........           BL       _putch
+    201              _putch(((i/1000)%10) + '0');
+   \   0000004C   0400B0E1           MOVS     R0,R4
+   \   00000050   FA1FA0E3           MOV      R1,#+1000
+   \   00000054   ........           BL       __aeabi_uidivmod
+   \   00000058   0A10A0E3           MOV      R1,#+10
+   \   0000005C   ........           BL       __aeabi_uidivmod
+   \   00000060   300091E2           ADDS     R0,R1,#+48
+   \   00000064   FF0010E2           ANDS     R0,R0,#0xFF      ;; Zero extend
+   \   00000068   ........           BL       _putch
+    202          	_cputs("\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08");
+   \   0000006C   1C009FE5           LDR      R0,??speedtest_2+0x4  ;; `?<Constant "\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b">`
+   \   00000070   ........           BL       _cputs
+    203            }
+   \   00000074   014094E2           ADDS     R4,R4,#+1
+   \                     ??speedtest_0:
+   \   00000078   5000A0E3           MOV      R0,#+80
+   \   0000007C   C30C80E3           ORR      R0,R0,#0xC300
+   \   00000080   000054E1           CMP      R4,R0
+   \   00000084   E5FFFF3A           BCC      ??speedtest_1
+    204          }
+   \   00000088   1080BDE8           POP      {R4,PC}          ;; return
+   \                     ??speedtest_2:
+   \   0000008C   ........           DC32     `?<Constant "TEST50=>">`
+   \   00000090   ........           DC32     `?<Constant "\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b">`
+    205          
+
+   \                                 In section .text, align 4, keep-with-next
+    206          void submenutest()
+    207          {
+   \                     submenutest:
+   \   00000000   00502DE9           PUSH     {R12,LR}
+    208          int item;
+    209          
+    210           item = 0;
+   \   00000004   0030A0E3           MOV      R3,#+0
+   \   00000008   FFFFFFEA           B        ??submenutest_0
+    211          
+    212           while (1) {
+    213          
+    214          	item = runmenu(8,10, submenu1, item);
+   \                     ??submenutest_1:
+   \                     ??submenutest_0:
+   \   0000000C   18209FE5           LDR      R2,??submenutest_2  ;; submenu1
+   \   00000010   0A10A0E3           MOV      R1,#+10
+   \   00000014   0800A0E3           MOV      R0,#+8
+   \   00000018   ........           BL       runmenu
+   \   0000001C   0030B0E1           MOVS     R3,R0
+    215          	switch (item) {
+   \   00000020   000053E3           CMP      R3,#+0
+   \   00000024   F8FFFF1A           BNE      ??submenutest_1
+    216          		case 0: return ;
+   \   00000028   0180BDE8           POP      {R0,PC}          ;; return
+   \                     ??submenutest_2:
+   \   0000002C   ........           DC32     submenu1
+    217          	}
+    218           }
+    219          }
+    220          
+    221          
+
+   \                                 In section .text, align 4, keep-with-next
+    222          void ascii_art()
+    223          {
+   \                     ascii_art:
+   \   00000000   00502DE9           PUSH     {R12,LR}
+    224          	 textattr(LIGHTGRAY);
+   \   00000004   0700A0E3           MOV      R0,#+7
+   \   00000008   ........           BL       textattr
+    225          	 clrscr();
+   \   0000000C   ........           BL       clrscr
+    226          	_cputs((const char *)ascii_art_str);
+   \   00000010   10009FE5           LDR      R0,??ascii_art_0  ;; ascii_art_str
+   \   00000014   ........           BL       _cputs
+    227          	
+    228          	 while (_getch() != KB_ESC);
+   \                     ??ascii_art_1:
+   \   00000018   ........           BL       _getch
+   \   0000001C   1B0050E3           CMP      R0,#+27
+   \   00000020   FCFFFF1A           BNE      ??ascii_art_1
+    229          }
+   \   00000024   0180BDE8           POP      {R0,PC}          ;; return
+   \                     ??ascii_art_0:
+   \   00000028   ........           DC32     ascii_art_str
+    230          
+
+   \                                 In section .text, align 4, keep-with-next
+    231          void testCGetS()
+    232          {
+   \                     testCGetS:
+   \   00000000   10402DE9           PUSH     {R4,LR}
+   \   00000004   28D04DE2           SUB      SP,SP,#+40
+    233                  char buffer[40];
+    234                  char * out;
+    235                  int i;
+    236                       
+    237                  //draw input dialog (frame)
+    238                  drawframe(10, 10, 40, 9, WHITE  | RED <<4);
+   \   00000008   1F00A0E3           MOV      R0,#+31
+   \   0000000C   08002DE5           STR      R0,[SP, #-8]!
+   \   00000010   0930A0E3           MOV      R3,#+9
+   \   00000014   2820A0E3           MOV      R2,#+40
+   \   00000018   0A10A0E3           MOV      R1,#+10
+   \   0000001C   0A00A0E3           MOV      R0,#+10
+   \   00000020   ........           BL       drawframe
+   \   00000024   08D08DE2           ADD      SP,SP,#+8        ;; stack cleaning
+    239                  gotoxy(12,12);
+   \   00000028   0C10A0E3           MOV      R1,#+12
+   \   0000002C   0C00A0E3           MOV      R0,#+12
+   \   00000030   ........           BL       gotoxy
+    240                  _cputs("Enter your name:");       
+   \   00000034   D4009FE5           LDR      R0,??testCGetS_0  ;; `?<Constant "Enter your name:">`
+   \   00000038   ........           BL       _cputs
+    241                  gotoxy(12,14);
+   \   0000003C   0E10A0E3           MOV      R1,#+14
+   \   00000040   0C00A0E3           MOV      R0,#+12
+   \   00000044   ........           BL       gotoxy
+    242                  textattr(WHITE  | BLACK <<4);
+   \   00000048   0F00A0E3           MOV      R0,#+15
+   \   0000004C   ........           BL       textattr
+    243                  for (i=0;i<40;i++)
+   \   00000050   0040A0E3           MOV      R4,#+0
+   \   00000054   020000EA           B        ??testCGetS_1
+    244                    _putch(' ');
+   \                     ??testCGetS_2:
+   \   00000058   2000A0E3           MOV      R0,#+32
+   \   0000005C   ........           BL       _putch
+   \   00000060   014094E2           ADDS     R4,R4,#+1
+   \                     ??testCGetS_1:
+   \   00000064   280054E3           CMP      R4,#+40
+   \   00000068   FAFFFFBA           BLT      ??testCGetS_2
+    245                  
+    246                  //read data
+    247                  gotoxy(12,14);
+   \   0000006C   0E10A0E3           MOV      R1,#+14
+   \   00000070   0C00A0E3           MOV      R0,#+12
+   \   00000074   ........           BL       gotoxy
+    248                  buffer[0]=40;
+   \   00000078   2810A0E3           MOV      R1,#+40
+   \   0000007C   0010CDE5           STRB     R1,[SP, #+0]
+    249                   
+    250                  out=_cgets(buffer);
+   \   00000080   0D00B0E1           MOVS     R0,SP
+   \   00000084   ........           BL       _cgets
+   \   00000088   0040B0E1           MOVS     R4,R0
+    251                  
+    252                  //write read data
+    253                  gotoxy(12,16);
+   \   0000008C   1010A0E3           MOV      R1,#+16
+   \   00000090   0C00A0E3           MOV      R0,#+12
+   \   00000094   ........           BL       gotoxy
+    254                  if (buffer[1]==0)
+   \   00000098   0100DDE5           LDRB     R0,[SP, #+1]
+   \   0000009C   000050E3           CMP      R0,#+0
+   \   000000A0   0400001A           BNE      ??testCGetS_3
+    255                  {
+    256                       textattr((WHITE | RED <<4)|BLINK);
+   \   000000A4   9F00A0E3           MOV      R0,#+159
+   \   000000A8   ........           BL       textattr
+    257                      _cputs("You didn't enter your name!");
+   \   000000AC   60009FE5           LDR      R0,??testCGetS_0+0x4  ;; `?<Constant "You didn\\'t enter your...">`
+   \   000000B0   ........           BL       _cputs
+   \   000000B4   080000EA           B        ??testCGetS_4
+    258                  }
+    259                  else
+    260                  {
+    261                       textattr((WHITE | RED <<4));
+   \                     ??testCGetS_3:
+   \   000000B8   1F00A0E3           MOV      R0,#+31
+   \   000000BC   ........           BL       textattr
+    262                      _cputs("Your name is:\n");
+   \   000000C0   50009FE5           LDR      R0,??testCGetS_0+0x8  ;; `?<Constant "Your name is:\\n">`
+   \   000000C4   ........           BL       _cputs
+    263                      gotoxy(12,17);
+   \   000000C8   1110A0E3           MOV      R1,#+17
+   \   000000CC   0C00A0E3           MOV      R0,#+12
+   \   000000D0   ........           BL       gotoxy
+    264                      _cputs(out);
+   \   000000D4   0400B0E1           MOVS     R0,R4
+   \   000000D8   ........           BL       _cputs
+    265                  }
+    266                  cursoroff();
+   \                     ??testCGetS_4:
+   \   000000DC   ........           BL       cursoroff
+    267          
+    268                  gotoxy(23,19);
+   \   000000E0   1310A0E3           MOV      R1,#+19
+   \   000000E4   1700A0E3           MOV      R0,#+23
+   \   000000E8   ........           BL       gotoxy
+    269                  textattr((WHITE | RED <<4)|BLINK);
+   \   000000EC   9F00A0E3           MOV      R0,#+159
+   \   000000F0   ........           BL       textattr
+    270                  _cputs("PRESS ESC TO EXIT");
+   \   000000F4   20009FE5           LDR      R0,??testCGetS_0+0xC  ;; `?<Constant "PRESS ESC TO EXIT">`
+   \   000000F8   ........           BL       _cputs
+    271                  
+    272                  //wait for ESC press
+    273                  while (_getch() != KB_ESC);
+   \                     ??testCGetS_5:
+   \   000000FC   ........           BL       _getch
+   \   00000100   1B0050E3           CMP      R0,#+27
+   \   00000104   FCFFFF1A           BNE      ??testCGetS_5
+    274          }
+   \   00000108   28D08DE2           ADD      SP,SP,#+40       ;; stack cleaning
+   \   0000010C   1080BDE8           POP      {R4,PC}          ;; return
+   \                     ??testCGetS_0:
+   \   00000110   ........           DC32     `?<Constant "Enter your name:">`
+   \   00000114   ........           DC32     `?<Constant "You didn\\'t enter your...">`
+   \   00000118   ........           DC32     `?<Constant "Your name is:\\n">`
+   \   0000011C   ........           DC32     `?<Constant "PRESS ESC TO EXIT">`
+    275          
+
+   \                                 In section .data, align 4
+    276          static const char *uvga_logo=
+   \                     uvga_logo:
+   \   00000000   ........           DC32 `?<Constant "        ##    ##   ##...">`
+    277          "        ##    ##   ####     #   "
+    278          "        ##    ##  ##  ##   ###  "
+    279          "        ##    ## ##    #  ## ## "
+    280          " ##  ## ##    ## ##      ##   ##"
+    281          " ##  ## ##    ## ##      ##   ##"
+    282          " ##  ## ##    ## ## #### #######"
+    283          " ##  ## ##    ## ##   ## ##   ##"
+    284          " ##  ##  ##  ##  ##   ## ##   ##"
+    285          " #####    ####    ##  ## ##   ##"
+    286          " ##        ##      ### # ##   ##"
+    287          " ##    MicroVGA demo application"
+    288          "##                              "
+    289          "www.MicroVGA.com, www.secons.com";
+    290          
+    291          
+
+   \                                 In section .text, align 4, keep-with-next
+    292          void main()
+    293          {
+   \                     main:
+   \   00000000   70402DE9           PUSH     {R4-R6,LR}
+    294           int i,j;
+    295          
+    296          
+    297          //////////// tady je hlavni main
+    298          
+    299           MCU_Init();
+   \   00000004   ........           BL       MCU_Init
+    300          
+    301           int item;
+    302          
+    303           item = 0;
+   \   00000008   0040A0E3           MOV      R4,#+0
+   \   0000000C   000000EA           B        ??main_1
+    304          
+    305           while (1) {
+    306          	
+    307          	 textbackground(BLUE);
+    308          	 clrscr();
+    309          	 textcolor(BLACK);
+    310          	 textbackground(CYAN);
+    311          	 _cputs("MicroVGA demo app");
+    312          	 clreol();
+    313          	 textbackground(BLUE);
+    314          	 textcolor(GREEN);
+    315          
+    316          	 // draw "logo"
+    317               for (i=0;i<13;i++) {
+    318          	    gotoxy(46,12+i);
+    319          	     for (j=0;j<32;j++) {
+    320          	        if (uvga_logo[i*32+ j] == '#')
+    321          	           _putch(219); 
+    322          	        else _putch(uvga_logo[i*32+ j]);
+    323          	     }
+    324          	 }
+    325          
+    326          
+    327          
+    328          	item = runmenu(5,5, mainmenu, item);
+    329          	switch (item) {
+    330          	  case 1:  memviewer(0); break;
+    331          	  case 2:  debugdemo(); break;
+    332          	  case 3:  speedtest(); break;
+    333          	  case 4:  submenutest(); break;
+    334          	  case 5:  cli(); break;
+    335          	  case 6:  ascii_art(); break;
+    336                    case 7:  testCGetS(); break;
+   \                     ??main_2:
+   \   00000010   ........           BL       testCGetS
+   \                     ??main_3:
+   \                     ??main_4:
+   \                     ??main_1:
+   \   00000014   0400A0E3           MOV      R0,#+4
+   \   00000018   ........           BL       textbackground
+   \   0000001C   ........           BL       clrscr
+   \   00000020   0000A0E3           MOV      R0,#+0
+   \   00000024   ........           BL       textcolor
+   \   00000028   0600A0E3           MOV      R0,#+6
+   \   0000002C   ........           BL       textbackground
+   \   00000030   00019FE5           LDR      R0,??main_5      ;; `?<Constant "MicroVGA demo app">`
+   \   00000034   ........           BL       _cputs
+   \   00000038   ........           BL       clreol
+   \   0000003C   0400A0E3           MOV      R0,#+4
+   \   00000040   ........           BL       textbackground
+   \   00000044   0200A0E3           MOV      R0,#+2
+   \   00000048   ........           BL       textcolor
+   \   0000004C   0050A0E3           MOV      R5,#+0
+   \   00000050   000000EA           B        ??main_6
+   \                     ??main_7:
+   \   00000054   015095E2           ADDS     R5,R5,#+1
+   \                     ??main_6:
+   \   00000058   0D0055E3           CMP      R5,#+13
+   \   0000005C   190000AA           BGE      ??main_8
+   \   00000060   0500B0E1           MOVS     R0,R5
+   \   00000064   0C1090E2           ADDS     R1,R0,#+12
+   \   00000068   FF1011E2           ANDS     R1,R1,#0xFF      ;; Zero extend
+   \   0000006C   2E00A0E3           MOV      R0,#+46
+   \   00000070   ........           BL       gotoxy
+   \   00000074   0060A0E3           MOV      R6,#+0
+   \   00000078   060000EA           B        ??main_9
+   \                     ??main_10:
+   \   0000007C   2000A0E3           MOV      R0,#+32
+   \   00000080   906521E0           MLA      R1,R0,R5,R6
+   \   00000084   B0009FE5           LDR      R0,??main_5+0x4  ;; uvga_logo
+   \   00000088   000090E5           LDR      R0,[R0, #+0]
+   \   0000008C   0000D1E7           LDRB     R0,[R1, +R0]
+   \   00000090   ........           BL       _putch
+   \                     ??main_11:
+   \   00000094   016096E2           ADDS     R6,R6,#+1
+   \                     ??main_9:
+   \   00000098   200056E3           CMP      R6,#+32
+   \   0000009C   ECFFFFAA           BGE      ??main_7
+   \   000000A0   2000A0E3           MOV      R0,#+32
+   \   000000A4   906521E0           MLA      R1,R0,R5,R6
+   \   000000A8   8C009FE5           LDR      R0,??main_5+0x4  ;; uvga_logo
+   \   000000AC   000090E5           LDR      R0,[R0, #+0]
+   \   000000B0   0000D1E7           LDRB     R0,[R1, +R0]
+   \   000000B4   230050E3           CMP      R0,#+35
+   \   000000B8   EFFFFF1A           BNE      ??main_10
+   \   000000BC   DB00A0E3           MOV      R0,#+219
+   \   000000C0   ........           BL       _putch
+   \   000000C4   F2FFFFEA           B        ??main_11
+   \                     ??main_8:
+   \   000000C8   0430B0E1           MOVS     R3,R4
+   \   000000CC   6C209FE5           LDR      R2,??main_5+0x8  ;; mainmenu
+   \   000000D0   0510A0E3           MOV      R1,#+5
+   \   000000D4   0500A0E3           MOV      R0,#+5
+   \   000000D8   ........           BL       runmenu
+   \   000000DC   0040B0E1           MOVS     R4,R0
+   \   000000E0   0400B0E1           MOVS     R0,R4
+   \   000000E4   010040E2           SUB      R0,R0,#+1
+   \   000000E8   060050E3           CMP      R0,#+6
+   \   000000EC   C8FFFF8A           BHI      ??main_4
+   \   000000F0   04108FE2           ADR      R1,??main_0
+   \   000000F4   D01091E1           LDRSB    R1,[R1, R0]
+   \   000000F8   01F18FE0           ADD      PC,PC,R1, LSL #+2
+   \                     ??main_0:
+   \   000000FC   01040608           DC8      +1,+4,+6,+8
+   \   00000100   0A0CC400           DC8      +10,+12,+196,+0
+   \                     ??main_12:
+   \   00000104   0000A0E3           MOV      R0,#+0
+   \   00000108   ........           BL       memviewer
+   \   0000010C   C0FFFFEA           B        ??main_3
+   \                     ??main_13:
+   \   00000110   ........           BL       debugdemo
+   \   00000114   BEFFFFEA           B        ??main_3
+   \                     ??main_14:
+   \   00000118   ........           BL       speedtest
+   \   0000011C   BCFFFFEA           B        ??main_3
+   \                     ??main_15:
+   \   00000120   ........           BL       submenutest
+   \   00000124   BAFFFFEA           B        ??main_3
+   \                     ??main_16:
+   \   00000128   ........           BL       cli
+   \   0000012C   B8FFFFEA           B        ??main_3
+   \                     ??main_17:
+   \   00000130   ........           BL       ascii_art
+   \   00000134   B6FFFFEA           B        ??main_3
+   \                     ??main_5:
+   \   00000138   ........           DC32     `?<Constant "MicroVGA demo app">`
+   \   0000013C   ........           DC32     uvga_logo
+   \   00000140   ........           DC32     mainmenu
+    337          	}
+    338           }
+    339          }
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Help">`:
+   \   00000000   48656C7000         DC8 "Help"
+   \   00000005   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "DynMem">`:
+   \   00000000   44796E4D656D       DC8 "DynMem"
+   \              00          
+   \   00000007   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Quit">`:
+   \   00000000   5175697400         DC8 "Quit"
+   \   00000005   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Memory viewer">`:
+   \   00000000   4D656D6F7279       DC8 "Memory viewer"
+   \              207669657765
+   \              7200        
+   \   0000000E   0000               DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Console debug demo">`:
+   \   00000000   436F6E736F6C       DC8 "Console debug demo"
+   \              652064656275
+   \              672064656D6F
+   \              00          
+   \   00000013   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Speed test">`:
+   \   00000000   537065656420       DC8 "Speed test"
+   \              7465737400  
+   \   0000000B   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Test sub menu">`:
+   \   00000000   546573742073       DC8 "Test sub menu"
+   \              7562206D656E
+   \              7500        
+   \   0000000E   0000               DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Command line interface">`:
+   \   00000000   436F6D6D616E       DC8 "Command line interface"
+   \              64206C696E65
+   \              20696E746572
+   \              6661636500  
+   \   00000017   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "ASCII-Art test">`:
+   \   00000000   41534349492D       DC8 "ASCII-Art test"
+   \              417274207465
+   \              737400      
+   \   0000000F   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Input dialog test">`:
+   \   00000000   496E70757420       DC8 "Input dialog test"
+   \              6469616C6F67
+   \              207465737400
+   \   00000012   0000               DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Menu item number 1">`:
+   \   00000000   4D656E752069       DC8 "Menu item number 1"
+   \              74656D206E75
+   \              6D6265722031
+   \              00          
+   \   00000013   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Menu item number 2">`:
+   \   00000000   4D656E752069       DC8 "Menu item number 2"
+   \              74656D206E75
+   \              6D6265722032
+   \              00          
+   \   00000013   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Some other menu">`:
+   \   00000000   536F6D65206F       DC8 "Some other menu"
+   \              74686572206D
+   \              656E7500    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "And finally last menu...">`:
+   \   00000000   416E64206669       DC8 "And finally last menu item"
+   \              6E616C6C7920
+   \              6C617374206D
+   \              656E75206974
+   \              656D00      
+   \   0000001B   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "        ##    ##   ##...">`:
+   \   00000000   202020202020       DC8 20H, 20H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000008   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000010   202020232323       DC8 20H, 20H, 20H, 23H, 23H, 23H, 23H, 20H
+   \              2320        
+   \   00000018   202020202320       DC8 20H, 20H, 20H, 20H, 23H, 20H, 20H, 20H
+   \              2020        
+   \   00000020   202020202020       DC8 20H, 20H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000028   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000030   202023232020       DC8 20H, 20H, 23H, 23H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000038   202020232323       DC8 20H, 20H, 20H, 23H, 23H, 23H, 20H, 20H
+   \              2020        
+   \   00000040   202020202020       DC8 20H, 20H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000048   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000050   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 20H, 23H
+   \              2023        
+   \   00000058   202023232023       DC8 20H, 20H, 23H, 23H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   00000060   202323202023       DC8 20H, 23H, 23H, 20H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   00000068   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000070   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000078   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000080   202323202023       DC8 20H, 23H, 23H, 20H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   00000088   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000090   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000098   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   000000A0   202323202023       DC8 20H, 23H, 23H, 20H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   000000A8   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   000000B0   202323202323       DC8 20H, 23H, 23H, 20H, 23H, 23H, 23H, 23H
+   \              2323        
+   \   000000B8   202323232323       DC8 20H, 23H, 23H, 23H, 23H, 23H, 23H, 23H
+   \              2323        
+   \   000000C0   202323202023       DC8 20H, 23H, 23H, 20H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   000000C8   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   000000D0   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   000000D8   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   000000E0   202323202023       DC8 20H, 23H, 23H, 20H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   000000E8   202323202023       DC8 20H, 23H, 23H, 20H, 20H, 23H, 23H, 20H
+   \              2320        
+   \   000000F0   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   000000F8   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000100   202323232323       DC8 20H, 23H, 23H, 23H, 23H, 23H, 20H, 20H
+   \              2020        
+   \   00000108   202023232323       DC8 20H, 20H, 23H, 23H, 23H, 23H, 20H, 20H
+   \              2020        
+   \   00000110   202023232020       DC8 20H, 20H, 23H, 23H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000118   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000120   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000128   202020232320       DC8 20H, 20H, 20H, 23H, 23H, 20H, 20H, 20H
+   \              2020        
+   \   00000130   202020232323       DC8 20H, 20H, 20H, 23H, 23H, 23H, 20H, 23H
+   \              2023        
+   \   00000138   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 23H, 23H
+   \              2323        
+   \   00000140   202323202020       DC8 20H, 23H, 23H, 20H, 20H, 20H, 20H, 4DH
+   \              204D        
+   \   00000148   6963726F5647       DC8 69H, 63H, 72H, 6FH, 56H, 47H, 41H, 20H
+   \              4120        
+   \   00000150   64656D6F2061       DC8 64H, 65H, 6DH, 6FH, 20H, 61H, 70H, 70H
+   \              7070        
+   \   00000158   6C6963617469       DC8 6CH, 69H, 63H, 61H, 74H, 69H, 6FH, 6EH
+   \              6F6E        
+   \   00000160   232320202020       DC8 23H, 23H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000168   202020202020       DC8 20H, 20H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000170   202020202020       DC8 20H, 20H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000178   202020202020       DC8 20H, 20H, 20H, 20H, 20H, 20H, 20H, 20H
+   \              2020        
+   \   00000180   7777772E4D69       DC8 77H, 77H, 77H, 2EH, 4DH, 69H, 63H, 72H
+   \              6372        
+   \   00000188   6F5647412E63       DC8 6FH, 56H, 47H, 41H, 2EH, 63H, 6FH, 6DH
+   \              6F6D        
+   \   00000190   2C207777772E       DC8 2CH, 20H, 77H, 77H, 77H, 2EH, 73H, 65H
+   \              7365        
+   \   00000198   636F6E732E63       DC8 63H, 6FH, 6EH, 73H, 2EH, 63H, 6FH, 6DH
+   \              6F6D        
+   \   000001A0   00                 DC8 0
+   \   000001A1   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 4
+   \   00000000   3A202000           DC8 ":  "
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Debug line 1\\r\\n">`:
+   \   00000000   446562756720       DC8 "Debug line 1\015\012"
+   \              6C696E652031
+   \              0D0A00      
+   \   0000000F   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "You have pressed key">`:
+   \   00000000   596F75206861       DC8 "You have pressed key"
+   \              766520707265
+   \              73736564206B
+   \              657900      
+   \   00000015   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 4
+   \   00000000   0D0A00             DC8 "\015\012"
+   \   00000003   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "uVGA> ">`:
+   \   00000000   755647413E20       DC8 "uVGA> "
+   \              00          
+   \   00000007   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\r\\nUnsupported command...">`:
+   \   00000000   0D0A556E7375       DC8 "\015\012Unsupported command. Only "
+   \              70706F727465
+   \              6420636F6D6D
+   \              616E642E204F
+   \              6E6C792000  
+   \   0000001D   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 2
+   \   00000000   7100               DC8 "q"
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant " (exit) is supported.\\r\\n">`:
+   \   00000000   202865786974       DC8 " (exit) is supported.\015\012"
+   \              292069732073
+   \              7570706F7274
+   \              65642E0D0A00
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "TEST50=>">`:
+   \   00000000   544553543530       DC8 "TEST50=>"
+   \              3D3E00      
+   \   00000009   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b">`:
+   \   00000000   080808080808       DC8 "\010\010\010\010\010\010\010\010\010\010"
+   \              0808080800  
+   \   0000000B   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Enter your name:">`:
+   \   00000000   456E74657220       DC8 "Enter your name:"
+   \              796F7572206E
+   \              616D653A00  
+   \   00000011   000000             DC8 0, 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "You didn\\'t enter your...">`:
+   \   00000000   596F75206469       DC8 "You didn't enter your name!"
+   \              646E27742065
+   \              6E7465722079
+   \              6F7572206E61
+   \              6D652100    
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "Your name is:\\n">`:
+   \   00000000   596F7572206E       DC8 "Your name is:\012"
+   \              616D65206973
+   \              3A0A00      
+   \   0000000F   00                 DC8 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "PRESS ESC TO EXIT">`:
+   \   00000000   505245535320       DC8 "PRESS ESC TO EXIT"
+   \              45534320544F
+   \              204558495400
+   \   00000012   0000               DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant "MicroVGA demo app">`:
+   \   00000000   4D6963726F56       DC8 "MicroVGA demo app"
+   \              47412064656D
+   \              6F2061707000
+   \   00000012   0000               DC8 0, 0
+
+   Maximum stack usage in bytes:
+
+     Function    .cstack
+     --------    -------
+     ascii_art        8
+     cli             48
+     debugdemo        8
+     drawmem         24
+     main            16
+     memviewer        8
+     speedtest        8
+     submenutest      8
+     testCGetS       56
+
+
+   Section sizes:
+
+     Function/Label                           Bytes
+     --------------                           -----
+     ascii_art_str                            4840
+     memview_fkeys                              40
+     mainmenu                                   32
+     submenu1                                   20
+     hexchars                                   16
+     drawmem                                   336
+     memviewer                                 260
+     debugdemo                                 100
+     cli                                       168
+     speedtest                                 148
+     submenutest                                48
+     ascii_art                                  44
+     testCGetS                                 288
+     uvga_logo                                   4
+     main                                      324
+     ?<Constant "Help">                          8
+     ?<Constant "DynMem">                        8
+     ?<Constant "Quit">                          8
+     ?<Constant "Memory viewer">                16
+     ?<Constant "Console debug demo">           20
+     ?<Constant "Speed test">                   12
+     ?<Constant "Test sub menu">                16
+     ?<Constant "Command line interface">       24
+     ?<Constant "ASCII-Art test">               16
+     ?<Constant "Input dialog test">            20
+     ?<Constant "Menu item number 1">           20
+     ?<Constant "Menu item number 2">           20
+     ?<Constant "Some other menu">              16
+     ?<Constant "And finally last menu...">     28
+     ?<Constant "        ##    ##   ##...">    420
+     ?<Constant ":  ">                           4
+     ?<Constant "Debug line 1\r\n">             16
+     ?<Constant "You have pressed key">         24
+     ?<Constant "\r\n">                          4
+     ?<Constant "uVGA> ">                        8
+     ?<Constant "\r\nUnsupported command...">   32
+     ?<Constant "q">                             2
+     ?<Constant " (exit) is supported.\r\n">    24
+     ?<Constant "TEST50=>">                     12
+     ?<Constant "\b\b\b\b\b\b\b\b\b\b">         12
+     ?<Constant "Enter your name:">             20
+     ?<Constant "You didn\'t enter your...">    28
+     ?<Constant "Your name is:\n">              16
+     ?<Constant "PRESS ESC TO EXIT">            20
+     ?<Constant "MicroVGA demo app">            20
+
+ 
+    96 bytes in section .data
+ 5 750 bytes in section .rodata
+ 1 716 bytes in section .text
+ 
+ 1 716 bytes of CODE  memory
+ 5 750 bytes of CONST memory
+    96 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>nec_uVGA/Debug</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace><ColumnWidths><Column0>123</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths></Workspace>
+      <Build><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1003</ColumnWidth1><ColumnWidth2>267</ColumnWidth2><ColumnWidth3>66</ColumnWidth3></Build>
+    </Static>
+    <Windows>
+      
+      
+    <Wnd2>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-30570-19859</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              <ColumnWidths>
+                
+                
+                
+              <Column0>190</Column0><Column1>27</Column1><Column2>27</Column2></ColumnWidths>
+              
+            <NodeDict><ExpandedNode>nec_uVGA</ExpandedNode><ExpandedNode>nec_uVGA/hw_78k0s.c</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-542-20627</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session>
+              
+              
+              
+              
+            <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1003</ColumnWidth1><ColumnWidth2>267</ColumnWidth2><ColumnWidth3>66</ColumnWidth3></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>C:\projekty\microvga\uVGALib\nec78k0s_iar\hw_78k0s.c</Filename><XPos>0</XPos><YPos>135</YPos><SelStart>5230</SelStart><SelEnd>5230</SelEnd></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-003ae730><key>iaridepm1</key></Toolbar-003ae730></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>724</Bottom><Right>264</Right><x>-2</x><y>-2</y><xscreen>199</xscreen><yscreen>199</yscreen><sizeHorzCX>142142</sizeHorzCX><sizeHorzCY>205578</sizeHorzCY><sizeVertCX>190000</sizeVertCX><sizeVertCY>750000</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>197</Bottom><Right>1402</Right><x>-2</x><y>-2</y><xscreen>1404</xscreen><yscreen>199</yscreen><sizeHorzCX>1002857</sizeHorzCX><sizeHorzCY>205578</sizeHorzCY><sizeVertCX>142142</sizeVertCX><sizeVertCY>205578</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

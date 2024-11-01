@@ -1,0 +1,169 @@
+###############################################################################
+#                                                                             #
+#                                                       01/Apr/2009  17:06:09 #
+# IAR ANSI C/C++ Compiler V5.30.0.31174/W32 KICKSTART for ARM                 #
+# Copyright 1999-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  arm                                                      #
+#    Endian       =  little                                                   #
+#    Source file  =  c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_ #
+#                    apb.c                                                    #
+#    Command line =  c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_ #
+#                    apb.c -lCN c:\projekty\microvga\uVGALib\str712_iar\debug #
+#                    \List\ -o c:\projekty\microvga\uVGALib\str712_iar\debug\ #
+#                    Obj\ --no_cse --no_unroll --no_inline --no_code_motion   #
+#                    --no_tbaa --no_clustering --no_scheduling --debug        #
+#                    --endian=little --cpu=ARM7TDMI -e --fpu=None             #
+#                    --dlib_config "C:\Program Files\IAR Systems\Embedded     #
+#                    Workbench 5.4 Kickstart\arm\INC\DLib_Config_Normal.h"    #
+#                    -I c:\projekty\microvga\uVGALib\str712_iar\include\ -I   #
+#                    c:\projekty\microvga\uVGALib\str712_iar\library\inc\ -I  #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench 5.4     #
+#                    Kickstart\arm\INC\" --cpu_mode arm -Ol                   #
+#    List file    =  c:\projekty\microvga\uVGALib\str712_iar\debug\List\71x_a #
+#                    pb.lst                                                   #
+#    Object file  =  c:\projekty\microvga\uVGALib\str712_iar\debug\Obj\71x_ap #
+#                    b.o                                                      #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_apb.c
+      1          /******************** (C) COPYRIGHT 2007 STMicroelectronics ********************
+      2          * File Name          : 71x_apb.c
+      3          * Author             : MCD Application Team
+      4          * Version            : V4.0
+      5          * Date               : 10/09/2007
+      6          * Description        : This file provides all the APB firmware functions.
+      7          ********************************************************************************
+      8          * THE PRESENT SOFTWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+      9          * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+     10          * AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+     11          * INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+     12          * CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+     13          * INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+     14          *******************************************************************************/
+     15          
+     16          /* Includes ------------------------------------------------------------------*/
+     17          #include "71x_apb.h"
+     18          
+     19          /* Private typedef -----------------------------------------------------------*/
+     20          /* Private define ------------------------------------------------------------*/
+     21          /* Private macro -------------------------------------------------------------*/
+     22          /* Private variables ---------------------------------------------------------*/
+     23          /* Private function prototypes -----------------------------------------------*/
+     24          /* Private functions ---------------------------------------------------------*/
+     25          
+     26          /*******************************************************************************
+     27          * Function Name  : APB_ClockConfig
+     28          * Description    : Enables/Disables the peripheral clock gating on the specified
+     29          *                  APB bridge.
+     30          * Input          : APBx: selects the APB bridge (APB1 or APB2)
+     31          *                  NewState:
+     32          *                  ENABLE : The peripheral clock is running
+     33          *                  DISABLE : The peripheral clock is stopped
+     34          *                  Periph: specifies the APB bridge peripheral. 
+     35          * Output         : None.                    
+     36          * Return         : None.
+     37          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     38          void APB_ClockConfig (APB_TypeDef *APBx, FunctionalState NewState,
+     39                                u16 Periph)
+     40          {
+     41            if (NewState == ENABLE)
+   \                     APB_ClockConfig:
+   \   00000000   FF1011E2           ANDS     R1,R1,#0xFF      ;; Zero extend
+   \   00000004   010051E3           CMP      R1,#+1
+   \   00000008   0500001A           BNE      ??APB_ClockConfig_0
+     42            {
+     43              APBx->CKDIS &= ~Periph;
+   \   0000000C   001090E5           LDR      R1,[R0, #+0]
+   \   00000010   0228A0E1           MOV      R2,R2, LSL #+16
+   \   00000014   2228B0E1           MOVS     R2,R2, LSR #+16
+   \   00000018   0210D1E1           BICS     R1,R1,R2
+   \   0000001C   001080E5           STR      R1,[R0, #+0]
+   \   00000020   040000EA           B        ??APB_ClockConfig_1
+     44            }
+     45            else
+     46            {
+     47              APBx->CKDIS |= Periph;
+   \                     ??APB_ClockConfig_0:
+   \   00000024   001090E5           LDR      R1,[R0, #+0]
+   \   00000028   0228A0E1           MOV      R2,R2, LSL #+16
+   \   0000002C   2228B0E1           MOVS     R2,R2, LSR #+16
+   \   00000030   011092E1           ORRS     R1,R2,R1
+   \   00000034   001080E5           STR      R1,[R0, #+0]
+     48            }
+     49          }
+   \                     ??APB_ClockConfig_1:
+   \   00000038   1EFF2FE1           BX       LR               ;; return
+     50          
+     51          /*******************************************************************************
+     52          * Function Name  : APB_SwResetConfig
+     53          * Description    : Enables/disables the software reset for peripherals on the 
+     54                             specified APB bridge.
+     55          * Input          : APBx: selects the APB bridge (APB1 or APB2)
+     56          *                  ENABLE : The peripheral is kept under reset
+     57          *                  DISABLE : The peripheral is reset by the system-wide reset
+     58          *                  Periph: specifies the APB bridge peripheral. 
+     59          * Output         : None.
+     60          * Return         : None.
+     61          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     62          void APB_SwResetConfig (APB_TypeDef *APBx, FunctionalState NewState,
+     63                                  u16 Periph)
+     64          {
+     65            if (NewState == ENABLE)
+   \                     APB_SwResetConfig:
+   \   00000000   FF1011E2           ANDS     R1,R1,#0xFF      ;; Zero extend
+   \   00000004   010051E3           CMP      R1,#+1
+   \   00000008   0500001A           BNE      ??APB_SwResetConfig_0
+     66            {
+     67              APBx->SWRES |= Periph;
+   \   0000000C   041090E5           LDR      R1,[R0, #+4]
+   \   00000010   0228A0E1           MOV      R2,R2, LSL #+16
+   \   00000014   2228B0E1           MOVS     R2,R2, LSR #+16
+   \   00000018   011092E1           ORRS     R1,R2,R1
+   \   0000001C   041080E5           STR      R1,[R0, #+4]
+   \   00000020   040000EA           B        ??APB_SwResetConfig_1
+     68            }
+     69            else
+     70            {
+     71              APBx->SWRES &= ~Periph;
+   \                     ??APB_SwResetConfig_0:
+   \   00000024   041090E5           LDR      R1,[R0, #+4]
+   \   00000028   0228A0E1           MOV      R2,R2, LSL #+16
+   \   0000002C   2228B0E1           MOVS     R2,R2, LSR #+16
+   \   00000030   0210D1E1           BICS     R1,R1,R2
+   \   00000034   041080E5           STR      R1,[R0, #+4]
+     72            }
+     73          }
+   \                     ??APB_SwResetConfig_1:
+   \   00000038   1EFF2FE1           BX       LR               ;; return
+     74          
+     75          /******************* (C) COPYRIGHT 2007 STMicroelectronics *****END OF FILE****/
+
+   Maximum stack usage in bytes:
+
+     Function          .cstack
+     --------          -------
+     APB_ClockConfig        0
+     APB_SwResetConfig      0
+
+
+   Section sizes:
+
+     Function/Label    Bytes
+     --------------    -----
+     APB_ClockConfig     60
+     APB_SwResetConfig   60
+
+ 
+ 120 bytes in section .text
+ 
+ 120 bytes of CODE memory
+
+Errors: none
+Warnings: none

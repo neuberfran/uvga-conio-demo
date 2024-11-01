@@ -1,0 +1,134 @@
+;***************************************************************************
+;	Copyright 2003 Renesas Technology America, Inc. and  
+;                  Renesas Technology Corporation
+;	All Rights Reserved.
+;
+;	Name:  ncrt0_62pskp.a30  
+;
+;   Description: Customized startup program for the M16C/62P
+;				 (M3062x) microcontroller using the NC30 compiler. 
+;
+;=============================================================================
+;       $Log:$
+;       $Id: ncrt0.a30,v 1.12 2000/05/18 06:44:37 simomura Exp $
+;			 ncrt0_62pskp.a30, v 1.2 2004/05/14 DEC-E, AE
+;=============================================================================                                  
+;***************************************************************************
+
+;====================================================================
+; Section allocation and definitions
+;---------------------------------------------------------------------
+	.list OFF
+	.include _sect30_62pskp.inc
+	.list ON
+
+;====================================================================
+; Interrupt section start
+;---------------------------------------------------------------------
+	.glb		start
+	.section	interrupt
+
+;====================================================================
+; after reset, execution starts here
+;====================================================================
+start:
+	ldc		#istack_top,isp	   ;Set interrupt stack pointer
+	ldc	    #0000h,flg         ;Clear U Flag so CPU uses interrupt stack
+
+	ldc	    #data_SE_top,sb    ;set sb register, for sb relative addressing
+	ldintb	#VECTOR_ADR
+		       
+;========================================================================
+; ********************* NOTE: CHANGING BCLK SPEED HERE ******************
+; SETTING CLOCK SPEED TO F1 (DIV BY 1) ON XIN: BCLK = Xin Frequency  
+; BECAUSE, AFTER RESET, BCLK DEFAULTS TO F8 (DIV BY 8). 
+;========================================================================
+	mov.b	#01h,0AH		; unprotect CM0 to change clock setting       
+	mov.b	#08h,06H		; enable CM17 and CM16 to set BCLK to F1
+							; CM17 & CM16 defaults to 0 after reset and
+							; so we only need to reset CM06 to 0 
+    mov.b	#00h,0AH		; protect CM0
+
+;====================================================================
+; Variable area initialization. This code uses macro's defined in 
+; see sect30_62pskp.inc for initializing C variables. Clears global 
+; variables, sets intialized variables, etc.
+;--------------------------------------------------------------------
+;====================================================================
+; NEAR area initialize.
+;---------------------------------------------------------------------
+; bss zero clear
+;--------------------------------------------------------------------
+	N_BZERO	bss_SE_top,bss_SE
+	N_BZERO	bss_SO_top,bss_SO
+	N_BZERO	bss_NE_top,bss_NE
+	N_BZERO	bss_NO_top,bss_NO
+
+;---------------------------------------------------------------------
+; initialize data section
+;---------------------------------------------------------------------
+	N_BCOPY data_SEI_top,data_SE_top,data_SE
+	N_BCOPY	data_SOI_top,data_SO_top,data_SO
+	N_BCOPY	data_NEI_top,data_NE_top,data_NE
+	N_BCOPY	data_NOI_top,data_NO_top,data_NO
+
+;====================================================================
+; FAR area initialize.
+;---------------------------------------------------------------------
+; bss zero clear
+;---------------------------------------------------------------------
+	BZERO	bss_FE_top,bss_FE
+	BZERO	bss_FO_top,bss_FO
+
+;---------------------------------------------------------------------
+; Copy edata_E(O) section from edata_EI(OI) section
+;---------------------------------------------------------------------
+	BCOPY	data_FEI_top,data_FE_top,data_FE
+	BCOPY	data_FOI_top,data_FO_top,data_FO
+
+;====================================================================
+; heap area initialize. HEAPSIZE is defined in sect30_62pskp.inc. 
+;---------------------------------------------------------------------
+.IF	 HEAPSIZE!=00h
+	HEAPINIT
+.ENDIF
+
+;====================================================================
+; The 40 bytes of stack area used by the macros (to prepare C environment) 
+; in the startup files are not cleared up. So, we need to reset the stack
+; pointer back to the original value (after reset).  
+;---------------------------------------------------------------------
+	ldc #istack_top, isp	; set istack pointer
+
+;====================================================================
+; Initialize standard I/O
+;---------------------------------------------------------------------
+; SKP sample codes/programs do NOT use this routine but instead call 
+; the initialization routine from main(). 
+;	.glb	_init
+;	jsr.a	_init	
+
+;====================================================================
+; Call main() function
+;---------------------------------------------------------------------
+	.glb	_main
+	jsr.a	_main
+
+;====================================================================
+; exit() function. This function is used in case of accidental return 
+; from main() or debugging code could be placed here. 
+;---------------------------------------------------------------------
+	.glb	_exit
+	.glb	$exit
+_exit:			   ; End program
+$exit:
+	jmp	_exit
+
+;====================================================================
+; dummy interrupt function. Called by all unassigned interrupts 
+; (see variable vector definitions in sect30_62pskp.inc).
+;---------------------------------------------------------------------
+dummy_int:
+	reit
+
+	.end

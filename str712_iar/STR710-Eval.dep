@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1973890884</fileChecksum>
+  <configuration>
+    <name>RAM</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\aa.c</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_uart.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_vect.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_gpio.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_uart.pbi</file>
+      <file>$PROJ_DIR$\library\inc\71x_lib.h</file>
+      <file>$PROJ_DIR$\library\inc\71x_apb.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\hw_st710.o</file>
+      <file>$PROJ_DIR$\library\inc\71x_map.h</file>
+      <file>$PROJ_DIR$\include\71x_it.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_gpio.pbi</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_it.pbi</file>
+      <file>$PROJ_DIR$\RAM\Obj\ui.o</file>
+      <file>$PROJ_DIR$\library\inc\71x_rccu.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_rccu.o</file>
+      <file>$PROJ_DIR$\library\inc\71x_pcu.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\conio.o</file>
+      <file>$PROJ_DIR$\..\h\conio.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_apb.o</file>
+      <file>$PROJ_DIR$\library\inc\71x_gpio.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\main.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_rccu.pbi</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_it.o</file>
+      <file>$PROJ_DIR$\library\inc\71x_type.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\..\h\kbd.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_apb.pbi</file>
+      <file>$PROJ_DIR$\RAM\Exe\STR710-Eval.out</file>
+      <file>$PROJ_DIR$\RAM\Obj\hw_st710.pbi</file>
+      <file>$PROJ_DIR$\RAM\Obj\71x_init.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\conio.pbi</file>
+      <file>$PROJ_DIR$\RAM\Obj\STR710-Eval.pbd</file>
+      <file>$PROJ_DIR$\RAM\Obj\ui.pbi</file>
+      <file>$PROJ_DIR$\library\inc\71x_uart.h</file>
+      <file>$PROJ_DIR$\..\h\ui.h</file>
+      <file>$PROJ_DIR$\startup\71x_vect.s</file>
+      <file>$PROJ_DIR$\library\src\71x_gpio.c</file>
+      <file>$PROJ_DIR$\library\src\71x_apb.c</file>
+      <file>$PROJ_DIR$\startup\71x_init.s</file>
+      <file>$PROJ_DIR$\library\src\71x_rccu.c</file>
+      <file>$PROJ_DIR$\library\src\71x_uart.c</file>
+      <file>$PROJ_DIR$\..\lib\conio.c</file>
+      <file>$PROJ_DIR$\..\lib\ui.c</file>
+      <file>$PROJ_DIR$\include\71x_conf.h</file>
+      <file>$PROJ_DIR$\71x_it.c</file>
+      <file>$PROJ_DIR$\hw_st710.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RAM\Obj\STR710-Eval.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 26 10 11 21 4 30 28 24 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\startup\71x_vect.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_apb.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\startup\71x_init.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_rccu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_uart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\conio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 25</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\ui.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 34 25</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\71x_it.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hw_st710.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5 8 43 23 6 19 15 13 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 25 34 0</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>debug</name>
+    <outputs>
+      <file>$TOOLKIT_DIR$\lib\dl4t_al_in.a</file>
+      <file>$PROJ_DIR$\debug\Obj\conio.o</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_uart.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
+      <file>$PROJ_DIR$\debug\Obj\main.o</file>
+      <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
+      <file>$PROJ_DIR$\..\aa.c</file>
+      <file>$PROJ_DIR$\library\inc\71x_lib.h</file>
+      <file>$PROJ_DIR$\library\inc\71x_apb.h</file>
+      <file>$PROJ_DIR$\library\inc\71x_map.h</file>
+      <file>$PROJ_DIR$\include\71x_it.h</file>
+      <file>$PROJ_DIR$\debug\List\71x_rccu.lst</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_init.o</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_gpio.pbi</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_vect.o</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_apb.pbi</file>
+      <file>$PROJ_DIR$\library\inc\71x_rccu.h</file>
+      <file>$PROJ_DIR$\library\inc\71x_pcu.h</file>
+      <file>$PROJ_DIR$\..\h\conio.h</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_it.pbi</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_gpio.o</file>
+      <file>$PROJ_DIR$\library\inc\71x_gpio.h</file>
+      <file>$PROJ_DIR$\debug\List\71x_apb.lst</file>
+      <file>$PROJ_DIR$\debug\Exe\STR710-Eval.out</file>
+      <file>$PROJ_DIR$\debug\List\71x_it.lst</file>
+      <file>$PROJ_DIR$\debug\List\71x_uart.lst</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_it.o</file>
+      <file>$PROJ_DIR$\linker\STR71x_FLASH.icf</file>
+      <file>$PROJ_DIR$\debug\List\ui.lst</file>
+      <file>$PROJ_DIR$\debug\Obj\hw_st710.o</file>
+      <file>$PROJ_DIR$\debug\List\hw_st710.lst</file>
+      <file>$PROJ_DIR$\library\inc\71x_type.h</file>
+      <file>$PROJ_DIR$\..\h\kbd.h</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_apb.o</file>
+      <file>$PROJ_DIR$\debug\Obj\ui.pbi</file>
+      <file>$PROJ_DIR$\debug\Obj\hw_st710.pbi</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_rccu.pbi</file>
+      <file>$PROJ_DIR$\debug\Obj\STR710-Eval.pbd</file>
+      <file>$PROJ_DIR$\debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\debug\List\71x_gpio.lst</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_uart.o</file>
+      <file>$PROJ_DIR$\debug\Obj\ui.o</file>
+      <file>$PROJ_DIR$\debug\Obj\71x_rccu.o</file>
+      <file>$PROJ_DIR$\debug\Obj\conio.pbi</file>
+      <file>$PROJ_DIR$\debug\List\main.lst</file>
+      <file>$PROJ_DIR$\debug\List\conio.lst</file>
+      <file>$PROJ_DIR$\library\inc\71x_uart.h</file>
+      <file>$PROJ_DIR$\..\h\ui.h</file>
+      <file>$PROJ_DIR$\startup\71x_vect.s</file>
+      <file>$PROJ_DIR$\library\src\71x_gpio.c</file>
+      <file>$PROJ_DIR$\library\src\71x_apb.c</file>
+      <file>$PROJ_DIR$\startup\71x_init.s</file>
+      <file>$PROJ_DIR$\library\src\71x_rccu.c</file>
+      <file>$PROJ_DIR$\library\src\71x_uart.c</file>
+      <file>$PROJ_DIR$\..\lib\conio.c</file>
+      <file>$PROJ_DIR$\..\lib\ui.c</file>
+      <file>$PROJ_DIR$\include\71x_conf.h</file>
+      <file>$PROJ_DIR$\71x_it.c</file>
+      <file>$PROJ_DIR$\hw_st710.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\debug\Exe\STR710-Eval.out</name>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 27 33 20 12 26 42 40 14 1 29 4 41 3 5 0</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 23</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\debug\Obj\STR710-Eval.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 15 13 19 36 2 43 35 38 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\startup\71x_vect.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 39 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 21 9 56 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 9 56 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_apb.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 22 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 9 56 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 9 56 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\startup\71x_init.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_rccu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 11 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 9 56 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16 9 56 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\library\src\71x_uart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 25 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 46 9 56 31 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 9 56 31 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\conio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 45 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 18 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\ui.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28 41</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 18 47 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 47 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\71x_it.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 9 56 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10 9 56 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hw_st710.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 7 9 56 31 8 21 17 16 46</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 9 56 31 8 21 17 16 46</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 44 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 18 32 47 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 32 47 6</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+</project>
+
+

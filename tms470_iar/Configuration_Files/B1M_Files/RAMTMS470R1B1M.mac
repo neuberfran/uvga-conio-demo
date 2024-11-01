@@ -1,0 +1,89 @@
+// -----------------------------------------------------------------------
+// This file contains the RAM set up configuration for the TMS470R1B1M.
+//
+// The Memory Security Module (MSM) unlocking functionality is included.
+//
+// Revision : 0.01 JM 9/14/05
+//
+//-------------------------------------------------------------------------
+
+
+SetupRAM()
+{
+  __message "Executing memory setup macro B1M RAM\n";
+
+ //__emulatorStatusCheckOnRead(1);
+
+  __emulatorStatusCheckOnRead(0);
+
+  // Disable reset at illegal address and access violation to
+  // avoid resetting the CPU when debugging.
+  __writeMemory32(0x00004007, 0xffffffe0, "Memory"); // SYSECR
+
+  /* activate Flash at 0x00000000 1M that is connected to memory select 0 */
+  __writeMemory32(0x000000b0, 0xfffffe04, "Memory"); // MFBALR0
+  __writeMemory32(0x00000040, 0xfffffe00, "Memory"); // MFBAHR0
+
+/* activate Flash at 0x00000000 0k that is connected to memory select 1 */
+  __writeMemory32(0x00000000, 0xfffffe08, "Memory"); // MFBALR1
+  __writeMemory32(0x00000000, 0xfffffe0c, "Memory"); // MFBAHR1
+
+
+ /* activate RAM at 0x00000000 64k that is connected to memory select 2 */
+  __writeMemory32( 0x00000000, 0xfffffe10, "Memory" ) ;  // MFBAHR2
+  __writeMemory32( 0x00000070, 0xfffffe14, "Memory" ) ;  // MFBALR2 8K
+
+
+ /* activate RAM at 0x00000000 0k that is connected to memory select 3 */
+  __writeMemory32( 0x00000000, 0xfffffe18, "Memory" ) ;  // MFBAHR3
+  __writeMemory32( 0x00000000, 0xfffffe1c, "Memory" ) ;  // MFBALR3 0K
+
+
+  // HET RAM static memory control register, use 7 wait states and
+  // 32-bit access
+  __writeMemory32(0x00000072, 0xFFFFFD04, "Memory"); // SMCR1
+
+  // Map 1k HET RAM connected to memory select 4 at 0x00800000, size 2k
+  __writeMemory32(0x00000080, 0xfffffe20, "Memory"); // MFBAHR4
+  __writeMemory32(0x00000020, 0xfffffe24, "Memory"); // MFBALR4
+
+  // Trailing wait states controlled by TWS bits, use write buffer for
+  // expansion bus access
+  __writeMemory32(0x00000003, 0xFFFFFD2C, "Memory"); // WCR0
+
+  // Map 256k flash connected to memory select 0 at 0x00400000, size 2048k
+  // and activate new mapping by writing 1 to MFBALR0.8.
+  __writeMemory32(0x000000b0, 0xfffffe04, "Memory"); // MFBALR0
+  __writeMemory32(0x00000040, 0xfffffe00, "Memory"); // MFBAHR0
+  __writeMemory32(0x000001b0, 0xfffffe04, "Memory"); // MFBALR0
+
+  __writeMemory32(0x80000000, 0xfffff724, "Memory");
+
+   __readMemory32(0x0040ffe0, "Memory");
+  __readMemory32(0x0040ffe4, "Memory");
+  __readMemory32(0x0040ffe8, "Memory");
+  __readMemory32(0x0040ffec, "Memory");
+
+  __emulatorStatusCheckOnRead(1);
+
+
+  __writeMemory32( 0x00000000, 0xffffffdc, "Memory" ) ;  // GCR SYSCLK *8 and /4 = SYSCLK  /1
+
+    // Setup clock ICLK = SYSCLK/16.
+  __writeMemory32(0x0000000b, 0xfffffd30, "Memory");  // PCR - set CLKDIV
+
+}
+
+
+execUserPreload()
+{
+  SetupRAM();
+
+}
+
+
+execUserReset()
+{
+  SetupRAM();
+}
+

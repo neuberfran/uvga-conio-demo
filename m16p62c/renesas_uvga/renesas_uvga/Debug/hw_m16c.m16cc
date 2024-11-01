@@ -1,0 +1,5 @@
+-DRENESAS_C=1
+-c
+-finfo
+-dir C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\
+C:\vgalub\uVGALib\m16p62c\renesas_uvga\hw_m16c.c

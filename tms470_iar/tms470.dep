@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2066592663</fileChecksum>
+  <configuration>
+    <name>Flash</name>
+    <outputs>
+      <file>$PROJ_DIR$\Flash\Exe\tms470.out</file>
+      <file>$TOOLKIT_DIR$\inc\TexasInstruments\iotms470r1a128.h</file>
+      <file>$PROJ_DIR$\cstartup.s</file>
+      <file>$PROJ_DIR$\..\aa.c</file>
+      <file>$PROJ_DIR$\Flash\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\TexasInstruments\tms470r1a256_bit_definitions.h</file>
+      <file>$PROJ_DIR$\Flash\Obj\conio.o</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\Flash\Obj\tms470.pbd</file>
+      <file>$PROJ_DIR$\Flash\Obj\ui.o</file>
+      <file>$PROJ_DIR$\Flash\Obj\hw_tms470.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$PROJ_DIR$\Flash\Obj\conio.pbi</file>
+      <file>$PROJ_DIR$\Flash\Obj\cstartup.o</file>
+      <file>$PROJ_DIR$\Flash\Obj\hw_tms470.o</file>
+      <file>$PROJ_DIR$\..\h\ui.h</file>
+      <file>$PROJ_DIR$\Flash\Obj\main.o</file>
+      <file>$PROJ_DIR$\Flash\Obj\ui.pbi</file>
+      <file>$PROJ_DIR$\..\h\conio.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\h\kbd.h</file>
+      <file>$PROJ_DIR$\hw_tms470.c</file>
+      <file>$PROJ_DIR$\..\lib\ui.c</file>
+      <file>$PROJ_DIR$\..\lib\conio.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\cstartup.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash\Obj\tms470.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 12 10 4 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hw_tms470.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 7 19 11 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\ui.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 15 20</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\conio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 20</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 20 15 3</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>RAM</name>
+    <outputs>
+      <file>$PROJ_DIR$\RAM\Obj\tms470.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\TexasInstruments\iotms470r1a128.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\ui.o</file>
+      <file>$PROJ_DIR$\..\aa.c</file>
+      <file>$PROJ_DIR$\RAM\Obj\ui.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\TexasInstruments\tms470r1a256_bit_definitions.h</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\RAM\Obj\conio.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\main.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\conio.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$PROJ_DIR$\RAM\Exe\tms470.out</file>
+      <file>$PROJ_DIR$\RAM\Obj\hw_tms470.pbi</file>
+      <file>$PROJ_DIR$\..\h\ui.h</file>
+      <file>$PROJ_DIR$\..\h\conio.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\h\kbd.h</file>
+      <file>$PROJ_DIR$\hw_tms470.c</file>
+      <file>$PROJ_DIR$\..\lib\ui.c</file>
+      <file>$PROJ_DIR$\..\lib\conio.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\RAM\Obj\hw_tms470.o</file>
+      <file>$PROJ_DIR$\RAM\Obj\main.pbi</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\RAM\Obj\tms470.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 9 12 22 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hw_tms470.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 6 15 10 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\ui.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14 13 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\conio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14 16 13 3</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+</project>
+
+

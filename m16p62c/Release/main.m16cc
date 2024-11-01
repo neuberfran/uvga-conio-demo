@@ -1,0 +1,9 @@
+-c
+-g
+-dir C:\vgalub\uVGALib\m16p62c\m16p62c\Release\
+-WLTS
+-WNC
+-WNP
+-WUP
+-silent
+C:\vgalub\uVGALib\main.c

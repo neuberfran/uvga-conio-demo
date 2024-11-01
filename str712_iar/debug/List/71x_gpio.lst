@@ -1,0 +1,429 @@
+###############################################################################
+#                                                                             #
+#                                                       01/Apr/2009  17:06:09 #
+# IAR ANSI C/C++ Compiler V5.30.0.31174/W32 KICKSTART for ARM                 #
+# Copyright 1999-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  arm                                                      #
+#    Endian       =  little                                                   #
+#    Source file  =  c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_ #
+#                    gpio.c                                                   #
+#    Command line =  c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_ #
+#                    gpio.c -lCN c:\projekty\microvga\uVGALib\str712_iar\debu #
+#                    g\List\ -o c:\projekty\microvga\uVGALib\str712_iar\debug #
+#                    \Obj\ --no_cse --no_unroll --no_inline --no_code_motion  #
+#                    --no_tbaa --no_clustering --no_scheduling --debug        #
+#                    --endian=little --cpu=ARM7TDMI -e --fpu=None             #
+#                    --dlib_config "C:\Program Files\IAR Systems\Embedded     #
+#                    Workbench 5.4 Kickstart\arm\INC\DLib_Config_Normal.h"    #
+#                    -I c:\projekty\microvga\uVGALib\str712_iar\include\ -I   #
+#                    c:\projekty\microvga\uVGALib\str712_iar\library\inc\ -I  #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench 5.4     #
+#                    Kickstart\arm\INC\" --cpu_mode arm -Ol                   #
+#    List file    =  c:\projekty\microvga\uVGALib\str712_iar\debug\List\71x_g #
+#                    pio.lst                                                  #
+#    Object file  =  c:\projekty\microvga\uVGALib\str712_iar\debug\Obj\71x_gp #
+#                    io.o                                                     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+c:\projekty\microvga\uVGALib\str712_iar\library\src\71x_gpio.c
+      1          /******************** (C) COPYRIGHT 2007 STMicroelectronics ********************
+      2          * File Name          : 71x_gpio.c
+      3          * Author             : MCD Application Team
+      4          * Version            : V4.0
+      5          * Date               : 10/09/2007
+      6          * Description        : This file provides all the GPIO firmware functions.
+      7          ********************************************************************************
+      8          * THE PRESENT SOFTWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+      9          * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+     10          * AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+     11          * INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+     12          * CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+     13          * INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+     14          *******************************************************************************/
+     15          
+     16          /* Includes ------------------------------------------------------------------*/
+     17          #include "71x_gpio.h"
+     18          
+     19          /* Private typedef -----------------------------------------------------------*/
+     20          /* Private define ------------------------------------------------------------*/
+     21          /* Private macro -------------------------------------------------------------*/
+     22          /* Private variables ---------------------------------------------------------*/
+     23          /* Private function prototypes -----------------------------------------------*/
+     24          /* Private functions ---------------------------------------------------------*/
+     25          
+     26          /*******************************************************************************
+     27          * Function Name  : GPIO_Config
+     28          * Description    : Configures the selected GPIO I/O pins according to the input
+     29          *                  passed in parameter.
+     30          * Input          : - GPIOx: selects the port to be configured (x can be 0,1 or 2).
+     31          *                  - Port_Pins: this parameter specifies the port pin placement.
+     32          *                  You can select more than one pin.
+     33          *                  - Pins Mode: specifies the pin mode.
+     34          * Output         : None
+     35          * Return         : None
+     36          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     37          void GPIO_Config (GPIO_TypeDef *GPIOx, u16 Port_Pins,
+     38                            GpioPinMode_TypeDef GPIO_Mode)
+     39          {
+     40            switch (GPIO_Mode)
+   \                     GPIO_Config:
+   \   00000000   FF2012E2           ANDS     R2,R2,#0xFF      ;; Zero extend
+   \   00000004   070052E3           CMP      R2,#+7
+   \   00000008   5300008A           BHI      ??GPIO_Config_1
+   \   0000000C   04308FE2           ADR      R3,??GPIO_Config_0
+   \   00000010   0230D3E7           LDRB     R3,[R3, R2]
+   \   00000014   03F18FE0           ADD      PC,PC,R3, LSL #+2
+   \                     ??GPIO_Config_0:
+   \   00000018   010B151F           DC8      +1,+11,+21,+31
+   \   0000001C   29333D47           DC8      +41,+51,+61,+71
+     41            {
+     42              case GPIO_HI_AIN_TRI:
+     43                GPIOx->PC0 &= ~Port_Pins;
+   \                     ??GPIO_Config_2:
+   \   00000020   B020D0E1           LDRH     R2,[R0, #+0]
+   \   00000024   0120D2E1           BICS     R2,R2,R1
+   \   00000028   B020C0E1           STRH     R2,[R0, #+0]
+     44                GPIOx->PC1 &= ~Port_Pins;
+   \   0000002C   B420D0E1           LDRH     R2,[R0, #+4]
+   \   00000030   0120D2E1           BICS     R2,R2,R1
+   \   00000034   B420C0E1           STRH     R2,[R0, #+4]
+     45                GPIOx->PC2 &= ~Port_Pins;
+   \   00000038   B820D0E1           LDRH     R2,[R0, #+8]
+   \   0000003C   0110D2E1           BICS     R1,R2,R1
+   \   00000040   B810C0E1           STRH     R1,[R0, #+8]
+   \   00000044   440000EA           B        ??GPIO_Config_3
+     46                break;
+     47          
+     48              case GPIO_IN_TRI_TTL:
+     49                GPIOx->PC0 |= Port_Pins;
+   \                     ??GPIO_Config_4:
+   \   00000048   B020D0E1           LDRH     R2,[R0, #+0]
+   \   0000004C   022091E1           ORRS     R2,R1,R2
+   \   00000050   B020C0E1           STRH     R2,[R0, #+0]
+     50                GPIOx->PC1 &= ~Port_Pins;
+   \   00000054   B420D0E1           LDRH     R2,[R0, #+4]
+   \   00000058   0120D2E1           BICS     R2,R2,R1
+   \   0000005C   B420C0E1           STRH     R2,[R0, #+4]
+     51                GPIOx->PC2 &= ~Port_Pins;
+   \   00000060   B820D0E1           LDRH     R2,[R0, #+8]
+   \   00000064   0110D2E1           BICS     R1,R2,R1
+   \   00000068   B810C0E1           STRH     R1,[R0, #+8]
+   \   0000006C   3A0000EA           B        ??GPIO_Config_3
+     52                break;
+     53          
+     54              case GPIO_IN_TRI_CMOS:
+     55                GPIOx->PC0 &= ~Port_Pins;
+   \                     ??GPIO_Config_5:
+   \   00000070   B020D0E1           LDRH     R2,[R0, #+0]
+   \   00000074   0120D2E1           BICS     R2,R2,R1
+   \   00000078   B020C0E1           STRH     R2,[R0, #+0]
+     56                GPIOx->PC1 |= Port_Pins;
+   \   0000007C   B420D0E1           LDRH     R2,[R0, #+4]
+   \   00000080   022091E1           ORRS     R2,R1,R2
+   \   00000084   B420C0E1           STRH     R2,[R0, #+4]
+     57                GPIOx->PC2 &= ~Port_Pins;
+   \   00000088   B820D0E1           LDRH     R2,[R0, #+8]
+   \   0000008C   0110D2E1           BICS     R1,R2,R1
+   \   00000090   B810C0E1           STRH     R1,[R0, #+8]
+   \   00000094   300000EA           B        ??GPIO_Config_3
+     58                break;
+     59          
+     60              case GPIO_IPUPD_WP:
+     61                GPIOx->PC0 |= Port_Pins;
+   \                     ??GPIO_Config_6:
+   \   00000098   B020D0E1           LDRH     R2,[R0, #+0]
+   \   0000009C   022091E1           ORRS     R2,R1,R2
+   \   000000A0   B020C0E1           STRH     R2,[R0, #+0]
+     62                GPIOx->PC1 |= Port_Pins;
+   \   000000A4   B420D0E1           LDRH     R2,[R0, #+4]
+   \   000000A8   022091E1           ORRS     R2,R1,R2
+   \   000000AC   B420C0E1           STRH     R2,[R0, #+4]
+     63                GPIOx->PC2 &= ~Port_Pins;
+   \   000000B0   B820D0E1           LDRH     R2,[R0, #+8]
+   \   000000B4   0110D2E1           BICS     R1,R2,R1
+   \   000000B8   B810C0E1           STRH     R1,[R0, #+8]
+   \   000000BC   260000EA           B        ??GPIO_Config_3
+     64                break;
+     65          
+     66              case GPIO_OUT_OD:
+     67                GPIOx->PC0 &= ~Port_Pins;
+   \                     ??GPIO_Config_7:
+   \   000000C0   B020D0E1           LDRH     R2,[R0, #+0]
+   \   000000C4   0120D2E1           BICS     R2,R2,R1
+   \   000000C8   B020C0E1           STRH     R2,[R0, #+0]
+     68                GPIOx->PC1 &= ~Port_Pins;
+   \   000000CC   B420D0E1           LDRH     R2,[R0, #+4]
+   \   000000D0   0120D2E1           BICS     R2,R2,R1
+   \   000000D4   B420C0E1           STRH     R2,[R0, #+4]
+     69                GPIOx->PC2 |= Port_Pins;
+   \   000000D8   B820D0E1           LDRH     R2,[R0, #+8]
+   \   000000DC   021091E1           ORRS     R1,R1,R2
+   \   000000E0   B810C0E1           STRH     R1,[R0, #+8]
+   \   000000E4   1C0000EA           B        ??GPIO_Config_3
+     70                break;
+     71          
+     72              case GPIO_OUT_PP:
+     73                GPIOx->PC0 |= Port_Pins;
+   \                     ??GPIO_Config_8:
+   \   000000E8   B020D0E1           LDRH     R2,[R0, #+0]
+   \   000000EC   022091E1           ORRS     R2,R1,R2
+   \   000000F0   B020C0E1           STRH     R2,[R0, #+0]
+     74                GPIOx->PC1 &= ~Port_Pins;
+   \   000000F4   B420D0E1           LDRH     R2,[R0, #+4]
+   \   000000F8   0120D2E1           BICS     R2,R2,R1
+   \   000000FC   B420C0E1           STRH     R2,[R0, #+4]
+     75                GPIOx->PC2 |= Port_Pins;
+   \   00000100   B820D0E1           LDRH     R2,[R0, #+8]
+   \   00000104   021091E1           ORRS     R1,R1,R2
+   \   00000108   B810C0E1           STRH     R1,[R0, #+8]
+   \   0000010C   120000EA           B        ??GPIO_Config_3
+     76                break;
+     77          
+     78              case GPIO_AF_OD:
+     79                GPIOx->PC0 &= ~Port_Pins;
+   \                     ??GPIO_Config_9:
+   \   00000110   B020D0E1           LDRH     R2,[R0, #+0]
+   \   00000114   0120D2E1           BICS     R2,R2,R1
+   \   00000118   B020C0E1           STRH     R2,[R0, #+0]
+     80                GPIOx->PC1 |= Port_Pins;
+   \   0000011C   B420D0E1           LDRH     R2,[R0, #+4]
+   \   00000120   022091E1           ORRS     R2,R1,R2
+   \   00000124   B420C0E1           STRH     R2,[R0, #+4]
+     81                GPIOx->PC2 |= Port_Pins;
+   \   00000128   B820D0E1           LDRH     R2,[R0, #+8]
+   \   0000012C   021091E1           ORRS     R1,R1,R2
+   \   00000130   B810C0E1           STRH     R1,[R0, #+8]
+   \   00000134   080000EA           B        ??GPIO_Config_3
+     82                break;
+     83          
+     84              case GPIO_AF_PP:
+     85                GPIOx->PC0 |= Port_Pins;
+   \                     ??GPIO_Config_10:
+   \   00000138   B020D0E1           LDRH     R2,[R0, #+0]
+   \   0000013C   022091E1           ORRS     R2,R1,R2
+   \   00000140   B020C0E1           STRH     R2,[R0, #+0]
+     86                GPIOx->PC1 |= Port_Pins;
+   \   00000144   B420D0E1           LDRH     R2,[R0, #+4]
+   \   00000148   022091E1           ORRS     R2,R1,R2
+   \   0000014C   B420C0E1           STRH     R2,[R0, #+4]
+     87                GPIOx->PC2 |= Port_Pins;
+   \   00000150   B820D0E1           LDRH     R2,[R0, #+8]
+   \   00000154   021091E1           ORRS     R1,R1,R2
+   \   00000158   B810C0E1           STRH     R1,[R0, #+8]
+     88                break;
+     89            }
+     90          }
+   \                     ??GPIO_Config_3:
+   \                     ??GPIO_Config_1:
+   \   0000015C   1EFF2FE1           BX       LR               ;; return
+     91          
+     92          /*******************************************************************************
+     93          * Function Name  : GPIO_BitRead
+     94          * Description    : Reads the specified data port bit and returns its value.
+     95          * Input          : - GPIOx: selects the port to be read. x can be 0, 1 or 2.
+     96          *                  - Port_Pin: Specifies the pin to see the value.
+     97          * Output         : None.
+     98          * Return         : The selected port pin value.
+     99          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    100          u8 GPIO_BitRead(GPIO_TypeDef *GPIOx, u8 Port_Pin)
+    101          {
+    102            return ((GPIOx->PD >> Port_Pin) & 0x0001);
+   \                     GPIO_BitRead:
+   \   00000000   BC00D0E1           LDRH     R0,[R0, #+12]
+   \   00000004   5001B0E1           ASRS     R0,R0,R1
+   \   00000008   010010E2           ANDS     R0,R0,#0x1
+   \   0000000C   1EFF2FE1           BX       LR               ;; return
+    103          }
+    104          
+    105          /*******************************************************************************
+    106          * Function Name  : GPIO_ByteRead
+    107          * Description    : Reads the specified data port byte and returns its value.
+    108          * Input          : - GPIOx: selects the port to be read. x can be 0, 1 or 2.
+    109          *                  - Port_Byte: specifies which byte to be read (upper or lower
+    110          *                  eight bits)
+    111          *                     - GPIO_MSB corresponds to the upper byte.
+    112          *                     - GPIO_LSB corresponds to the lower byte.
+    113          * Output         : None.
+    114          * Return         : The GPIO_MSB or GPIO_LSB of the selected PD register.
+    115          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    116          u8 GPIO_ByteRead(GPIO_TypeDef *GPIOx, u8 Port_Byte)
+    117          {
+    118            return (u8)(GPIOx->PD >> Port_Byte);
+   \                     GPIO_ByteRead:
+   \   00000000   BC00D0E1           LDRH     R0,[R0, #+12]
+   \   00000004   5001B0E1           ASRS     R0,R0,R1
+   \   00000008   FF0010E2           ANDS     R0,R0,#0xFF      ;; Zero extend
+   \   0000000C   1EFF2FE1           BX       LR               ;; return
+    119          }
+    120          
+    121          /*******************************************************************************
+    122          * Function Name  : GPIO_WordRead
+    123          * Description    : Reads the value of the specified GPIOx PD data port register
+    124          *                  and returns its value.
+    125          * Input          : - GPIOx: selects the port to be read. x can be 0, 1 or 2.
+    126          * Output         : None.
+    127          * Return         : The specified port data value.
+    128          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    129          u16 GPIO_WordRead(GPIO_TypeDef *GPIOx)
+    130          {
+    131            return GPIOx->PD;
+   \                     GPIO_WordRead:
+   \   00000000   BC00D0E1           LDRH     R0,[R0, #+12]
+   \   00000004   1EFF2FE1           BX       LR               ;; return
+    132          }
+    133          
+    134          /*******************************************************************************
+    135          * Function Name  : GPIO_BitWrite
+    136          * Description    : Sets or clears the selected data port bit.
+    137          * Input          : - GPIOx: selects the port. x can be 0, 1 or 2.
+    138          *                  - Port_Pin: Pin number.
+    139          *                  - Bit_Val: bit value (0 or 1).
+    140          * Output         : None.
+    141          * Return         : None.
+    142          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    143          void GPIO_BitWrite(GPIO_TypeDef *GPIOx, u8 Port_Pin, u8 Bit_Val)
+    144          {
+    145            if (Bit_Val & 0x01)
+   \                     GPIO_BitWrite:
+   \   00000000   010012E3           TST      R2,#0x1
+   \   00000004   0500000A           BEQ      ??GPIO_BitWrite_0
+    146            {
+    147              GPIOx->PD |= 1 << Port_Pin;
+   \   00000008   BC20D0E1           LDRH     R2,[R0, #+12]
+   \   0000000C   0130A0E3           MOV      R3,#+1
+   \   00000010   1311B0E1           LSLS     R1,R3,R1
+   \   00000014   021091E1           ORRS     R1,R1,R2
+   \   00000018   BC10C0E1           STRH     R1,[R0, #+12]
+   \   0000001C   040000EA           B        ??GPIO_BitWrite_1
+    148            }
+    149            else
+    150            {
+    151              GPIOx->PD &= ~(1 << Port_Pin);
+   \                     ??GPIO_BitWrite_0:
+   \   00000020   BC20D0E1           LDRH     R2,[R0, #+12]
+   \   00000024   0130A0E3           MOV      R3,#+1
+   \   00000028   1311B0E1           LSLS     R1,R3,R1
+   \   0000002C   0110D2E1           BICS     R1,R2,R1
+   \   00000030   BC10C0E1           STRH     R1,[R0, #+12]
+    152            }
+    153          }
+   \                     ??GPIO_BitWrite_1:
+   \   00000034   1EFF2FE1           BX       LR               ;; return
+    154          
+    155          /*******************************************************************************
+    156          * Function Name  : GPIO_ByteWrite
+    157          * Description    : Write byte value to the selected GPIOx PD register.
+    158          * Input          : - GPIOx: selects the port. x can be 0, 1 or 2.
+    159          *                  - Port_Byte: specifies which byte to be written (upper or 
+    160                             lower eight bits)
+    161          *                     - GPIO_MSB corresponds to the upper byte.
+    162          *                     - GPIO_LSB corresponds to the lower byte.
+    163          *                  - Port_Val: the value of the byte to be written.
+    164          * Output         : None.
+    165          * Return         : None.
+    166          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    167          void GPIO_ByteWrite(GPIO_TypeDef *GPIOx, u8 Port_Byte, u8 Port_Val)
+    168          {
+    169               
+    170            if(Port_Byte)
+   \                     GPIO_ByteWrite:
+   \   00000000   FF1011E2           ANDS     R1,R1,#0xFF      ;; Zero extend
+   \   00000004   000051E3           CMP      R1,#+0
+   \   00000008   0700000A           BEQ      ??GPIO_ByteWrite_0
+    171            {            
+    172             GPIOx->PD &= 0x00FF;
+   \   0000000C   BC10D0E1           LDRH     R1,[R0, #+12]
+   \   00000010   FF1011E2           ANDS     R1,R1,#0xFF
+   \   00000014   BC10C0E1           STRH     R1,[R0, #+12]
+    173             GPIOx->PD |= (u16)Port_Val << 8;
+   \   00000018   BC10D0E1           LDRH     R1,[R0, #+12]
+   \   0000001C   FF2012E2           ANDS     R2,R2,#0xFF      ;; Zero extend
+   \   00000020   021491E1           ORRS     R1,R1,R2, LSL #+8
+   \   00000024   BC10C0E1           STRH     R1,[R0, #+12]
+   \   00000028   060000EA           B        ??GPIO_ByteWrite_1
+    174            }
+    175            /* If LSB selected */
+    176           else
+    177            {
+    178             GPIOx->PD &= 0xFF00;
+   \                     ??GPIO_ByteWrite_0:
+   \   0000002C   BC10D0E1           LDRH     R1,[R0, #+12]
+   \   00000030   FF1C11E2           ANDS     R1,R1,#0xFF00
+   \   00000034   BC10C0E1           STRH     R1,[R0, #+12]
+    179             GPIOx->PD |= Port_Val;
+   \   00000038   BC10D0E1           LDRH     R1,[R0, #+12]
+   \   0000003C   FF2012E2           ANDS     R2,R2,#0xFF      ;; Zero extend
+   \   00000040   011092E1           ORRS     R1,R2,R1
+   \   00000044   BC10C0E1           STRH     R1,[R0, #+12]
+    180            }
+    181          }
+   \                     ??GPIO_ByteWrite_1:
+   \   00000048   1EFF2FE1           BX       LR               ;; return
+    182          
+    183          /*******************************************************************************
+    184          * Function Name  : GPIO_WordWrite
+    185          * Description    : Writes a value in to the selected data port register.
+    186          * Input          : - GPIOx: selects the port. x can be 0, 1 or 2.
+    187          *                  - Port_Val: the value of the word to be written.
+    188          * Output         : None.
+    189          * Return         : None.
+    190          *******************************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+    191          void GPIO_WordWrite(GPIO_TypeDef *GPIOx, u16 Port_Val)
+    192          {
+    193            GPIOx->PD = Port_Val;
+   \                     GPIO_WordWrite:
+   \   00000000   BC10C0E1           STRH     R1,[R0, #+12]
+    194          }
+   \   00000004   1EFF2FE1           BX       LR               ;; return
+    195          
+    196          /******************* (C) COPYRIGHT 2007 STMicroelectronics *****END OF FILE****/
+
+   Maximum stack usage in bytes:
+
+     Function       .cstack
+     --------       -------
+     GPIO_BitRead        0
+     GPIO_BitWrite       0
+     GPIO_ByteRead       0
+     GPIO_ByteWrite      0
+     GPIO_Config         0
+     GPIO_WordRead       0
+     GPIO_WordWrite      0
+
+
+   Section sizes:
+
+     Function/Label Bytes
+     -------------- -----
+     GPIO_Config     352
+     GPIO_BitRead     16
+     GPIO_ByteRead    16
+     GPIO_WordRead     8
+     GPIO_BitWrite    56
+     GPIO_ByteWrite   76
+     GPIO_WordWrite    8
+
+ 
+ 532 bytes in section .text
+ 
+ 532 bytes of CODE memory
+
+Errors: none
+Warnings: none

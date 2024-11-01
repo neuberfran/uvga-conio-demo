@@ -1,0 +1,160 @@
+/************************************************************************/
+/*                          DF9222_V4.XCL                               */
+/*                                                                      */
+/*  NEC 78K0S series microcontroller device uPD78F9222                  */
+/*                                                                      */
+/*  XLINK command file template (IAR Systems C Compiler ICC78K V4.xx)   */
+/*                                                                      */
+/*                                                                      */
+/*  Copyright (C) NEC Corporation 2004                                  */
+/*  This file was created from device file DF9222.78K       [E2.00e]    */
+/*  by DeFiX78 V1.02                                                    */
+/*                                                                      */
+/*  This file is only intended as a sample supplement to IAR Systems    */
+/*  tools. This file is provided 'as is' without warranty of any kind.  */
+/*  Neither NEC nor their sales representatives can be held liable      */
+/*  of any inconvenience or problem caused by its contents.             */
+/************************************************************************/
+
+//--------------------------------------------------------------------------
+// The following segments are defined in this template link file:           
+//                                                                          
+// INTVEC   -- Interrupt vectors.                                           
+// CLTVEC   -- Calltable vectors.                                           
+// RCODE    -- Code used by C/EC++ startup and run-time library.            
+// FCODE    -- Code used by __callf functions.                              
+// CODE     -- Code used by __non_banked, __interrupt and __callt functions.
+// BCODE    -- Code used by __banked functions.                             
+// CONST    -- Constants used by const.                                     
+// NEAR_x   -- Variables used by __near.                                    
+// SADDR_x  -- Variables used by __saddr.                                   
+// SWITCH   -- Switch tables.                                               
+// DIFUNCT  -- Dynamic initialization vector used by EC++                   
+// HEAP     -- The heap used for malloc and free by EC++                    
+//                                                                          
+// Where _x could be one of:                                                
+//                                                                          
+// _Z      -- Initialized data (initvalue = 0 or without init value).       
+// _I      -- Initialized data (initvalue != 0).                            
+// _ID     -- The inial values of _I.                                       
+// _N      -- Uninitialized data, used by __no_init.                        
+//                                                                          
+//--------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+//      Define CPU                                                          
+//--------------------------------------------------------------------------
+-c78000                                                                   
+
+//--------------------------------------------------------------------------
+// Size of the stack.                                                       
+// Remove comment and modify number if used from command line.              
+//--------------------------------------------------------------------------
+//-D_CSTACK_SIZE=80                                                         
+
+//--------------------------------------------------------------------------
+// Size of the heap.                                                        
+// Remove comment and modify number if used from command line.              
+//--------------------------------------------------------------------------
+//-D_HEAP_SIZE=400                                                          
+
+//--------------------------------------------------------------------------
+// Used by DLIB only                                                        
+// Define the format functions used by printf/scanf.                        
+// Default is full formatting.                                              
+// Remove appropriate comment(s) to get reduced formatting                  
+// if used from command line.                                               
+//--------------------------------------------------------------------------
+//-e_PrintfTiny=_Printf                                                     
+//-e_PrintfSmall=_Printf                                                    
+//-e_PrintfLarge=_Printf                                                    
+//-e_ScanfSmall=_Scanf                                                      
+//-e_ScanfLarge=_Scanf                                                      
+
+//--------------------------------------------------------------------------
+// Used by DLIB only                                                        
+// Define if row buffering should be used by terminal output.               
+// Default is no buffering.                                                 
+// Remove comment to get buffered terminal output if used from command line.
+//--------------------------------------------------------------------------
+//-e__write_buffered=__write                                                
+
+//--------------------------------------------------------------------------
+// Used by CLIB only                                                        
+// Define the format functions used by printf/scanf.                        
+// Default is full formatting.                                              
+// Remove appropriate comment(s) to get reduced formatting                  
+// if used from command line.                                               
+//--------------------------------------------------------------------------
+//-e_small_write=_formatted_write                                           
+//-e_medium_write=_formatted_write                                          
+//-e_medium_read=_formatted_read                                            
+
+//--------------------------------------------------------------------------
+// Allocate the read only segments that are mapped to ROM.                  
+//--------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+// Allocate interrupt vector segment.
+//--------------------------------------------------------------------------
+-Z(CODE)INTVEC=0000-0021
+
+//--------------------------------------------------------------------------
+// Allocate CALLT segments.
+//--------------------------------------------------------------------------
+-Z(CODE)CLTVEC=0040-007F
+
+//--------------------------------------------------------------------------
+// Allocate OPTION BYTES segment.
+//--------------------------------------------------------------------------
+-Z(CODE)OPTBYTE=0080-0081
+
+//--------------------------------------------------------------------------
+// Startup, Runtime-library, Non banked, Interrupt 
+// and Calltable functions code segment.
+//--------------------------------------------------------------------------
+-Z(CODE)RCODE,CODE=0084-0FFF
+
+//--------------------------------------------------------------------------
+// Data initializer segments. 
+//--------------------------------------------------------------------------
+-Z(CODE)NEAR_ID,SADDR_ID,DIFUNCT=0084-0FFF
+
+//--------------------------------------------------------------------------
+// Constant segments 
+//--------------------------------------------------------------------------
+-Z(CODE)CONST,SWITCH=0084-0FFF
+
+//--------------------------------------------------------------------------
+// Allocate the read/write segments that are mapped to RAM.                 
+//--------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+// Allocate near data, heap and stack segments.                             
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+// Allocate saddr data segments.
+//--------------------------------------------------------------------------
+-Z(DATA)HEAP+_HEAP_SIZE,CSTACK+_CSTACK_SIZE,NEAR_I,NEAR_Z,NEAR_N,SADDR_I,SADDR_Z,SADDR_N,WRKSEG=FE00-FF1F
+
+//--------------------------------------------------------------------------
+// Select the 'C' library 
+// Remove comment to select the required library if used from command line. 
+//--------------------------------------------------------------------------
+//cl78ks2.r26
+
+//--------------------------------------------------------------------------
+// Select the output file format if used from command line.                 
+// Remove comment to select the file format if used from command line.      
+//--------------------------------------------------------------------------
+//-Fxcoff78k
+
+//--------------------------------------------------------------------------
+// Select the format modifier for XCOFF if used from command line.          
+// Remove comment to select the format modifier if used from command line.  
+//--------------------------------------------------------------------------
+//-ysp
+
+//--------------------------------------------------------------------------
+// End of File                                                              
+//--------------------------------------------------------------------------

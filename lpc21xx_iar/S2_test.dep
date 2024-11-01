@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3328496560</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\hw_lpc21xx.pbi</file>
+      <file>$PROJ_DIR$\..\h\ui.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\aa.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ui.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\S2_test.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\conio.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hw_lpc21xx.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\conio.o</file>
+      <file>$PROJ_DIR$\Debug\Exe\S2_test.out</file>
+      <file>$PROJ_DIR$\..\h\kbd.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ui.pbi</file>
+      <file>$PROJ_DIR$\ma_sfr.h</file>
+      <file>$PROJ_DIR$\..\h\conio.h</file>
+      <file>$PROJ_DIR$\hw_lpc21xx.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\aa.pbi</file>
+      <file>$PROJ_DIR$\..\lib\conio.c</file>
+      <file>$PROJ_DIR$\..\aa.c</file>
+      <file>$PROJ_DIR$\..\lib\ui.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2104.h</file>
+      <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
+      <file>$TOOLKIT_DIR$\lib\dl4t_tl_in.a</file>
+      <file>$TOOLKIT_DIR$\examples\NXP\LPC2103\Pasat\PHIL40-03-Uart\PHIL40-03_Flash.icf</file>
+      <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\S2_test.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 19 6 0 13 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\S2_test.out</name>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 27 3 10 9 2 4 28 25 26</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hw_lpc21xx.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 24 8 7 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16 24 8 7 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\conio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 12</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\aa.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\ui.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 1 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 1 12</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 12 1 21</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 12 1 21</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\h\ui.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hw_lpc21xx.o</file>
+      <file>$PROJ_DIR$\Release\Obj\hw_lpc21xx.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\conio.o</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Release\Obj\main.o</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\ui.o</file>
+      <file>$PROJ_DIR$\Release\Obj\aa.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\Release\Obj\aa.o</file>
+      <file>$PROJ_DIR$\..\h\kbd.h</file>
+      <file>$PROJ_DIR$\Release\Exe\S2_test.hex</file>
+      <file>$PROJ_DIR$\Release\Exe\S2_test.out</file>
+      <file>$PROJ_DIR$\Release\Obj\ui.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$PROJ_DIR$\Release\Obj\S2_test.pbd</file>
+      <file>$PROJ_DIR$\Release\Obj\conio.pbi</file>
+      <file>$PROJ_DIR$\ma_sfr.h</file>
+      <file>$PROJ_DIR$\..\h\conio.h</file>
+      <file>$PROJ_DIR$\hw_lpc21xx.c</file>
+      <file>$PROJ_DIR$\..\lib\conio.c</file>
+      <file>$PROJ_DIR$\..\aa.c</file>
+      <file>$PROJ_DIR$\..\lib\ui.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2104.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\S2_test.out</name>
+      <outputs>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Obj\S2_test.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 8 17 2 6 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hw_lpc21xx.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 25 9 4 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\conio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\aa.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lib\ui.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 0 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 11 0 22</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+</project>
+
+

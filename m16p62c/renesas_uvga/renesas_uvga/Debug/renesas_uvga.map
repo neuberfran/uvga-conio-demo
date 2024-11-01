@@ -1,0 +1,172 @@
+##########################################
+# (1) LINK INFORMATION                   #
+##########################################
+C:\Renesas\NC30WA\V530R02\bin\ln30.exe @C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\renesas_uvga.m16cl
+
+# LINK FILE INFORMATION
+NCRT0 (C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ncrt0.r30)
+	Jun 24 16:36:33 2009
+
+CONIO (C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\conio.r30)
+	Jun 24 16:42:24 2009
+
+HW_M16C (C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\hw_m16c.r30)
+	Jun 24 16:41:59 2009
+
+MAIN (C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\main.r30)
+	Jun 24 16:46:21 2009
+
+UI (C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ui.r30)
+	Jun 24 16:42:24 2009
+
+BCOPY (C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:52 2005
+
+BZERO (C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:52 2005
+
+MALLOC (C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:01 2005
+
+MEMCPY (C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:02 2005
+
+MEMSET (C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:02 2005
+
+_I4DIV (C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:47 2005
+
+
+##########################################
+# (2) SECTION INFORMATION                #
+##########################################
+# SECTION                        ATR TYPE    START  LENGTH ALIGN MODULENAME
+data_SE                          ABS DATA    000400 000000       NCRT0
+bss_SE                           REL DATA    000400 000000 2     NCRT0
+data_SO                          REL DATA    000400 000000       NCRT0
+bss_SO                           REL DATA    000400 000000       NCRT0
+data_NE                          REL DATA    000400 000000 2     NCRT0
+                                 REL DATA    000400 00005C       MAIN
+                                 REL DATA    00045C 000010       MALLOC
+bss_NE                           REL DATA    00046C 000000 2     NCRT0
+                                 REL DATA    00046C 00000C       MALLOC
+data_NO                          REL DATA    000478 000000       NCRT0
+bss_NO                           REL DATA    000478 000000       NCRT0
+stack                            REL DATA    000478 000600       NCRT0
+heap                             REL DATA    000A78 000300       NCRT0
+rom_NE                           REL ROMDATA 000D78 000000 2     NCRT0
+rom_NO                           REL ROMDATA 000D78 000000       NCRT0
+data_FE                          ABS DATA    010000 000000       NCRT0
+bss_FE                           REL DATA    010000 000000 2     NCRT0
+data_FO                          REL DATA    010000 000000       NCRT0
+bss_FO                           REL DATA    010000 000000       NCRT0
+rom_FE                           ABS ROMDATA 0F0000 000000       NCRT0
+                                 REL ROMDATA 0F0000 000010       MAIN
+rom_FO                           REL ROMDATA 0F0010 000000       NCRT0
+                                 REL ROMDATA 0F0010 0001D5       MAIN
+data_SEI                         REL ROMDATA 0F01E5 000000       NCRT0
+data_SOI                         REL ROMDATA 0F01E5 000000       NCRT0
+data_NEI                         REL ROMDATA 0F01E5 000000       NCRT0
+                                 REL ROMDATA 0F01E5 00005C       MAIN
+                                 REL ROMDATA 0F0241 000010       MALLOC
+data_NOI                         REL ROMDATA 0F0251 000000       NCRT0
+data_FEI                         REL ROMDATA 0F0251 000000       NCRT0
+data_FOI                         REL ROMDATA 0F0251 000000       NCRT0
+switch_table                     REL ROMDATA 0F0251 000000       NCRT0
+program                          REL CODE    0F0251 000000       NCRT0
+                                 REL CODE    0F0252 00029F 2     CONIO
+                                 REL CODE    0F04F2 0000A8 2     HW_M16C
+                                 REL CODE    0F059A 0004DD 2     MAIN
+                                 REL CODE    0F0A78 0003B1 2     UI
+                                 REL CODE    0F0E2A 000035 2     BCOPY
+                                 REL CODE    0F0E60 000028 2     BZERO
+                                 REL CODE    0F0E88 000555 2     MALLOC
+                                 REL CODE    0F13DE 000044 2     MEMCPY
+                                 REL CODE    0F1422 000034 2     MEMSET
+                                 REL CODE    0F1456 000083 2     _I4DIV
+interrupt                        REL CODE    0F14D9 000000       NCRT0
+                                 REL CODE    0F14D9 000117       NCRT0
+program_S                        REL CODE    0F15F0 000000       NCRT0
+vector                           ABS ROMDATA 0FFD00 000100       NCRT0
+svector                          ABS ROMDATA 0FFE00 000000       NCRT0
+fvector                          ABS ROMDATA 0FFFFC 000004       NCRT0
+# Total -------------------------------------------------------------------
+                                     DATA           000978(0002424) Byte(s)
+                                     ROMDATA        000355(0000853) Byte(s)
+                                     CODE           00139F(0005023) Byte(s)
+
+##########################################
+# (3) GLOBAL LABEL INFORMATION           #
+##########################################
+$_cgets            0f044c  $_putch            0f04f2  $calloc            0f0e88
+$drawfkeys         0f0c76  $drawframe         0f0d54  $exit              0f15ed
+$getmem            0f0fc4  $gotoxy            0f03a4  $malloc            0f0efe
+$memset            0f1422  $memviewer         0f06ea  $realloc           0f0f50
+$rlsmem            0f113a  $runmenu           0f0a78  $textattr          0f038a
+$textbackground    0f0330  $textcolor         0f02ce  _MCU_Init          0f0536
+__cputs            0f0428  __getch            0f0512  __i4div            0f1456
+__kbhit            0f0508  __mbase            00046c  __memt             000464
+__mnext            000470  __msize            000474  __pool             00045c
+_ascii_art         0f08a8  _bcopy             0f0e2a  _bzero             0f0e60
+_cli               0f0770  _clreol            0f0270  _clrscr            0f0252
+_cursoroff         0f02aa  _cursoron          0f0286  _debugdemo         0f0714
+_drawmem           0f059a  _exit              0f15ed  _free              0f0ec6
+_main              0f09d0  _memcpy            0f13de  _speedtest         0f0808
+_submenutest       0f0882  _testCGetS         0f08cc  dummy_int          0f15ef
+start              0f14d9  
+
+##########################################
+# (4) GLOBAL EQU SYMBOL INFORMATION      #
+##########################################
+__SB__           00000400  
+
+##########################################
+# (5) GLOBAL EQU BIT-SYMBOL INFORMATION  #
+##########################################
+
+##########################################
+# (6) LOCAL LABEL INFORMATION            #
+##########################################
+@ NCRT0 ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ncrt0.r30 )
+@ CONIO ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\conio.r30 )
+@ HW_M16C ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\hw_m16c.r30 )
+@ MAIN ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\main.r30 )
+@ UI ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ui.r30 )
+@ BCOPY ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
+##########################################
+# (7) LOCAL EQU SYMBOL INFORMATION       #
+##########################################
+@ NCRT0 ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ncrt0.r30 )
+@ CONIO ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\conio.r30 )
+@ HW_M16C ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\hw_m16c.r30 )
+@ MAIN ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\main.r30 )
+@ UI ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ui.r30 )
+@ BCOPY ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
+##########################################
+# (8) LOCAL EQU BIT-SYMBOL INFORMATION   #
+##########################################
+@ NCRT0 ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ncrt0.r30 )
+@ CONIO ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\conio.r30 )
+@ HW_M16C ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\hw_m16c.r30 )
+@ MAIN ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\main.r30 )
+@ UI ( C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ui.r30 )
+@ BCOPY ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( C:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+

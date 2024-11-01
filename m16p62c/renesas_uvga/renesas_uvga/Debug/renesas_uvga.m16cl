@@ -1,0 +1,9 @@
+-L nc30lib
+-G
+-MS
+-O C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\renesas_uvga.x30
+C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ncrt0.r30
+C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\conio.r30
+C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\hw_m16c.r30
+C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\main.r30
+C:\vgalub\uVGALib\m16p62c\renesas_uvga\renesas_uvga\Debug\ui.r30
